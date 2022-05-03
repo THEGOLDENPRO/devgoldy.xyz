@@ -1,0 +1,9 @@
+body {
+    font-family: YanoneKaffeesatz;
+    background-color: #222930;
+}
+
+@font-face {
+    font-family: YanoneKaffeesatz;
+    src: url("./fonts/YanoneKaffeesatz/font.ttf");
+}
