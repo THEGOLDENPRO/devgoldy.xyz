@@ -1,3 +1,4 @@
 [submodule "preview/jsqp-alpha"]
 	path = preview/jsqp-alpha
 	url = https://github.com/JS-Quick-Pack/jsqp-website
+	branch = alpha-branch
