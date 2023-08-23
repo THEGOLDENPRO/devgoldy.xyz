@@ -6,7 +6,6 @@ WARNING: Will only work during building.
 
 import os
 import tomllib
-import pathlib
 
 with open("./config.toml", mode="rb") as file:
     toml = tomllib.load(file)
