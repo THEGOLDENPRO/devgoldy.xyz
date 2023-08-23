@@ -13,4 +13,4 @@ with open("./config.toml", mode="rb") as file:
     for page in toml["build"]["aliases"]:
         
         for alias in toml["build"]["aliases"][page]:
-            os.system(f"cp ./build/{page} ./build/{alias}")
+            os.system(f"cp -r ./build/{page} ./build/{alias}")
