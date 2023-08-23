@@ -13,4 +13,4 @@ with open("./config.toml", mode="rb") as file:
     for page in toml["build"]["aliases"]:
         
         for alias in toml["build"]["aliases"][page]:
-            os.symlink(f"./build/{page}", f"./build/{alias}/")
+            os.symlink(f"./build/{page}", f"./build/{alias}")
