@@ -19,4 +19,4 @@ with open("./config.toml", mode="rb") as file:
             if not path.exists():
                 path.mkdir()
 
-            os.symlink(f"./{page}", f"./build/{alias}/")
+            os.symlink(f"./build/{page}", f"./build/{alias}/")
