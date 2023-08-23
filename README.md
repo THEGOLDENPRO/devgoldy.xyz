@@ -1,3 +1,5 @@
-# Dev Goldy's Website
+<div align="center">
 
-Info coming soon...
+  # [``devgoldy.xyz``](https://devgoldy.xyz/)
+
+</div>
