@@ -1,0 +1,3 @@
+[build.aliases]
+anime = ["mal"]
+blog = ["blogs"]

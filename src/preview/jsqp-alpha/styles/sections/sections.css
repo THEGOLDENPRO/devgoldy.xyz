@@ -1,0 +1,160 @@
+.download_sec {
+    display: grid;
+
+    padding: 20px;
+    margin-top: 30px;
+
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.3);
+
+    justify-content: space-evenly;
+
+    transition: 0.4s;
+}
+.download_sec:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    transform: scale(1.02, 1.02);
+}
+
+
+.what_is_this_sec {
+    display: grid;
+
+    padding: 2vw;
+    margin-top: 30px;
+
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+
+    border-radius: 20px;
+    background-color: rgba(160, 130, 130, 0.5);
+
+    justify-content: space-evenly;
+    
+    transition: 0.4s;
+}
+.what_is_this_sec:hover {
+    background-color: rgba(26, 21, 21, 0.8);
+    transform: scale(1.02, 1.02);
+}
+
+
+.cards_sec {
+    display: grid;
+
+    padding: 2vw;
+    margin-top: 30px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    max-width: 80%;
+
+    border-radius: 20px;
+    background-color: rgba(35, 35, 35, 0.8);
+    
+    justify-content: space-evenly;
+
+    animation: bobbing 10s ease-in-out infinite normal;
+    transition: 0.4s;
+}
+.cards_sec:hover {
+    background-color: rgba(35, 35, 35, 0.6);
+}
+
+@keyframes bobbing {
+    0% {
+        max-width: 85%;
+    }
+
+    25% {
+        max-width: 80%;
+    }
+
+    50% {
+        max-width: 85%;
+    }
+
+    75% {
+        max-width: 78%;
+    }
+
+    100% {
+        max-width: 85%;
+    }
+}
+
+
+.faster_sec {
+    display: grid;
+
+    padding: 2vw;
+    margin-top: 30px;
+
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+
+    border-radius: 20px;
+    background-color: rgba(46, 41, 41, 0.8);
+
+    justify-content: space-evenly;
+
+    transition: 0.4s;
+}
+.faster_sec:hover {
+    background-color: rgba(46, 41, 41, 1);
+    transform: scale(1.02, 1.02);
+}
+
+
+.ad_free_sec {
+    display: grid;
+
+    padding: 2vw;
+    margin-top: 30px;
+
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+
+    border-radius: 20px;
+    background-color: rgba(61, 16, 30, 0.9);
+
+    justify-content: space-evenly;
+
+    transition: 0.4s;
+}
+.ad_free_sec:hover {
+    background-color: rgba(43, 28, 36, 0.4);
+    transform: scale(1.02, 1.02);
+}
+
+
+.open_source_sec {
+    display: grid;
+
+    padding: 2vw;
+    padding-top: 1vw;
+    padding-left: 0;
+    padding-right: 0;
+
+    margin-top: 1vw;
+    margin-left: auto;
+    margin-right: auto;
+    
+    width: 100%;
+
+    border-radius: 20px;
+    background-color: rgba(19, 82, 90, 0.9);
+    background-color: rgba(7, 34, 37, 0.9);
+
+    justify-content: space-evenly;
+
+    transition: 0.4s;
+}

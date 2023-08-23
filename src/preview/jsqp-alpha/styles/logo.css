@@ -1,0 +1,32 @@
+logo img {
+    cursor: pointer;
+    
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+    margin-top: 20px;
+
+    width: 9vw;
+    min-width: 100px;
+    
+    animation: breathing 6s ease-out infinite normal;
+}
+
+@keyframes breathing {
+    0% {
+        transform: scale(0.9);
+    }
+
+    25% {
+        transform: scale(1);
+    }
+
+    60% {
+        transform: scale(0.9);
+    }
+
+    100% {
+        transform: scale(0.9);
+    }
+}

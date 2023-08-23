@@ -1,0 +1,59 @@
+.ad_free_sec h1 {
+    grid-column: 1/3;
+
+    margin: 0;
+}
+
+.ad_free_sec .info {
+    grid-column: 2;
+    grid-row: 2;
+
+    margin: 1.5vw;
+    margin-top: 2vw;
+    margin-bottom: 1.5vw;
+
+    color: gainsboro;
+
+    padding: 1.5vw;
+
+    max-width: 55vw;
+    height: fit-content;
+    border-radius: 0.5vw;
+
+    background-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0px 0px 30px -10px black;
+}
+
+.ad_free_sec .info .bubble {
+    background-color: rgba(61, 16, 30, 0.4);
+    animation-duration: 4s;
+    transition: 1.5s;
+}
+
+.ad_free_sec .info .bubble:hover {
+    max-width:330px;
+    animation: none;
+    font-size: 1.6vw;
+}
+
+.ad_free_sec img {
+    cursor: pointer;
+
+    position: relative;
+
+    margin:auto;
+
+    width: 100%;
+    min-width: 10px;
+    max-width: 17.2vw;
+    height: auto;
+
+    grid-column: 1;
+    grid-row: 2;
+
+    border-radius: 1vw;
+
+    box-shadow: 0px 0px 0.8vw black;
+
+    transition: 0.8s;
+}

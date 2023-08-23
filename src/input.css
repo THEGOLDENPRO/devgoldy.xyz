@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: YanoneKaffeesatz;
+    src: url("./fonts/YanoneKaffeesatz.ttf");
+}
+
+@layer base {
+    body {
+        @apply text-white bg-goldyBluey font-YanoneKaffeesatz;
+    }
+}
