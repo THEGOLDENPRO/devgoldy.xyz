@@ -14,9 +14,4 @@ with open("./config.toml", mode="rb") as file:
     for page in toml["build"]["aliases"]:
         
         for alias in toml["build"]["aliases"][page]:
-            path = pathlib.Path(f"./build/{alias}/")
-
-            if not path.exists():
-                path.mkdir()
-
             os.symlink(f"./build/{page}", f"./build/{alias}/")
