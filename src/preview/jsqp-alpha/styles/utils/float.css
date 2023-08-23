@@ -1,0 +1,27 @@
+.float {
+    transform: translate(-5px, 0px);
+    animation: float 5s ease-in-out infinite;
+}
+
+@keyframes float {
+0% {
+    box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+    transform: translate(0px, -5px);
+}
+25% {
+    box-shadow: 0 15px 15px 0px rgba(0,0,0,0.2);
+    transform: translate(-5px, 0px);
+}
+50% {
+    box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+    transform: translate(0px, -5px);
+}
+75% {
+    box-shadow: 0 15px 15px 0px rgba(0,0,0,0.2);
+    transform: translate(-5px, 0px);
+}
+100% {
+    box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+    transform: translate(0px, -5px);
+}
+}

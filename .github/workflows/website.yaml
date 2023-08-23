@@ -1,0 +1,45 @@
+name: Website Build
+on: [push, pull_request, workflow_dispatch]
+permissions:
+    contents: write
+jobs:
+  website_build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+      - uses: actions/setup-python@v3
+
+      - name: Install dependencies
+        run: |
+          npm install -D tailwindcss
+
+      - name: Move all source to build dir
+        run: |
+          mkdir ./build
+          mv -v ./src/* ./build/
+
+      - name: Tailwind compile input.css
+        run: |
+          npx tailwindcss -i ./build/input.css -o ./build/output.css
+
+      - name: Add aliases
+        run: |
+          python scripts/create_aliases.py
+
+      - name: Add cname
+        run: |
+          python scripts/add_cname.py
+
+      - name: Remove input.css
+        run: |
+          rm ./build/input.css
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+        with:
+          publish_branch: gh-pages
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: build/
+          force_orphan: true
