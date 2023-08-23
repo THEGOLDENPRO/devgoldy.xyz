@@ -8,6 +8,5 @@ pull-submodules:
 	git submodule update --init --recursive
 
 clean:
-	rm -r ./build
 	rm ./src/output.css
 	
