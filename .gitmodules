@@ -2,3 +2,8 @@
 	path = preview/jsqp-alpha
 	url = https://github.com/JS-Quick-Pack/jsqp-website
 	branch = alpha-branch
+
+[submodule "blog"]
+	path = blog
+	url = https://github.com/THEGOLDENPRO/goldy-exe-frontend
+	branch = gh-pages
