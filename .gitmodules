@@ -5,5 +5,5 @@
 
 [submodule "blog"]
 	path = blog
-	url = https://github.com/THEGOLDENPRO/goldy-exe-frontend
+	url = https://github.com/THEGOLDENPRO/goldy-exe
 	branch = gh-pages
