@@ -17,7 +17,7 @@ jobs:
       - name: Move all source to build dir
         run: |
           mkdir ./build
-          mv -v ./src/* ./build/
+          mv ./src/* ./build/
 
       - name: Tailwind compile input.css
         run: |
