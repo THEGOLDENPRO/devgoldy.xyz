@@ -1,2 +1,0 @@
-# 🔮JS:QP (🌐Official Website)
-

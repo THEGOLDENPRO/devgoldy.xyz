@@ -1,12 +1,4 @@
-[submodule "preview/jsqp-alpha"]
-	path = src/preview/jsqp-alpha
-	url = https://github.com/JS-Quick-Pack/jsqp-website
-	branch = alpha-branch
-
-[submodule "blog"]
-	path = src/blog
-	url = https://github.com/THEGOLDENPRO/goldy-exe
-	branch = gh-pages
 [submodule "src/blogs"]
 	path = src/blogs
 	url = https://github.com/THEGOLDENPRO/goldy-exe
+	branch = gh-pages
