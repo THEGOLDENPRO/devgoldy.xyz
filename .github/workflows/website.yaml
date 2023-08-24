@@ -14,14 +14,14 @@ jobs:
         run: |
           npm install -D tailwindcss
 
+      - name: Tailwind compile input.css
+        run: |
+          npx tailwindcss -i ./src/input.css -o ./src/output.css
+
       - name: Move all source to build dir
         run: |
           mkdir ./build
           mv ./src/* ./build/
-
-      - name: Tailwind compile input.css
-        run: |
-          npx tailwindcss -i ./build/input.css -o ./build/output.css
 
       - name: Add aliases
         run: |
