@@ -17,6 +17,10 @@ jobs:
       - name: Tailwind compile input.css
         run: |
           npx tailwindcss -i ./src/input.css -o ./src/output.css
+      
+      - name: Pull submodules
+        run: |
+          make pull-submodules
 
       - name: Move all source to build dir
         run: |
