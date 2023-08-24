@@ -30,6 +30,7 @@ jobs:
       - name: Add cname
         run: |
           python scripts/add_cname.py
+          ls ./build
 
       - name: Remove input.css
         run: |
