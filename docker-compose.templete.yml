@@ -1,0 +1,9 @@
+version: "3"
+services:
+
+    devgoldy_xyz:
+        image: devgoldy/devgoldy_xyz:latest
+        ports:
+            - 8000:8000
+        environment:
+            ROOT_PATH: ""

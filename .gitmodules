@@ -1,4 +1,0 @@
-[submodule "src/blogs"]
-	path = src/blogs
-	url = https://github.com/THEGOLDENPRO/goldy-exe
-	branch = gh-pages
