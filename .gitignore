@@ -1,2 +1,8 @@
+env
+venv
 build
 output.css
+__pycache__
+node_modules
+package-lock.json
+.env
