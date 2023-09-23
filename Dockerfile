@@ -4,7 +4,7 @@ USER root
 
 WORKDIR /app
 
-COPY /.git ./.git
+# COPY /.git ./.git
 COPY /src ./src
 
 COPY main.py .
