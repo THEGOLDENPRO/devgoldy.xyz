@@ -2,7 +2,7 @@
 
   # 🌇 [``devgoldy.xyz``](https://devgoldy.xyz/)
 
-  <sub>My website.</sub>
+  <sub>My main website.</sub>
 
 </div>
 
