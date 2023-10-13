@@ -2,3 +2,7 @@ fastapi
 uvicorn[standard]
 watchfiles
 aiofiles
+jinja2
+aiohttp
+python-decouple
+jikan4snek

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Goldy</title>
+
+        <meta content="Goldy - Home" property="og:title">
+        <meta content="My main website." property="og:description">
+        <meta content="devgoldy.xyz" property="og:site_name">
+        <meta name="theme-color" content="#fbc689">
+        <meta content="./image.png" property='og:image'>
+
+        <meta name="twitter:site" content="@GoldyTGP">
+        <meta name="twitter:title" content="Goldy - Home">
+        <meta name="twitter:description" content="My main website.">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:image:src" content="./image.png">
+
+        <link rel="stylesheet" href="./output.css">
+
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    </head>
+
+    <body class="m-10 mobile:m-5">
+        <div style="text-shadow: black 0px 0px 15px;" class="grid grid-cols-2 gap-4 mobile:grid-cols-1 w-2/4 mobile:w-full mx-auto">
+
+            <div class="hidden mobile:block">
+                <figure>
+                    <img style="box-shadow: black 0px 0px 15px;" class="rounded-full w-2/4 mx-auto" src="https://avatars.githubusercontent.com/u/66202304">
+                </figure>
+            </div>
+
+            <div>
+                <h1 class="text-7xl mobile:text-4xl text-goldyCream font-bold tracking-[0.5rem]">Hi, it's Goldy</h1>
+                <h2 class="text-2xl mobile:text-xl">
+                    I'm an up and coming <a href="./github">open-source developer</a>.
+                </h2>
+
+                <div class="links my-5 text-center text-2xl mobile:text-xl">
+                    <ul>
+                        <li>
+                            <a href="./github"><i class='bx bxl-github'></i> Github</a>
+                        </li>
+                        <li>
+                            <a href="./discord"><i class='bx bxl-discord-alt'></i> Discord</a>
+                        </li>
+                        <li>
+                            <a href="./anime"><i class='bx bx-film'></i> MyAnimeList</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="mobile:hidden">
+                <figure>
+                    <img style="box-shadow: black 0px 0px 15px;" class="rounded-full w-3/5 mx-auto" src="https://avatars.githubusercontent.com/u/66202304">
+                </figure>
+            </div>
+
+        </div>
+
+        <div class="mt-5 bg-goldyDarky-200 p-5 rounded-xl grid grid-cols-2 gap-4 mobile:grid-cols-1 w-2/4 mobile:w-full mx-auto">
+
+            <div class="blog-posts text-center">
+
+                <h1 class="text-center text-xl font-extrabold underline mb-2">
+                    Latest Blog Posts
+                </h1>
+
+                {% for post in blog_posts %}
+                    <article>
+                        <h2>{{ post.date_added }} - <a href="./blogs/post/{{ post.id }}">{{ post.name }}</a></h2>
+                    </article>
+                {% endfor %}
+
+            </div>
+
+            <div class="anime-status text-center">
+
+                <h1 class="text-center text-xl font-extrabold underline mb-2">
+                    Anime status
+                </h1>
+
+                {% for anime in anime_list %}
+                    <h2>{{ anime.date }} - {{ anime.action }} <a href="{{ anime.url }}">{{ anime.title }}</a></h2>
+                {% endfor %}
+
+                <h2 class="mt-8">More status at  <a href="./anime">MyAnimeList</a></h2>
+
+            </div>
+
+        </div>
+    </body>
+
+</html>
