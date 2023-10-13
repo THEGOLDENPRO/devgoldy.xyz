@@ -1,7 +1,7 @@
-{
-    "0": {
+[
+    {
         "name": "📚 AGHPB API",
         "description": "API that spits out anime girls holding programming books.",
         "git": "https://github.com/THEGOLDENPRO/aghpb_api"
     }
-}
+]
