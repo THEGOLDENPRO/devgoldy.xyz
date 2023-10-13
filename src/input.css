@@ -18,11 +18,19 @@
 }
 
 @layer components {
+    .links li {
+        @apply inline-block pl-6;
+    }
+
+    .links a {
+        @apply text-gray-300 hover:text-white transition-all;
+    }
+
     .links i {
         @apply relative text-3xl top-1;
     }
 
-    .links a {
-        @apply text-gray-300 hover:text-white;
+    .status h2 {
+        @apply tracking-wider;
     }
 }

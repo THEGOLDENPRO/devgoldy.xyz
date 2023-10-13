@@ -23,22 +23,22 @@
     </head>
 
     <body class="m-10 mobile:m-5">
-        <div style="text-shadow: black 0px 0px 15px;" class="grid grid-cols-2 gap-4 mobile:grid-cols-1 w-2/4 mobile:w-full mx-auto">
+        <div style="text-shadow: black 0px 0px 15px;" class="grid grid-cols-3 gap-4 mobile:grid-cols-1 w-2/4 mobile:w-full mx-auto">
 
-            <div class="hidden mobile:block">
+            <div class="hidden mobile:block select-none">
                 <figure>
-                    <img style="box-shadow: black 0px 0px 15px;" class="rounded-full w-2/4 mx-auto" src="https://avatars.githubusercontent.com/u/66202304">
+                    <img style="box-shadow: black 0px 0px 15px;" class="rounded-full w-2/5 mx-auto" src="https://avatars.githubusercontent.com/u/66202304">
                 </figure>
             </div>
 
-            <div>
+            <div class="col-start-1 col-end-3 mobile:col-auto h-[100%]">
                 <h1 class="text-7xl mobile:text-4xl text-goldyCream font-bold tracking-[0.5rem]">Hi, it's Goldy</h1>
                 <h2 class="text-2xl mobile:text-xl">
                     I'm an up and coming <a href="./github">open-source developer</a>.
                 </h2>
 
-                <div class="links my-5 text-center text-2xl mobile:text-xl">
-                    <ul>
+                <div class="links text-center text-2xl mobile:text-xl h-full">
+                    <ul class="relative pt-[8%]">
                         <li>
                             <a href="./github"><i class='bx bxl-github'></i> Github</a>
                         </li>
@@ -53,15 +53,15 @@
 
             </div>
 
-            <div class="mobile:hidden">
+            <div class="mobile:hidden select-none">
                 <figure>
-                    <img style="box-shadow: black 0px 0px 15px;" class="rounded-full w-3/5 mx-auto" src="https://avatars.githubusercontent.com/u/66202304">
+                    <img style="box-shadow: black 0px 0px 15px;" class="rounded-full w-4/5 mx-auto" src="https://avatars.githubusercontent.com/u/66202304">
                 </figure>
             </div>
 
         </div>
 
-        <div class="mt-5 bg-goldyDarky-200 p-5 rounded-xl grid grid-cols-2 gap-4 mobile:grid-cols-1 w-2/4 mobile:w-full mx-auto">
+        <div class="status mt-5 bg-goldyDarky-200 p-5 rounded-3xl grid grid-cols-2 gap-4 gap-y-10 mobile:gap-y-4 w-2/4 mobile:grid-cols-1  mobile:w-full mx-auto">
 
             <div class="blog-posts text-center">
 
@@ -77,10 +77,22 @@
 
             </div>
 
-            <div class="anime-status text-center">
+            <div class="open-source-projects text-center">
 
                 <h1 class="text-center text-xl font-extrabold underline mb-2">
-                    Anime status
+                    Open-Source Projects
+                </h1>
+
+                {% for project in open_source_projects %}
+                    <h2><a href="{{ project.git }}">{{ project.name }}</a> - {{ project.description }}</h2>
+                {% endfor %}
+
+            </div>
+
+            <div class="anime-status text-center col-span-2 mobile:col-auto">
+
+                <h1 class="text-center text-xl font-extrabold underline mb-2">
+                    Anime Status
                 </h1>
 
                 {% for anime in anime_list %}
