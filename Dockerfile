@@ -6,6 +6,7 @@ WORKDIR /app
 
 # COPY /.git ./.git
 COPY /src ./src
+COPY /templates ./templates
 
 COPY main.py .
 COPY requirements.txt .

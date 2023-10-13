@@ -9,6 +9,28 @@
 
 @layer base {
     body {
-        @apply text-white bg-goldyBluey font-YanoneKaffeesatz;
+        @apply text-white bg-goldyDarky font-YanoneKaffeesatz tracking-[0.2rem];
+    }
+
+    a {
+        @apply text-goldyOrangy-300 font-bold;
+    }
+}
+
+@layer components {
+    .links li {
+        @apply inline-block pl-6;
+    }
+
+    .links a {
+        @apply text-gray-300 hover:text-white transition-all;
+    }
+
+    .links i {
+        @apply relative text-3xl top-1;
+    }
+
+    .status h2 {
+        @apply tracking-wider;
     }
 }
