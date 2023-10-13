@@ -13,7 +13,7 @@ from fastapi.templating import Jinja2Templates
 
 
 __all__ = ("app",)
-__version__ = "1.1"
+__version__ = "1.1.2"
 
 ROOT_PATH = (lambda x: x if x is not None else "")(os.environ.get("ROOT_PATH")) # Like: /aghpb/v1
 
