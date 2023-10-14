@@ -15,12 +15,7 @@
         "git": "https://github.com/Goldy-Bot/Goldy-Bot-Framework"
     },
     {
-        "name": "☁️ Cloudy",
-        "description": "A simple & basic Discord API wrapper built on top of nextcore.",
-        "git": "https://github.com/THEGOLDENPRO/cloudy_bot"
-    },
-    {
-        "name": "🤍Bad-Apple-in-Ursina🖤",
+        "name": "🤍 Bad Apple in Ursina 🖤",
         "description": "Bad apple in a python 3d game engine, Ursina ʕ •ᴥ•ʔ.",
         "git": "https://github.com/THEGOLDENPRO/Bad-Apple-in-Ursina"
     },
@@ -28,5 +23,15 @@
         "name": "🦀 aghpb.rs 📚",
         "description": "Anime girls holding programming books API wrapper for 🦀 Rust.",
         "git": "https://github.com/THEGOLDENPRO/aghpb.rs"
+    },
+    {
+        "name": "codelma",
+        "description": "A python quiz discord bot.",
+        "git": "https://github.com/THEGOLDENPRO/codelma"
+    },
+    {
+        "name": "💾 python to bytecode",
+        "description": "A little gui app I made in a couple of hours that turns python code into bytecode.",
+        "git": "https://github.com/THEGOLDENPRO/python-to-bytecode"
     }
 ]
