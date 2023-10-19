@@ -15,6 +15,11 @@
         "git": "https://github.com/Goldy-Bot/Goldy-Bot-Framework"
     },
     {
+        "name": "🔷 MALCord",
+        "description": "⛩️ Goldy Bot extension for browsing anime within Discord.",
+        "git": "https://github.com/Goldy-Bot/mal_cord"
+    },
+    {
         "name": "🤍 Bad Apple in Ursina 🖤",
         "description": "Bad apple in a python 3d game engine, Ursina ʕ •ᴥ•ʔ.",
         "git": "https://github.com/THEGOLDENPRO/Bad-Apple-in-Ursina"
