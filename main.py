@@ -98,7 +98,8 @@ async def index(request: Request):
             "request": request,
             "blog_posts": blog_posts,
             "anime_list": anime_list,
-            "open_source_projects": open_source_projects
+            "open_source_projects": open_source_projects,
+            "version": __version__
         }
     )
 
