@@ -13,7 +13,7 @@ from fastapi.templating import Jinja2Templates
 
 
 __all__ = ("app",)
-__version__ = "1.1.2"
+__version__ = "1.1.5"
 
 ROOT_PATH = (lambda x: x if x is not None else "")(os.environ.get("ROOT_PATH")) # Like: /aghpb/v1
 
@@ -88,7 +88,7 @@ async def index(request: Request):
                 "title": anime["entry"]["name"],
                 "date": datetime.fromisoformat(anime["date"]).strftime("%b %d %Y"),
                 "date_timestamp": datetime.fromisoformat(anime["date"]).timestamp()
-            } for anime in mal_history["data"]
+            } for anime in mal_history["data"][:20]
         ]
 
     anime_list.sort(key = lambda x: x["date_timestamp"], reverse = True)
