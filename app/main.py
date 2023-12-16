@@ -41,7 +41,6 @@ templates = Jinja2Templates(directory = "./templates")
 @app.get("/")
 async def index(request: Request):
     blog_posts = []
-    anime_list = []
     live_config = await config.get_config()
 
     async with http_client.request("GET", constants.BLOG_API_URL + "/posts") as r:
@@ -54,57 +53,20 @@ async def index(request: Request):
                 } for post in await r.json()
             ]
 
-    mal_history = await anime.get_history()
-    mal_updates = await anime.get_updates()
-
-    if mal_updates is not None:
-
-        for anime_update in mal_updates["data"]["anime"]:
-            action = ""
-
-            status = anime_update["status"].lower()
-
-            if status == "watching":
-                continue
-
-            elif status == "plan to watch":
-                action = "Planned to watch"
-
-            elif status == "completed":
-                action = "Completed"
-
-            anime_list.append(
-                {
-                    "action": action,
-                    "url": anime_update["entry"]["url"],
-                    "title": anime_update["entry"]["title"],
-                    "date": datetime.fromisoformat(anime_update["date"]).strftime("%b %d %Y"),
-                    "date_timestamp": datetime.fromisoformat(anime_update["date"]).timestamp()
-                }
-            )
-
-    if mal_history is not None:
-        anime_list += [
-            {
-                "action": f"Watched episode {anime['increment']} of",
-                "url": anime["entry"]["url"],
-                "title": anime["entry"]["name"],
-                "date": datetime.fromisoformat(anime["date"]).strftime("%b %d %Y"),
-                "date_timestamp": datetime.fromisoformat(anime["date"]).timestamp()
-            } for anime in mal_history["data"][:20]
-        ]
-
-    anime_list.sort(key = lambda x: x["date_timestamp"], reverse = True)
-
     return templates.TemplateResponse(
         "home.html", {
             "request": request,
             "blog_posts": blog_posts,
-            "anime_list": anime_list,
+            "anime_list": await anime.get_anime_status(),
             "open_source_projects": live_config.get("projects", [projects_placeholder]),
             "version": __version__
         }
     )
 
+@app.get("/nya")
+async def status(): # TODO: Replace this with custom middleware in the future.
+    return {
+        "version": __version__
+    }
 
 app.mount("/", StaticFiles(directory = "web"))
