@@ -1,0 +1,8 @@
+{
+    "xml.fileAssociations": [
+        {
+            "pattern": "config.xml",
+            "systemId": "scheme.xsd"
+        }
+     ]
+}

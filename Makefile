@@ -7,13 +7,13 @@ npm-install:
 	npm i
 
 compile-ts:
-	tsc ./src/script.ts
+	tsc ./web/script.ts
 
 tailwind:
-	npx tailwindcss -i ./src/input.css -o ./src/output.css
+	npx tailwindcss -i ./web/input.css -o ./web/output.css
 
 tailwind-watch:
-	npx tailwindcss -i ./src/input.css -o ./src/output.css --watch
+	npx tailwindcss -i ./web/input.css -o ./web/output.css --watch
 
 docker-build:
 	python scripts/docker_build.py
@@ -22,8 +22,11 @@ docker-compose:
 	docker compose up
 
 run:
-	uvicorn main:app --reload --port 8083
+	uvicorn app.main:app --reload --port 8083
+
+test:
+	ruff .
 
 clean:
-	rm ./src/output.css
-	rm ./src/script.js
+	rm ./web/output.css
+	rm ./web/script.js

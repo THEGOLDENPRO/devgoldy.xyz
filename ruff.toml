@@ -1,0 +1,2 @@
+[per-file-ignores]
+"scripts/*" = ["E402"]
