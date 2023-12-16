@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<projects>
+
+    <project>
+        <name>📚 AGHPB API</name>
+        <description>API that spits out anime girls holding programming books.</description>
+        <git>https://github.com/THEGOLDENPRO/aghpb_api</git>
+    </project>
+
+    <project>
+        <name>🟣 JS:QP Core</name>
+        <description>WIP open source minecraft package management library.</description>
+        <git>https://github.com/JS-Quick-Pack/jsqp-core</git>
+    </project>
+
+    <project>
+        <name>Anmoku 安黙</name>
+        <description>A peaceful and fully typed MyAnimeList / Jikan Python API wrapper with caching and proper rate limiting.</description>
+        <git>https://github.com/THEGOLDENPRO/anmoku</git>
+    </project>
+
+    <project>
+        <name>💛 Goldy Bot Framework</name>
+        <description>The latest and greatest framework powering the Goldy Bot family.</description>
+        <git>https://github.com/Goldy-Bot/Goldy-Bot-Framework</git>
+    </project>
+
+    <project>
+        <name>🔷 MALCord</name>
+        <description>⛩️ Goldy Bot extension for browsing anime within Discord.</description>
+        <git>https://github.com/Goldy-Bot/mal_cord</git>
+    </project>
+
+    <project>
+        <name>🤍 Bad Apple in Ursina 🖤</name>
+        <description>Bad apple in a python 3d game engine, Ursina ʕ •ᴥ•ʔ.</description>
+        <git>https://github.com/THEGOLDENPRO/Bad-Apple-in-Ursina</git>
+    </project>
+
+    <project>
+        <name>🦀 aghpb.rs 📚</name>
+        <description>Anime girls holding programming books API wrapper for 🦀 Rust.</description>
+        <git>https://github.com/THEGOLDENPRO/aghpb.rs</git>
+    </project>
+
+    <project>
+        <name>❓ codelma</name>
+        <description>A python quiz discord bot.</description>
+        <git>https://github.com/THEGOLDENPRO/codelma</git>
+    </project>
+
+    <project>
+        <name>💾 python to bytecode</name>
+        <description>A little gui app I made in a couple of hours that turns python code into bytecode.</description>
+        <git>https://github.com/THEGOLDENPRO/python-to-bytecode</git>
+    </project>
+
+</projects>
