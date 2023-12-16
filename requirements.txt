@@ -5,4 +5,5 @@ aiofiles
 jinja2
 aiohttp
 python-decouple
-jikan4snek
+defusedxml
+typing-extensions

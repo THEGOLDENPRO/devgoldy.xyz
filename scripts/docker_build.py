@@ -1,10 +1,11 @@
-import sys; sys.path.insert(0, '.')
+import sys
+sys.path.insert(0, '.')
 
 import os
-import main
+from app import __version__
 
 os.system(
-    f"docker build -t devgoldy/devgoldy_xyz:{main.__version__} --build-arg ARCH=amd64 ."
+    f"docker build -t devgoldy/devgoldy_xyz:{__version__} --build-arg ARCH=amd64 ."
 )
 
 os.system(
