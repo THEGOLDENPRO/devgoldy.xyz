@@ -5,5 +5,7 @@ services:
         build: https://github.com/THEGOLDENPRO/devgoldy.xyz.git
         ports:
             - 8000:8000
+        volumes:
+            - ${CONFIG_PATH}:/app/goldy/config.xml
         environment:
             ROOT_PATH: ""
