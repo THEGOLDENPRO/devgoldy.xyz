@@ -44,7 +44,7 @@ class Config():
 
     def __tree_to_dict(self, tree: Element) -> ConfigData:
         documents = tree.getchildren()
- 
+
         return {
             "linkers": [
                 {
