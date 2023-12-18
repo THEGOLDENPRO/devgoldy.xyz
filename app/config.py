@@ -43,7 +43,7 @@ class Config():
         return self.__tree_to_dict(ET.fromstring(text))
 
     def __tree_to_dict(self, tree: Element) -> ConfigData:
-        documents = tree.getchildren()
+        documents = list(tree)
 
         return {
             "linkers": [
