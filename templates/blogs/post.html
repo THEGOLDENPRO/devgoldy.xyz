@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Goldy.exe</title>
+
+        <meta property="og:title" content="{{ name }}">
+        <meta property="og:site_name" content="Goldy.exe">
+        <meta property="og:description" content="{{ short_description }}">
+        <meta name="theme-color" content="rgb({{ rgb_colour }})">
+        <meta property="og:image" content="{{ thumbnail_url }}">
+
+        <meta name="twitter:site" content="@GoldyTGP">
+        <meta name="twitter:title" content="{{ name }}">
+        <meta name="twitter:description" content="{{ short_description }}">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:image:src" content="{{ thumbnail_url }}">
+
+        <link rel="stylesheet" href="../../output.css">
+        <!-- highlight.js -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/atom-one-dark.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script>
+    </head>
+
+    <body class="font-dosis text-white bg-exeBlack selection:bg-goldyCream selection:text-exeBlack">
+        <header>
+            <div class="text-7xl mobile:text-4xl font-bold font-hacked text-center py-5 select-none animate-flicker drop-shadow-flicker">
+                <a href="..">
+                    <span>Goldy.exe</span>
+                </a>
+            </div>
+        </header>
+
+        <div id="main-post" class="px-[5%] mx-auto max-w-7xl">
+            <div id="top-post" class="!cursor-default pointer-events-none">
+                <figure>
+                    <img src="{{ thumbnail_url }}">
+                </figure>
+
+                <h2>{{ name }}</h2>
+                <h4>{{ date_added }}</h4>
+            </div>
+
+            <div id="post-content" class="pt-10 w-3/4 mobile:w-full">
+                {{ content|safe }}
+            </div>
+        </div>
+
+        {% extends "footer.html" %}
+
+    </body>
+</html>

@@ -3,17 +3,33 @@
 @tailwind utilities;
 
 @font-face {
-    font-family: YanoneKaffeesatz;
+    font-family: "Dosis";
+    src: url("./fonts/Dosis.ttf");
+}
+
+@font-face {
+    font-family: "atwriter";
+    src: url("./fonts/atwriter.ttf");
+}
+
+@font-face {
+    font-family: "Hacked-KerX";
+    src: url("./fonts/Hacked-KerX.ttf");
+}
+
+@font-face {
+    font-family: "YanoneKaffeesatz";
     src: url("./fonts/YanoneKaffeesatz.ttf");
 }
 
+
 @layer base {
-    body {
-        @apply text-white bg-goldyDarky font-YanoneKaffeesatz tracking-[0.2rem];
+    h1, h2, h3, h4, h5, h6, p, li {
+        @apply font-medium tracking-widest;
     }
 
-    a {
-        @apply text-goldyOrangy-300 font-bold;
+    strong {
+        @apply font-[900] tracking-[0.15em];
     }
 }
 
@@ -32,5 +48,132 @@
 
     .status h2 {
         @apply tracking-wider;
+    }
+
+
+
+    #top-post {
+        @apply px-[5%] mx-auto max-w-5xl cursor-pointer;
+    }
+
+    #top-post figure {
+        @apply rounded-3xl overflow-hidden;
+    }
+
+    #top-post figure img {
+        @apply transition-transform ease-in-out duration-1000;
+    }
+
+    #top-post:hover figure img {
+        @apply scale-[1.15];
+    }    
+    
+    #top-post h2, #top-post h4 {
+        @apply text-center pt-2;
+    }
+
+    #top-post h2 {
+        @apply font-bold text-4xl mobile:text-xl;
+    }
+
+    #top-post h4 {
+        @apply text-exeGray;
+    }
+
+
+    .article-card {
+        @apply block w-64 flex-shrink-0 mobile:w-auto bg-exeGray bg-opacity-5 p-2 
+        border-exeGray border-[1px] rounded-3xl 
+        transition-transform ease-in-out duration-500 
+        cursor-pointer overflow-hidden;
+    }
+
+    .article-card:hover {
+        @apply scale-90;
+    }
+
+    .article-card figure {
+        @apply rounded-2xl overflow-hidden;
+    }
+
+    .article-card h2, .article-card h4 {
+        @apply text-center pt-2;
+    }
+
+    .article-card h2 {
+        @apply font-bold mobile:text-xl;
+    }
+
+    .article-card h4 {
+        @apply text-sm text-exeGray mt-auto;
+    }
+
+
+    #post-content * {
+        @apply mb-4;
+    }
+
+    #post-content h1 {
+        @apply font-extrabold text-5xl mobile:text-2xl !mb-3;
+    }
+
+    #post-content h2 {
+        @apply font-bold text-4xl mobile:text-xl m-0 !mb-2;
+    }
+
+    #post-content h3 {
+        @apply text-3xl mobile:text-xl !mb-1 underline;
+    }
+
+    #post-content h4 {
+        @apply text-2xl mobile:text-lg underline;
+    }
+
+    #post-content h1, #post-content h2, #post-content h3, #post-content h4 {
+        @apply text-goldyCream mt-5;
+    }
+
+    #post-content h5, #post-content h6, #post-content p {
+        @apply text-xl mobile:text-base;
+    }
+
+    #post-content a {
+        @apply text-goldyOrangy-800 font-bold;
+    }
+
+    #post-content img {
+        @apply rounded-3xl my-3;
+    }
+
+    #post-content ul {
+        @apply list-disc pl-8;
+    }
+
+    #post-content ol {
+        @apply list-decimal pl-8;
+    }
+
+    #post-content ul *, #post-content ol * {
+        @apply mb-0;
+    }
+
+    #post-content hr {
+        @apply my-3;
+    }
+
+    #post-content blockquote {
+        @apply p-4 my-4 border-l-4 border-exeGray;
+    }
+
+    #post-content blockquote p {
+        @apply !m-0;
+    }
+
+    #post-content p code {
+        @apply bg-black px-2 py-1 rounded-xl;
+    }
+
+    #post-content pre code {
+        @apply rounded-xl;
     }
 }
