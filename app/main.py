@@ -3,6 +3,7 @@ from __future__ import annotations
 import os
 from datetime import datetime
 from aiohttp import ClientSession
+from meow_inator_5000.woutews import nya_service
 
 from fastapi import FastAPI
 from fastapi.requests import Request
@@ -23,8 +24,10 @@ ROOT_PATH = (lambda x: x if x is not None else "")(os.environ.get("ROOT_PATH")) 
 app = FastAPI(
     docs_url = None, 
     redoc_url = None,
-    root_path = ROOT_PATH
+    root_path = ROOT_PATH,
+    version = __version__
 )
+app.include_router(nya_service.router)
 app.include_router(linkers.router)
 
 projects_placeholder: ProjectData = {
@@ -62,11 +65,5 @@ async def index(request: Request):
             "version": __version__
         }
     )
-
-@app.get("/nya")
-async def status(): # TODO: Replace this with custom middleware in the future.
-    return {
-        "version": __version__
-    }
 
 app.mount("/", StaticFiles(directory = "web"))
