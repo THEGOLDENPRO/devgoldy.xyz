@@ -22,7 +22,7 @@
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     </head>
 
-    <body class="m-0 mt-10">
+    <body class="m-0 mt-10 text-white bg-goldyDarky font-YanoneKaffeesatz">
         <div style="text-shadow: black 0px 0px 15px;" class="grid grid-cols-3 gap-4 mobile:grid-cols-1 w-2/4 tablet:w-3/4 mobile:w-full mx-auto select-none">
 
             <div class="hidden mobile:block select-none">
@@ -34,7 +34,7 @@
             <div class="col-start-1 col-end-3 mobile:col-auto h-[100%]">
                 <h1 class="text-7xl mobile:text-4xl text-goldyCream font-bold tracking-[0.5rem]">Hi, it's Goldy</h1>
                 <h2 class="text-2xl mobile:text-xl">
-                    I'm an up and coming <a href="./github">open-source developer</a>.
+                    I'm an up and coming <a class="text-goldyOrangy-300 font-bold" href="./github">open-source developer</a>.
                 </h2>
 
                 <div class="links text-center text-2xl mobile:text-xl h-full">
@@ -72,7 +72,7 @@
 
                 {% for post in blog_posts %}
                     <article>
-                        <h2>{{ post.date_added }} - <a href="./blogs/post/{{ post.id }}">{{ post.name }}</a></h2>
+                        <h2>{{ post.date_added }} - <a class="text-goldyOrangy-300 font-bold" href="./blogs/post/{{ post.id }}">{{ post.name }}</a></h2>
                     </article>
                 {% endfor %}
 
@@ -85,7 +85,7 @@
                 </h1>
 
                 {% for project in open_source_projects %}
-                    <h2><a href="{{ project.git }}">{{ project.name }}</a> - {{ project.description }}</h2>
+                    <h2><a class="text-goldyOrangy-300 font-bold" href="{{ project.git }}">{{ project.name }}</a> - {{ project.description }}</h2>
                 {% endfor %}
 
             </div>
@@ -97,7 +97,7 @@
                 </h1>
 
                 {% for anime in anime_list %}
-                    <h2>{{ anime.date }} - {{ anime.action }} <a href="{{ anime.url }}">{{ anime.title }}</a></h2>
+                    <h2>{{ anime.date }} - {{ anime.action }} <a class="text-goldyOrangy-300 font-bold" href="{{ anime.url }}">{{ anime.title }}</a></h2>
                 {% endfor %}
 
                 <h2 class="mt-8">More status at  <a href="./anime">MyAnimeList</a></h2>

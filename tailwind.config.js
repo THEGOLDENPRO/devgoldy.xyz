@@ -5,6 +5,9 @@ module.exports = {
     theme: {
         extend: {
             colors: {
+                exeBlack: "#090b11",
+                exeGray: "#9ca3af",
+                goldyPink: "#fb89ab",
                 goldyDarky: {
                     DEFAULT: "#0e1114",
                     200: "#0a0b0d",
@@ -32,9 +35,24 @@ module.exports = {
             },
             "desktop": {"max": "1280px"}
         },
-
         fontFamily: {
-            "YanoneKaffeesatz": ["YanoneKaffeesatz"]
+            "YanoneKaffeesatz": ["YanoneKaffeesatz"],
+            "hacked": ["Hacked-KerX"],
+            "typewriter": ["atwriter"],
+            "dosis": ["Dosis"]
+        },
+        animation: {
+            "flicker": "flicker 0.00001s infinite ease-in",
+        },
+        keyframes: {
+            flicker: {
+                "from" : {
+                    textShadow: "1px 0 0 theme(colors.goldyPink), -2px 0 0 theme(colors.goldyOrangy.300);",
+                },
+                "to" : {
+                    textShadow: "3.6px 0.5px 2px theme(colors.goldyPink), -1px -0.5px 2px theme(colors.goldyOrangy.300);",
+                },
+            }
         }
     }
 }
