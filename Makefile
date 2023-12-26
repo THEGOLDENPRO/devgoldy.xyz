@@ -1,4 +1,4 @@
-build: install-deps npm-install tailwind
+build: install-deps npm-install compile-ts tailwind
 
 install-deps:
 	pip install -r requirements.txt
@@ -7,7 +7,7 @@ npm-install:
 	npm i
 
 compile-ts:
-	tsc ./web/script.ts
+	npx tsc ./web/script.ts
 
 tailwind:
 	npx tailwindcss -i ./web/input.css -o ./web/output.css

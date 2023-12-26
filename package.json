@@ -1,7 +1,7 @@
 {
     "name": "devgoldy-xyz",
     "dependencies": {
-        "tailwindcss": "^3.3.3",
-        "typescript": "5.2.2"
+        "tailwindcss": "^3.4.0",
+        "typescript": "5.3.3"
     }
 }

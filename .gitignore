@@ -2,6 +2,7 @@ env
 venv
 build
 output.css
+script.js
 __pycache__
 node_modules
 package-lock.json
