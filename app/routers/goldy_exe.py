@@ -11,7 +11,7 @@ from fastapi.exceptions import HTTPException
 from fastapi.responses import HTMLResponse
 from aiohttp import ClientSession
 
-from ..constants import SOURCE_CODE_URL, CHANGE_LOG_URL, LICENSE_URL
+from ..constants import SOURCE_CODE_URL, CHANGE_LOG_URL
 
 router = APIRouter(redirect_slashes = True)
 
