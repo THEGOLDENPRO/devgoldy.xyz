@@ -9,3 +9,4 @@ defusedxml
 typing-extensions
 meow-inator-5000 @ git+https://github.com/THEGOLDENPRO/meow-inator-5000
 colorthief
+Markdown

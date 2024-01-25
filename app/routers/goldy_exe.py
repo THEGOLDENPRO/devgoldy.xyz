@@ -13,7 +13,7 @@ from aiohttp import ClientSession
 
 from ..constants import SOURCE_CODE_URL, CHANGE_LOG_URL, LICENSE_URL
 
-router = APIRouter()
+router = APIRouter(redirect_slashes = True)
 
 MAX_DESCRIPTION_LENGTH = 200
 BLOG_CDN_URL = config("BLOG_CDN_URL", "https://cdn.devgoldy.xyz/goldy-exe")
@@ -44,9 +44,9 @@ async def index(request: Request):
             "posts": posts,
 
             # Footer
+            "privacy_policy_url": "../privacy",
             "source_code_url": SOURCE_CODE_URL,
-            "change_log_url": CHANGE_LOG_URL,
-            "license_url": LICENSE_URL
+            "change_log_url": CHANGE_LOG_URL
         }
     )
 
@@ -87,8 +87,8 @@ async def read_post(request: Request, id: int):
             "thumbnail_url": BLOG_CDN_URL + post["thumbnail"],
 
             # Footer
+            "privacy_policy_url": "../../privacy",
             "source_code_url": SOURCE_CODE_URL,
-            "change_log_url": CHANGE_LOG_URL,
-            "license_url": LICENSE_URL
+            "change_log_url": CHANGE_LOG_URL
         }
     )

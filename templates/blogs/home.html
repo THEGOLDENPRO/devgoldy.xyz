@@ -12,12 +12,13 @@
         <meta content="" property='og:image'>
 
         <link rel="stylesheet" href="../output.css">
+
     </head>
 
     <body class="font-dosis text-white bg-exeBlack selection:bg-goldyCream selection:text-exeBlack">
         <header>
             <div class="text-7xl mobile:text-4xl font-bold font-hacked text-center py-5 select-none animate-flicker drop-shadow-flicker">
-                <a href=".">
+                <a style="color: white !important;" href=".">
                     <span>Goldy.exe</span>
                 </a>
             </div>
@@ -26,7 +27,7 @@
         <div class="block w-[100%] pb-5">
             {% if posts|length > 0 %}
                 <div id="top-post">
-                    <a href="./post/{{ top_post.id }}">
+                    <a style="color: white !important;" href="./post/{{ top_post.id }}">
                         <figure>
                             <img src="{{ './image.png' if top_post.thumbnail_url is none else top_post.thumbnail_url }}" 
                             style="{{ 'filter: saturate(30%);' if top_post.thumbnail_url is none }}">
@@ -52,7 +53,7 @@
             <div id="latest-posts" class="px-[5%] mt-5 flex flex-wrap mobile:flex-col gap-4 justify-center mobile:items-center">
 
                 {% for post in posts %}
-                    <a href="./post/{{ post.id }}">
+                    <a style="color: white !important;" href="./post/{{ post.id }}">
                         <article class="article-card">
                             <figure>
                                 <img src="{{ './image.png' if post.thumbnail_url is none else post.thumbnail_url }}" 
