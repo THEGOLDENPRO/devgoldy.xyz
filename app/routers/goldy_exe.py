@@ -11,9 +11,9 @@ from fastapi.exceptions import HTTPException
 from fastapi.responses import HTMLResponse
 from aiohttp import ClientSession
 
-from ..constants import SOURCE_CODE_URL, CHANGE_LOG_URL
+from ..context_builder import PageContextBuilder
 
-router = APIRouter(redirect_slashes = True)
+router = APIRouter()
 
 MAX_DESCRIPTION_LENGTH = 200
 BLOG_CDN_URL = config("BLOG_CDN_URL", "https://cdn.devgoldy.xyz/goldy-exe")
@@ -37,16 +37,21 @@ async def index(request: Request):
                 } for post in await r.json()
             ]
 
+    context = PageContextBuilder(
+        request, 
+        name = "Home", 
+        description = "Where you can read my articles, tutorials and rants on technology.", 
+        image_url = "https://devgoldy.xyz/image.png",
+        site_name = "Goldy.exe",
+        theme_colour = "#090b11"
+    )
+
     return templates.TemplateResponse(
         "blogs/home.html", {
-            "request": request,
             "top_post": None if posts == [] else posts[0],
             "posts": posts,
 
-            # Footer
-            "privacy_policy_url": "../privacy",
-            "source_code_url": SOURCE_CODE_URL,
-            "change_log_url": CHANGE_LOG_URL
+            **context.data
         }
     )
 
@@ -60,7 +65,7 @@ async def read_post(request: Request, id: int):
 
         post = await r.json()
 
-    content: str = post["content"]
+    content = post["content"]
     description = content.split("<p>", 2)[1].split("</p>", 1)[0]
 
     if len(description) >= MAX_DESCRIPTION_LENGTH:
@@ -75,20 +80,24 @@ async def read_post(request: Request, id: int):
             file = await r.read()
             thumbnail_rgb = ColorThief(io.BytesIO(file)).get_color(200)
 
+    context = PageContextBuilder(
+        request, 
+        name = post["name"], 
+        description = description, 
+        image_url = thumbnail_url,
+        site_name = "Goldy.exe"
+    )
+
     return templates.TemplateResponse(
         "blogs/post.html", {
-            "request": request,
             "id": id, 
             "name": post["name"],
             "short_description": description,
             "date_added": datetime.fromisoformat(post["date_added"]).strftime("%b %d %Y"),
             "content": content,
             "rgb_colour": f"{thumbnail_rgb[0]}, {thumbnail_rgb[1]}, {thumbnail_rgb[2]}", # TODO: get rgb colour from thumbnail image.
-            "thumbnail_url": BLOG_CDN_URL + post["thumbnail"],
+            "thumbnail_url": thumbnail_url,
 
-            # Footer
-            "privacy_policy_url": "../../privacy",
-            "source_code_url": SOURCE_CODE_URL,
-            "change_log_url": CHANGE_LOG_URL
+            **context.data
         }
     )

@@ -172,7 +172,7 @@
     }
 
     #post-content p code {
-        @apply bg-black px-2 py-1 rounded-xl;
+        @apply bg-black px-1 py-0.5 rounded-xl text-lg;
     }
 
     #post-content pre code {

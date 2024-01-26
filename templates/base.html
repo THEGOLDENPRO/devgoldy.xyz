@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ site_name }} • {{ site_page_name }}</title>
+
+    <meta content="{{ site_name }} • {{ site_page_name }}" property="og:title">
+    <meta content="{{ site_description }}" property="og:description">
+    <meta content="devgoldy.xyz" property="og:site_name">
+    <meta name="theme-color" content="{{ site_theme_colour }}">
+    <meta content="{{ site_image_url }}" property='og:image'>
+
+    <meta name="twitter:site" content="@GoldyTGP">
+    <meta name="twitter:title" content="{{ site_name }} • {{ site_page_name }}">
+    <meta name="twitter:description" content="{{ site_description }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image:src" content="{{ site_image_url }}">
+    {% endblock %}
+</head>
+
+{% block body %}
+{% endblock %}
+
+<footer class="mx-auto my-10 w-full max-w-container px-2 text-base tracking-widest">
+    <div class="border-t border-slate-900/5 pt-5">
+        <div class="grid place-items-center">
+            <a href="https://github.com/THEGOLDENPRO">
+                <img class="w-12 text-slate-900 rounded-full" src="https://avatars.githubusercontent.com/u/66202304">
+            </a>
+        </div>
+
+        <p class="mt-5 text-center leading-6 text-exeGray">
+            © 2023 - 2024 Goldy. All rights reserved.
+        </p>
+
+        <div class="mt-5 text-center flex items-center justify-center space-x-4 font-semibold">
+            <a href="{{ privacy_policy_url }}">Privacy Policy</a>
+            <div class="h-4 w-px bg-slate-500/20"></div>
+            <a href="{{ source_code_url }}">Source Code</a>
+            <div class="h-4 w-px bg-slate-500/20"></div>
+            <a href="{{ change_log_url }}">Changelog</a>
+        </div>
+    </div>
+</footer>
+
+</html>

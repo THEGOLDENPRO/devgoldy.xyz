@@ -13,7 +13,7 @@ from fastapi.templating import Jinja2Templates
 
 from .anime import Anime
 from .config import Config, ProjectData
-
+from .context_builder import PageContextBuilder
 from .routers import linkers, goldy_exe
 from . import constants, __version__
 
@@ -26,8 +26,7 @@ app = FastAPI(
     docs_url = None, 
     redoc_url = None,
     root_path = ROOT_PATH,
-    version = __version__,
-    redirect_slashes = True
+    version = __version__
 )
 app.include_router(nya_service.router)
 
@@ -44,7 +43,7 @@ http_client = ClientSession()
 config = Config(constants.CONFIG_PATH)
 anime = Anime(constants.MAL_USERNAME, http_client)
 templates = Jinja2Templates(directory = "./templates")
-markdown = Markdown(extensions = ["fenced_code", "sane_lists"])
+markdown = Markdown(extensions = ["fenced_code", "sane_lists", "pymdownx.tilde"])
 
 @app.get("/")
 async def index(request: Request):
@@ -61,17 +60,20 @@ async def index(request: Request):
                 } for post in await r.json()
             ]
 
+    context = PageContextBuilder(
+        request, 
+        name = "Home", 
+        description = "My main website.", 
+        image_url = "https://devgoldy.xyz/image.png"
+    )
+
     return templates.TemplateResponse(
         "home.html", {
-            "request": request,
             "blog_posts": blog_posts,
             "anime_list": await anime.get_anime_status(),
             "open_source_projects": live_config.get("projects", [projects_placeholder]),
 
-            # Footer
-            "privacy_policy_url": "./privacy",
-            "source_code_url": constants.SOURCE_CODE_URL,
-            "change_log_url": constants.CHANGE_LOG_URL
+            **context.data
         }
     )
 
@@ -80,15 +82,18 @@ async def privacy(request: Request):
     with open("./privacy_policy.md") as file:
         privacy_policy_content = markdown.convert(file.read())
 
+    context = PageContextBuilder(
+        request, 
+        name = "Privacy Policy", 
+        description = "Privacy policy for everything under devgoldy.xyz.", 
+        theme_colour = "#ff6817"
+    )
+
     return templates.TemplateResponse(
         "privacy_policy.html", {
-            "request": request,
             "privacy_policy": privacy_policy_content,
 
-            # Footer
-            "privacy_policy_url": ".",
-            "source_code_url": constants.SOURCE_CODE_URL,
-            "change_log_url": constants.CHANGE_LOG_URL
+            **context.data
         }
     )
 

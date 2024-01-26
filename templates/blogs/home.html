@@ -1,78 +1,67 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Goldy.exe</title>
+{% extends "base.html" %}
 
-        <meta content="Goldy.exe - Home" property="og:title">
-        <meta content="Where you can read my articles, tutorials and rants on technology." property="og:description">
-        <meta content="Goldy.exe" property="og:site_name">
-        <meta name="theme-color" content="#090b11">
-        <meta content="" property='og:image'>
+{% block head %}
+{{ super() }}
 
-        <link rel="stylesheet" href="../output.css">
+<link rel="stylesheet" href="../output.css">
+{% endblock %}
 
-    </head>
+{% block body %}
+<body class="font-dosis text-white bg-exeBlack selection:bg-goldyCream selection:text-exeBlack">
+    <header>
+        <div class="text-7xl mobile:text-4xl font-bold font-hacked text-center py-5 select-none animate-flicker drop-shadow-flicker">
+            <a style="color: white !important;" href=".">
+                <span>Goldy.exe</span>
+            </a>
+        </div>
+    </header>
 
-    <body class="font-dosis text-white bg-exeBlack selection:bg-goldyCream selection:text-exeBlack">
-        <header>
-            <div class="text-7xl mobile:text-4xl font-bold font-hacked text-center py-5 select-none animate-flicker drop-shadow-flicker">
-                <a style="color: white !important;" href=".">
-                    <span>Goldy.exe</span>
+    <div class="block w-[100%] pb-5">
+        {% if posts|length > 0 %}
+            <div id="top-post">
+                <a style="color: white !important;" href="./post/{{ top_post.id }}">
+                    <figure>
+                        <img src="{{ './image.png' if top_post.thumbnail_url is none else top_post.thumbnail_url }}" 
+                        style="{{ 'filter: saturate(30%);' if top_post.thumbnail_url is none }}">
+                    </figure>
+                    <div>
+                        <h2>{{ top_post.name }}</h2>
+                        <h4>{{ top_post.date_added }}</h4>
+                    </div>
                 </a>
             </div>
-        </header>
+        {% endif %}
 
-        <div class="block w-[100%] pb-5">
-            {% if posts|length > 0 %}
-                <div id="top-post">
-                    <a style="color: white !important;" href="./post/{{ top_post.id }}">
+        <h1 class="text-center pt-8 text-lg underline">
+            Latest Posts
+        </h1>
+
+        {% if posts|length == 0 %}
+            <h1 class="text-center pt-2">
+                umm, well this is awkward...
+            </h1>
+        {% endif %}
+
+        <div id="latest-posts" class="px-[5%] mt-5 flex flex-wrap mobile:flex-col gap-4 justify-center mobile:items-center">
+
+            {% for post in posts %}
+                <a style="color: white !important;" href="./post/{{ post.id }}">
+                    <article class="article-card">
                         <figure>
-                            <img src="{{ './image.png' if top_post.thumbnail_url is none else top_post.thumbnail_url }}" 
-                            style="{{ 'filter: saturate(30%);' if top_post.thumbnail_url is none }}">
+                            <img src="{{ './image.png' if post.thumbnail_url is none else post.thumbnail_url }}" 
+                            style="{{ 'filter: saturate(30%);' if post.thumbnail_url is none }}">
                         </figure>
                         <div>
-                            <h2>{{ top_post.name }}</h2>
-                            <h4>{{ top_post.date_added }}</h4>
+                            <h2>{{ post.name }}</h2>
+                            <h4>{{ post.date_added }}</h4>
                         </div>
-                    </a>
-                </div>
-            {% endif %}
-
-            <h1 class="text-center pt-8 text-lg underline">
-                Latest Posts
-            </h1>
-
-            {% if posts|length == 0 %}
-                <h1 class="text-center pt-2">
-                    umm, well this is awkward...
-                </h1>
-            {% endif %}
-
-            <div id="latest-posts" class="px-[5%] mt-5 flex flex-wrap mobile:flex-col gap-4 justify-center mobile:items-center">
-
-                {% for post in posts %}
-                    <a style="color: white !important;" href="./post/{{ post.id }}">
-                        <article class="article-card">
-                            <figure>
-                                <img src="{{ './image.png' if post.thumbnail_url is none else post.thumbnail_url }}" 
-                                style="{{ 'filter: saturate(30%);' if post.thumbnail_url is none }}">
-                            </figure>
-                            <div>
-                                <h2>{{ post.name }}</h2>
-                                <h4>{{ post.date_added }}</h4>
-                            </div>
-                        </article>
-                    </a>
-                {% endfor %}
-
-            </div>
+                    </article>
+                </a>
+            {% endfor %}
 
         </div>
 
-        {% extends "footer.html" %}
-        
-    </body>
+    </div>
 
-</html>
+</body>
+{% endblock %}

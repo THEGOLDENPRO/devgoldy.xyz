@@ -1,28 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Goldy</title>
+{% block head %}
+{{ super() }}
 
-    <meta content="Goldy - Home" property="og:title">
-    <meta content="My main website." property="og:description">
-    <meta content="devgoldy.xyz" property="og:site_name">
-    <meta name="theme-color" content="#fbc689">
-    <meta content="https://devgoldy.xyz/image.png" property='og:image'>
+<link rel="stylesheet" href="./output.css">
 
-    <meta name="twitter:site" content="@GoldyTGP">
-    <meta name="twitter:title" content="Goldy - Home">
-    <meta name="twitter:description" content="My main website.">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image:src" content="https://devgoldy.xyz/image.png">
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+{% endblock %}
 
-    <link rel="stylesheet" href="./output.css">
-
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-</head>
-
+{% block body %}
 <body class="m-0 mt-10 text-white bg-goldyDarky font-YanoneKaffeesatz">
     <div style="text-shadow: black 0px 0px 15px;"
         class="grid grid-cols-3 gap-4 mobile:grid-cols-1 w-2/4 tablet:w-3/4 mobile:w-full mx-auto select-none">
@@ -74,7 +60,5 @@
 
     <script src="./script.js"></script>
 
-    {% extends "footer.html" %}
-    </body>
-
-</html>
+</body>
+{% endblock %}
