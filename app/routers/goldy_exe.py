@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import io
-from decouple import config
 from datetime import datetime
 from colorthief import ColorThief
 
@@ -12,12 +11,9 @@ from fastapi.responses import HTMLResponse
 from aiohttp import ClientSession
 
 from ..context_builder import PageContextBuilder
+from ..constants import BLOG_API_URL, BLOG_CDN_URL, MAX_DESCRIPTION_LENGTH
 
 router = APIRouter()
-
-MAX_DESCRIPTION_LENGTH = 200
-BLOG_CDN_URL = config("BLOG_CDN_URL", "https://cdn.devgoldy.xyz/goldy-exe")
-BLOG_API_URL = config("BLOG_API_URL", "https://api.devgoldy.xyz/goldy-exe/v1")
 
 http_client = ClientSession()
 templates = Jinja2Templates(directory = "templates")

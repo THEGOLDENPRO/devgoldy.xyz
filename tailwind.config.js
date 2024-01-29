@@ -43,6 +43,7 @@ module.exports = {
         },
         animation: {
             "flicker": "flicker 0.00001s infinite ease-in",
+            "fade-in": "fadeIn ease 5s"
         },
         keyframes: {
             flicker: {
@@ -52,6 +53,14 @@ module.exports = {
                 "to" : {
                     textShadow: "3.6px 0.5px 2px theme(colors.goldyPink), -1px -0.5px 2px theme(colors.goldyOrangy.300);",
                 },
+            },
+            fadeIn: {
+                "from": {
+                    opacity: "0",
+                },
+                "to": {
+                    opacity: "1",
+                }
             }
         }
     }

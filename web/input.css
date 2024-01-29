@@ -41,7 +41,7 @@
 
 @layer components {
     .links li {
-        @apply inline-block pl-6;
+        @apply inline-block px-3;
     }
 
     .links a {
