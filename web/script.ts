@@ -2,13 +2,12 @@ type AnimationElements = ([HTMLElement | null, number])[];
 
 function do_animation_thingy(elements: AnimationElements) {
 
-    for (var [element, timeout] of elements) {
+    for (let [element, timeout] of elements) {
 
         if (element !== null) {
-            console.log(">>", element);
 
             setTimeout(
-                (element) => {
+                () => {
                     element.classList.remove("opacity-0");
                     element.classList.add("animate-fade-in");
                 }, timeout

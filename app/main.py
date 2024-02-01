@@ -39,11 +39,12 @@ projects_placeholder: ProjectData = {
     "git": "https://cdn.devgoldy.xyz/ricky.webm"
 }
 
+basic_markdown = Markdown()
 http_client = ClientSession()
 config = Config(constants.CONFIG_PATH)
 anime = Anime(constants.MAL_USERNAME, http_client)
 templates = Jinja2Templates(directory = "./templates")
-markdown = Markdown(extensions = ["fenced_code", "sane_lists", "pymdownx.tilde"])
+
 
 @app.get("/")
 async def index(request: Request):
@@ -80,7 +81,7 @@ async def index(request: Request):
 @app.get("/privacy")
 async def privacy(request: Request):
     with open("./privacy_policy.md") as file:
-        privacy_policy_content = markdown.convert(file.read())
+        privacy_policy_content = basic_markdown.convert(file.read())
 
     context = PageContextBuilder(
         request, 

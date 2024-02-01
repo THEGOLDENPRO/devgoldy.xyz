@@ -1,13 +1,12 @@
 from __future__ import annotations
 
-import io
 from datetime import datetime
-from colorthief import ColorThief
+from markdown import Markdown
 
 from fastapi import APIRouter, Request
 from fastapi.templating import Jinja2Templates
 from fastapi.exceptions import HTTPException
-from fastapi.responses import HTMLResponse
+from fastapi.responses import HTMLResponse, RedirectResponse
 from aiohttp import ClientSession
 
 from ..context_builder import PageContextBuilder
@@ -16,6 +15,7 @@ from ..constants import BLOG_API_URL, BLOG_CDN_URL, MAX_DESCRIPTION_LENGTH
 router = APIRouter()
 
 http_client = ClientSession()
+markdown = Markdown(extensions = ["fenced_code", "sane_lists", "pymdownx.tilde"])
 templates = Jinja2Templates(directory = "templates")
 
 @router.get("/")
@@ -54,6 +54,7 @@ async def index(request: Request):
 @router.get("/post/{id}", response_class = HTMLResponse)
 async def read_post(request: Request, id: int):
     post = {}
+    content: str = ""
 
     async with http_client.request("GET", BLOG_API_URL + f"/post/{id}") as r:
         if not r.ok:
@@ -61,39 +62,44 @@ async def read_post(request: Request, id: int):
 
         post = await r.json()
 
-    content = post["content"]
+    content_url = BLOG_CDN_URL + f"/{id}/content.md"
+    thumbnail_url = BLOG_CDN_URL + post["thumbnail"]
+
+    async with http_client.request("GET", content_url) as r:
+        if not r.ok:
+            raise HTTPException(404, "SHIT WE MESSED UP! HOW DID THIS HAPPEN!!!!!")
+
+        data = await r.text("utf-8")
+        content = markdown.convert(data)
+
     description = content.split("<p>", 2)[1].split("</p>", 1)[0]
+
+    content = content.replace('src="./', f'src="./{id}/')
 
     if len(description) >= MAX_DESCRIPTION_LENGTH:
         description[:MAX_DESCRIPTION_LENGTH] += "..."
-
-    thumbnail_url = BLOG_CDN_URL + post["thumbnail"]
-    thumbnail_rgb = (9, 11, 17)
-
-    async with http_client.request("GET", thumbnail_url) as r:
-
-        if r.ok:
-            file = await r.read()
-            thumbnail_rgb = ColorThief(io.BytesIO(file)).get_color(200)
 
     context = PageContextBuilder(
         request, 
         name = post["name"], 
         description = description, 
-        image_url = thumbnail_url,
+        image_url = thumbnail_url, 
         site_name = "Goldy.exe"
     )
 
     return templates.TemplateResponse(
         "blogs/post.html", {
             "id": id, 
-            "name": post["name"],
-            "short_description": description,
-            "date_added": datetime.fromisoformat(post["date_added"]).strftime("%b %d %Y"),
-            "content": content,
-            "rgb_colour": f"{thumbnail_rgb[0]}, {thumbnail_rgb[1]}, {thumbnail_rgb[2]}", # TODO: get rgb colour from thumbnail image.
-            "thumbnail_url": thumbnail_url,
+            "blog_name": post["name"], 
+            "blog_accent_colour": post.get("accent_colour", ""), 
+            "blog_date_added": datetime.fromisoformat(post["date_added"]).strftime("%b %d %Y"), 
+            "blog_content": content, 
+            "blog_thumbnail_url": thumbnail_url, 
 
             **context.data
         }
     )
+
+@router.get("/post/{id}/{filename}", response_class = RedirectResponse)
+async def get_post_file(id: int, filename: str) -> RedirectResponse:
+    return RedirectResponse(BLOG_CDN_URL + f"/{id}/{filename}")

@@ -31,12 +31,12 @@
 }
 
 ::-webkit-scrollbar-track {
-    background: #090b11;
+    background: transparent;
     border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #fbc689;
+    background: #f1f1f1;
     border-radius: 10px;
 }
 
@@ -83,11 +83,11 @@
     }
 
     #post-content h1 {
-        @apply font-extrabold text-5xl mobile:text-2xl mt-6 underline;
+        @apply font-extrabold text-5xl mobile:text-2xl mt-6 !mb-1.5 underline;
     }
 
     #post-content h2 {
-        @apply font-bold text-4xl mobile:text-xl mt-5 !mb-1;
+        @apply font-bold text-4xl mobile:text-xl mt-5 !mb-0;
     }
 
     #post-content h3 {

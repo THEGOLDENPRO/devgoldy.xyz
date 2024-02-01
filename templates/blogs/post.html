@@ -2,7 +2,7 @@
 
 {% block head %}
 {{ super() }}
-<meta name="theme-color" content="rgb({{ rgb_colour }})">
+<meta name="theme-color" content="rgb({{ blog_accent_colour }})">
 
 <link rel="stylesheet" href="../../output.css">
 <!-- highlight.js -->
@@ -21,18 +21,18 @@
         </div>
     </header>
 
-    <div class="px-[5%] mx-auto max-w-7xl">
-        <div id="top-post" class="!cursor-default pointer-events-none">
+    <div class="px-[5%] mx-auto max-w-6xl">
+        <div class="!cursor-default pointer-events-none">
             <figure class="rounded-3xl overflow-hidden">
-                <img src="{{ thumbnail_url }}">
+                <img src="{{ blog_thumbnail_url }}">
             </figure>
 
-            <h2 class="text-center pt-2 font-bold text-4xl mobile:text-xl">{{ name }}</h2>
-            <h4 class="text-center pt-2 text-exeGray">{{ date_added }}</h4>
+            <h2 class="text-center pt-2 font-bold text-4xl mobile:text-xl">{{ blog_name }}</h2>
+            <h4 class="text-center pt-2 text-exeGray">{{ blog_date_added }}</h4>
         </div>
 
         <div id="post-content" class="pt-8 mobile:pt-0 w-3/4 mobile:w-full">
-            {{ content|safe }}
+            {{ blog_content|safe }}
         </div>
     </div>
 </body>
