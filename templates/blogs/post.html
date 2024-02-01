@@ -12,7 +12,7 @@
 {% endblock %}
 
 {% block body %}
-<body class="font-dosis text-white bg-exeBlack selection:bg-goldyCream selection:text-exeBlack">
+<body class="font-dosis text-white bg-exeBlack">
     <header>
         <div class="text-7xl mobile:text-4xl font-bold font-hacked text-center py-5 select-none animate-flicker drop-shadow-flicker">
             <a style="color: white !important;" href="..">
@@ -21,17 +21,17 @@
         </div>
     </header>
 
-    <div id="main-post" class="px-[5%] mx-auto max-w-7xl">
+    <div class="px-[5%] mx-auto max-w-7xl">
         <div id="top-post" class="!cursor-default pointer-events-none">
-            <figure>
+            <figure class="rounded-3xl overflow-hidden">
                 <img src="{{ thumbnail_url }}">
             </figure>
 
-            <h2>{{ name }}</h2>
-            <h4>{{ date_added }}</h4>
+            <h2 class="text-center pt-2 font-bold text-4xl mobile:text-xl">{{ name }}</h2>
+            <h4 class="text-center pt-2 text-exeGray">{{ date_added }}</h4>
         </div>
 
-        <div id="post-content" class="pt-10 w-3/4 mobile:w-full">
+        <div id="post-content" class="pt-8 mobile:pt-0 w-3/4 mobile:w-full">
             {{ content|safe }}
         </div>
     </div>

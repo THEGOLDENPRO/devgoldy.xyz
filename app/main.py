@@ -89,9 +89,13 @@ async def privacy(request: Request):
         theme_colour = "#ff6817"
     )
 
+    edit_date = privacy_policy_content.split("<p>", 2)[1].split("</p>", 1)[0]
+    content = privacy_policy_content.split("</blockquote>", 1)[1]
+
     return templates.TemplateResponse(
         "privacy_policy.html", {
-            "privacy_policy": privacy_policy_content,
+            "edit_date": edit_date,
+            "privacy_policy": content,
 
             **context.data
         }
