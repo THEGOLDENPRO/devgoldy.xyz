@@ -91,7 +91,7 @@ async def read_post(request: Request, id: int):
         "blogs/post.html", {
             "id": id, 
             "blog_name": post["name"], 
-            "blog_accent_colour": post.get("accent_colour", ""), 
+            "blog_accent_colour": post.get("accent_colour", "9, 11, 17"), # Adding fallback here as the old api doesn't have accent_colour.
             "blog_date_added": datetime.fromisoformat(post["date_added"]).strftime("%b %d %Y"), 
             "blog_content": content, 
             "blog_thumbnail_url": thumbnail_url, 
