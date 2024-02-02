@@ -6,6 +6,6 @@ services:
         ports:
             - 8000:8000
         volumes:
-            - ${CONFIG_PATH}:/app/goldy/config.xml
+            - ${CONFIG_PATH}:/app/config.xml
         environment:
             ROOT_PATH: ""

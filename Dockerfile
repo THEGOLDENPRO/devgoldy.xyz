@@ -13,7 +13,7 @@ COPY package.json .
 COPY tailwind.config.js .
 COPY Makefile .
 
-RUN apt-get update && apt-get install -y make nodejs npm
+RUN apt-get update && apt-get install -y make git nodejs npm
 
 RUN make
 
