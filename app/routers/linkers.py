@@ -38,7 +38,7 @@ async def github(request: Request):
             "description": "Check out my open-source work at GitHub!",
             "site_name": "GitHub",
             "image_url": "https://avatars.githubusercontent.com/u/66202304",
-            "colour": "#ffe1b8",
+            "colour": "#cb5242",
             "redirect_url": "https://github.com/THEGOLDENPRO"
         }
     )
