@@ -1,4 +1,5 @@
 from __future__ import annotations
+from typing import Literal
 
 import os
 from datetime import datetime
@@ -45,9 +46,8 @@ config = Config(constants.CONFIG_PATH)
 anime = Anime(constants.MAL_USERNAME, http_client)
 templates = Jinja2Templates(directory = "./templates")
 
-
 @app.get("/")
-async def index(request: Request):
+async def index(request: Request, mode: Literal["legacy", "default"] = "default"):
     blog_posts = []
     live_config = await config.get_config()
 
@@ -69,7 +69,7 @@ async def index(request: Request):
     )
 
     return templates.TemplateResponse(
-        "index.html", {
+        "legacy_index.html" if mode == "legacy" else "index.html", {
             "blog_posts": blog_posts,
             "anime_list": await anime.get_anime_status(),
             "open_source_projects": live_config.get("projects", [projects_placeholder]),
