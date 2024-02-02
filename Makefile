@@ -7,7 +7,7 @@ npm-install:
 	npm i
 
 compile-ts:
-	npx tsc ./web/script.ts
+	npx tsc ./web/scripts/*.ts
 
 tailwind:
 	npx tailwindcss -i ./web/input.css -o ./web/output.css
@@ -29,4 +29,3 @@ test:
 
 clean:
 	rm ./web/output.css
-	rm ./web/script.js

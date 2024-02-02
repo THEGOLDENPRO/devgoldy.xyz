@@ -2,7 +2,6 @@ env
 venv
 build
 output.css
-script.js
 __pycache__
 node_modules
 package-lock.json
@@ -10,3 +9,4 @@ package-lock.json
 jikan4snek_cache
 config.xml
 .ruff_cache
+*.js

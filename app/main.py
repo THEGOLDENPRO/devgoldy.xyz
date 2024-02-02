@@ -14,7 +14,7 @@ from fastapi.templating import Jinja2Templates
 from .anime import Anime
 from .config import Config, ProjectData
 from .context_builder import PageContextBuilder
-from .routers import linkers, goldy_exe
+from .routers import blogs, linkers
 from . import constants, __version__
 
 __all__ = ("app",)
@@ -31,7 +31,7 @@ app = FastAPI(
 app.include_router(nya_service.router)
 
 app.include_router(linkers.router)
-app.include_router(goldy_exe.router)
+app.include_router(blogs.router)
 
 projects_placeholder: ProjectData = {
     "name": "Wait what",
@@ -69,7 +69,7 @@ async def index(request: Request):
     )
 
     return templates.TemplateResponse(
-        "home.html", {
+        "index.html", {
             "blog_posts": blog_posts,
             "anime_list": await anime.get_anime_status(),
             "open_source_projects": live_config.get("projects", [projects_placeholder]),

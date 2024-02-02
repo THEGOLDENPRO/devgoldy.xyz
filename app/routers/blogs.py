@@ -44,7 +44,7 @@ async def index(request: Request):
     )
 
     return templates.TemplateResponse(
-        "blogs/home.html", {
+        "blogs/index.html", {
             "top_post": None if posts == [] else posts[0],
             "posts": posts,
 
