@@ -4,16 +4,16 @@
     {% block head %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ site_name }} • {{ site_page_name }}</title>
+    <title>{{ site_name }}{{ title_divider }}{{ site_page_name }}</title>
 
-    <meta content="{{ site_name }} • {{ site_page_name }}" property="og:title">
+    <meta content="{{ site_name }}{{ title_divider }}{{ site_page_name }}" property="og:title">
     <meta content="{{ site_description }}" property="og:description">
     <meta content="devgoldy.xyz" property="og:site_name">
     <meta name="theme-color" content="{{ site_theme_colour }}">
     <meta content="{{ site_image_url }}" property='og:image'>
 
     <meta name="twitter:site" content="@GoldyTGP">
-    <meta name="twitter:title" content="{{ site_name }} • {{ site_page_name }}">
+    <meta name="twitter:title" content="{{ site_name }}{{ title_divider }}{{ site_page_name }}">
     <meta name="twitter:description" content="{{ site_description }}">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image:src" content="{{ site_image_url }}">

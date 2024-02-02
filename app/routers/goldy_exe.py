@@ -12,12 +12,13 @@ from aiohttp import ClientSession
 from ..context_builder import PageContextBuilder
 from ..constants import BLOG_API_URL, BLOG_CDN_URL, MAX_DESCRIPTION_LENGTH
 
-router = APIRouter()
+router = APIRouter(prefix = "/blogs")
 
 http_client = ClientSession()
 markdown = Markdown(extensions = ["fenced_code", "sane_lists", "pymdownx.tilde"])
 templates = Jinja2Templates(directory = "templates")
 
+@router.get("")
 @router.get("/")
 async def index(request: Request):
     posts = []
@@ -74,7 +75,7 @@ async def read_post(request: Request, id: int):
 
     description = content.split("<p>", 2)[1].split("</p>", 1)[0]
 
-    content = content.replace('src="./', f'src="./{id}/')
+    content = content.replace('src="./', f'src="./{id}/') # Redirects all html elements linking to root to the blog's cdn redirect.
 
     if len(description) >= MAX_DESCRIPTION_LENGTH:
         description[:MAX_DESCRIPTION_LENGTH] += "..."
@@ -84,7 +85,8 @@ async def read_post(request: Request, id: int):
         name = post["name"], 
         description = description, 
         image_url = thumbnail_url, 
-        site_name = "Goldy.exe"
+        site_name = None,
+        divider = None
     )
 
     return templates.TemplateResponse(

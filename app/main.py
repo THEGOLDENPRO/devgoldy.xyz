@@ -31,7 +31,7 @@ app = FastAPI(
 app.include_router(nya_service.router)
 
 app.include_router(linkers.router)
-app.include_router(goldy_exe.router, prefix = "/blogs")
+app.include_router(goldy_exe.router)
 
 projects_placeholder: ProjectData = {
     "name": "Wait what",
