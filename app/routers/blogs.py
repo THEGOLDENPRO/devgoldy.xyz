@@ -38,7 +38,6 @@ async def index(request: Request):
         request, 
         name = "Home", 
         description = "Where you can read my articles, tutorials and rants on technology.", 
-        image_url = "https://devgoldy.xyz/image.png",
         site_name = "Goldy.exe",
         theme_colour = "#090b11"
     )
