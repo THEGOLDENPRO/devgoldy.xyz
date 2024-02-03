@@ -7,7 +7,7 @@ npm-install:
 	npm i
 
 compile-ts:
-	npx tsc ./web/scripts/*.ts
+	npx tsc ./web/scripts/*.ts --target ES2016
 
 tailwind:
 	npx tailwindcss -i ./web/input.css -o ./web/output.css

@@ -64,6 +64,20 @@
             <li>- <a href="./blogs/">new blog site</a></li>
         </ul>
 
+        <div id="blogs-slideshow" class="p-10 mobile:p-0 mobile:pt-5">
+            <figure class="overflow-hidden rounded-3xl">
+                {% for post in blog_posts %}
+                <img src="{{ post.thumbnail_url }}" class="hidden animate-fade-in">
+                {% endfor %}
+            </figure>
+
+            <div class="text-center mt-3">
+                {% for number in range(blog_posts|length) %}
+                <button onclick="toggleSlideshowImage(blogs_slideshow, '{{ number }}');" class="w-3 h-3 rounded-full m-1 bg-gray-600"></button>
+                {% endfor %}
+            </div>
+        </div>
+
     </div>
 
     <script src="./scripts/index.js"></script>

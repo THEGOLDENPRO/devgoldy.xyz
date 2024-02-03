@@ -26,7 +26,6 @@ module.exports = {
                 goldyGreen: "#d0f54c"
             }
         },
-
         screens: {
             "mobile": {"max": "430px"},
             "tablet": {"max": "850px"},

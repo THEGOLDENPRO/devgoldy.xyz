@@ -55,8 +55,9 @@ async def index(request: Request, mode: Literal["legacy", "default"] = "default"
         if r.ok:
             blog_posts = [
                 {
-                    "id": post.get("id"),
-                    "name": post.get("name"),
+                    "id": post.get("id"), 
+                    "name": post.get("name"), 
+                    "thumbnail_url": constants.BLOG_CDN_URL + post["thumbnail"], 
                     "date_added": datetime.fromisoformat(post.get("date_added")).strftime("%b %d %Y")
                 } for post in await r.json()
             ]
