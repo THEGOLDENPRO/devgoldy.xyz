@@ -51,14 +51,14 @@ async def index(request: Request, mode: Literal["legacy", "default"] = "default"
     blog_posts = []
     live_config = await config.get_config()
 
-    async with http_client.request("GET", constants.BLOG_API_URL + "/posts") as r:
+    async with http_client.request("GET", constants.BLOG_API_URL + "/posts", params = {"limit": "8"}) as r:
         if r.ok:
             blog_posts = [
                 {
-                    "id": post.get("id"), 
-                    "name": post.get("name"), 
-                    "thumbnail_url": constants.BLOG_CDN_URL + post["thumbnail"], 
-                    "date_added": datetime.fromisoformat(post.get("date_added")).strftime("%b %d %Y")
+                    "id": post["id"], 
+                    "name": post["name"], 
+                    "thumbnail_url": constants.BLOG_CDN_URL + post["thumbnail"] if post["thumbnail"] is not None else None, 
+                    "date_added": datetime.fromisoformat(post["date_added"]).strftime("%b %d %Y")
                 } for post in await r.json()
             ]
 

@@ -23,12 +23,12 @@ templates = Jinja2Templates(directory = "templates")
 async def index(request: Request):
     posts = []
 
-    async with http_client.request("GET", BLOG_API_URL + "/posts") as r:
+    async with http_client.get(BLOG_API_URL + "/posts") as r:
         if r.ok:
             posts = [
                 {
-                    "id": post.get("id"),
-                    "name": post.get("name"),
+                    "id": post["id"],
+                    "name": post["name"],
                     "thumbnail_url": BLOG_CDN_URL + post.get("thumbnail") if post.get("thumbnail") is not None else None,
                     "date_added": datetime.fromisoformat(post.get("date_added")).strftime("%b %d %Y")
                 } for post in await r.json()
@@ -56,7 +56,7 @@ async def read_post(request: Request, id: int):
     post = {}
     content: str = ""
 
-    async with http_client.request("GET", BLOG_API_URL + f"/post/{id}") as r:
+    async with http_client.get(BLOG_API_URL + f"/post/{id}") as r:
         if not r.ok:
             raise HTTPException(404, "Hey what you doing here, there's no such post! Stop lurking, smh")
 
@@ -65,7 +65,7 @@ async def read_post(request: Request, id: int):
     content_url = BLOG_CDN_URL + f"/{id}/content.md"
     thumbnail_url = BLOG_CDN_URL + post["thumbnail"]
 
-    async with http_client.request("GET", content_url) as r:
+    async with http_client.get(content_url) as r:
         if not r.ok:
             raise HTTPException(404, "SHIT WE MESSED UP! HOW DID THIS HAPPEN!!!!!")
 

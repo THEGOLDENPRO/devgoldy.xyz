@@ -43,7 +43,8 @@ module.exports = {
         },
         animation: {
             "flicker": "flicker 0.00001s infinite ease-in",
-            "fade-in": "fadeIn ease 5s"
+            "fade-in": "fadeIn ease 5s",
+            "fade-in-faster": "fadeIn ease 3s"
         },
         keyframes: {
             flicker: {

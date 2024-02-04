@@ -54,28 +54,50 @@
 
     <div class="status mt-5 bg-goldyDarky-200 p-5 rounded-3xl mx-[20%] mobile:mx-auto">
 
-        <p>This site is currently in alpha so this section is still currently under development. </p>
+        <div class="grid grid-cols-2 mobile:grid-cols-1">
 
-        <br>
+            <div class="p-2">
+                <h2 class="underline text-xl text-center font-bold mb-2">OwO</h2>
 
-        <p>I added some temporary hyperlinks below to other sections of the site:</p>
+                <p>This site is currently in alpha so this section is still currently under development. </p>
 
-        <ul class="ml-5">
-            <li>- <a href="./blogs/">new blog site</a></li>
-        </ul>
-
-        <div id="blogs-slideshow" class="p-10 mobile:p-0 mobile:pt-5">
-            <figure class="overflow-hidden rounded-3xl">
-                {% for post in blog_posts %}
-                <img src="{{ post.thumbnail_url }}" class="hidden animate-fade-in">
-                {% endfor %}
-            </figure>
-
-            <div class="text-center mt-3">
-                {% for number in range(blog_posts|length) %}
-                <button onclick="toggleSlideshowImage(blogs_slideshow, '{{ number }}');" class="w-3 h-3 rounded-full m-1 bg-gray-600"></button>
-                {% endfor %}
+                <br>
+        
+                <p>I added some temporary hyperlinks below to other sections of the site:</p>
+        
+                <ul class="ml-5">
+                    <li>- <a href="./blogs/">new blog site</a></li>
+                </ul>
             </div>
+
+            <div id="blogs-slideshow" class="p-2">
+                <h2 class="underline text-xl text-center font-bold mb-2">My Blogs</h2>
+
+                <div class="relative z-10 cursor-pointer">
+                    {% for post in blog_posts %}
+                    <h3 style="text-shadow: black 2px 2px 0px;" class="hidden opacity-0 transition select-none 
+                        absolute top-3 px-5 w-full text-center text-4xl mobile:hidden font-bold">
+                        {{ post.name }}
+                    </h3>
+                    {% endfor %}
+                </div>
+
+                <figure class="overflow-hidden rounded-3xl">
+                    {% for post in blog_posts %}
+                    <a href="/blogs/post/{{ post.id }}">
+                        <img src="{{ './image.png' if post.thumbnail_url is none else post.thumbnail_url }}" 
+                        class="hidden transition animate-fade-in-faster select-none">
+                    </a>
+                    {% endfor %}
+                </figure>
+
+                <div class="text-center mt-3">
+                    {% for number in range(blog_posts|length) %}
+                    <button onclick="toggleSlideshowImage(blogs_slideshow, '{{ number }}'); stopSlideshowLoopThingy(blogs_slideshow_id);" class="w-3 h-3 rounded-full m-1 bg-gray-600"></button>
+                    {% endfor %}
+                </div>
+            </div>
+
         </div>
 
     </div>

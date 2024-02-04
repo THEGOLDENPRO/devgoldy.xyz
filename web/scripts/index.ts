@@ -7,6 +7,8 @@ const quick_about_text = document.getElementById("quick_about_text");
 
 const blogs_slideshow = document.getElementById("blogs-slideshow");
 
+var blogs_slideshow_id: number;
+
 function doAnimationThingy(elements: AnimationElements) {
 
     for (let [element, timeout] of elements) {
@@ -29,6 +31,7 @@ function doAnimationThingy(elements: AnimationElements) {
 function toggleSlideshowImage(slideshow: HTMLElement, index: number) {
     const slideshow_images = slideshow.getElementsByTagName("img");
     const slideshow_buttons = slideshow.getElementsByTagName("button");
+    const slideshow_titles = slideshow.getElementsByTagName("h3");
 
     // hide the last slideshow image and darken it's button.
     for (let image of slideshow_images) {
@@ -43,18 +46,50 @@ function toggleSlideshowImage(slideshow: HTMLElement, index: number) {
         }
     }
 
+    for (let title of slideshow_titles) {
+        if (!title.classList.contains("hidden")) {
+            title.classList.add("hidden");
+        }
+    }
+
     // show the current slideshow image and brighten it's button.
     slideshow_images[index].classList.remove("hidden");
     slideshow_buttons[index].classList.add("!bg-white");
+    slideshow_titles[index].classList.remove("hidden");
+
+    // show title on hover.
+    let hover_callback = (e: MouseEvent) => {
+        if (e.type == "mouseover") {
+            slideshow_images[index].classList.add("grayscale");
+            slideshow_images[index].classList.add("saturate-50");
+            slideshow_images[index].classList.add("brightness-50");
+
+            slideshow_titles[index].classList.add("opacity-100");
+        } else {
+            slideshow_images[index].classList.remove("grayscale");
+            slideshow_images[index].classList.remove("saturate-50");
+            slideshow_images[index].classList.remove("brightness-50");
+
+            slideshow_titles[index].classList.remove("opacity-100");
+        }
+    };
+
+    slideshow_titles[index].addEventListener("mouseover", hover_callback);
+    slideshow_images[index].addEventListener("mouseover", hover_callback);
+
+    slideshow_titles[index].addEventListener("mouseleave", hover_callback);
+    slideshow_images[index].addEventListener("mouseleave", hover_callback);
 }
 
-function startSlideshowLoopThingy(slideshow: HTMLElement) {
+function startSlideshowLoopThingy(slideshow: HTMLElement, start_from: number = 0) {
+    console.log(`Slideshow with id '${slideshow.id}' is being started...`);
+
     const slideshow_images = slideshow.getElementsByTagName("img");
 
-    let index: number = 0;
+    let index: number = start_from;
     const max_index: number = slideshow_images.length - 1;
 
-    setInterval(
+    return setInterval(
         () => {
             if (index > max_index) {
                 index = 0;
@@ -65,6 +100,11 @@ function startSlideshowLoopThingy(slideshow: HTMLElement) {
             index += 1;
         }, 6000
     );
+}
+
+function stopSlideshowLoopThingy(id: number) {
+    console.log(`Slideshow with id '${id}' is being stopped...`);
+    clearInterval(id);
 }
 
 
@@ -81,5 +121,5 @@ doAnimationThingy(elements_to_do);
 // Slideshow stuff.
 if (blogs_slideshow !== null) {
     toggleSlideshowImage(blogs_slideshow, 0);
-    startSlideshowLoopThingy(blogs_slideshow);
+    blogs_slideshow_id = startSlideshowLoopThingy(blogs_slideshow, 1);
 }
