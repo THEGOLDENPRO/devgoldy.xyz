@@ -9,11 +9,11 @@
 {% endblock %}
 
 {% block body %}
-<body class="m-0 text-white bg-goldyDarky font-YanoneKaffeesatz">
+<body class="m-0 text-white bg-goldyDarky font-YanoneKaffeesatz tracking-widest">
 
     {% if status is not none %}
-    <div class="bg-goldyOrangy bg-opacity-50 w-fit px-10 rounded-xl rounded-t-none mx-auto select-none">
-        <h2 class="font-bold" style="text-shadow: black 1px 1px 0px;">{{ status|safe }}</h2>
+    <div class="bg-goldyOrangy bg-opacity-50 w-fit px-10 mobile:px-2 rounded-xl rounded-t-none mobile:rounded-none mx-auto select-none">
+        <h2 class="font-bold text-center" style="text-shadow: black 1px 1px 0px;">{{ status|safe }}</h2>
     </div>
     {% endif %}
 
@@ -82,7 +82,7 @@
                 <div class="relative z-10 cursor-pointer">
                     {% for post in blog_posts %}
                     <h3 style="text-shadow: black 2px 2px 0px;" class="hidden opacity-0 transition duration-300 select-none 
-                        absolute top-3 px-5 w-full text-center text-4xl mobile:hidden font-bold">
+                        absolute top-3 px-5 w-full text-center text-4xl tracking-normal mobile:hidden font-bold">
                         {{ post.name }}
                     </h3>
                     {% endfor %}
