@@ -27,6 +27,7 @@ class LinkerData(TypedDict):
     url: str
 
 class ConfigData(TypedDict):
+    status: str
     projects: NotRequired[List[ProjectData]]
     linkers: NotRequired[List[LinkerData]]
 
@@ -46,6 +47,7 @@ class Config():
         documents = list(tree)
 
         return {
+            "status": documents[0].text,
             "linkers": [
                 {
                     "id": element[0].text,
@@ -55,13 +57,13 @@ class Config():
                     "image_url": element[4].text,
                     "colour": element[5].text,
                     "url": element[6].text
-                } for element in documents[0]
+                } for element in documents[1]
             ],
             "projects": [
                 {
                     "name": element[0].text,
                     "description": element[1].text,
                     "git": element[2].text
-                } for element in documents[1]
+                } for element in documents[2]
             ]
         }

@@ -69,10 +69,18 @@ async def index(request: Request, mode: Literal["legacy", "default"] = "default"
         image_url = "https://devgoldy.xyz/image.png"
     )
 
+    status_msg = None
+
+    status = live_config.get("status")
+
+    if not status == "" and status is not None:
+        status_msg = basic_markdown.convert(status)
+
     return templates.TemplateResponse(
         "legacy_index.html" if mode == "legacy" else "index.html", {
-            "blog_posts": blog_posts,
-            "anime_list": await anime.get_anime_status(),
+            "status": status_msg,
+            "blog_posts": blog_posts, 
+            "anime_list": await anime.get_anime_status(), 
             "open_source_projects": live_config.get("projects", [projects_placeholder]),
 
             **context.data

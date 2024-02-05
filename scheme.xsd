@@ -4,6 +4,8 @@
     <xs:complexType>
       <xs:sequence>
 
+        <xs:element name="status" type="xs:string"></xs:element>
+
         <xs:element name="linkers">
           <xs:complexType>
             <xs:sequence>

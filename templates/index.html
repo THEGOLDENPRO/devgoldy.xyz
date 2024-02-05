@@ -9,9 +9,15 @@
 {% endblock %}
 
 {% block body %}
-<body class="m-0 mt-5 text-white bg-goldyDarky font-YanoneKaffeesatz">
+<body class="m-0 text-white bg-goldyDarky font-YanoneKaffeesatz">
 
-    <div class="grid grid-cols-3 gap-4 mobile:grid-cols-1 w-2/4 tablet:w-3/4 mobile:w-full mx-auto select-none">
+    {% if status is not none %}
+    <div class="bg-goldyOrangy bg-opacity-50 w-fit px-10 rounded-xl rounded-t-none mx-auto select-none">
+        <h2 class="font-bold" style="text-shadow: black 1px 1px 0px;">{{ status|safe }}</h2>
+    </div>
+    {% endif %}
+
+    <div class="grid grid-cols-3 gap-4 mobile:grid-cols-1 w-2/4 tablet:w-3/4 mobile:w-full mx-auto mt-5 select-none">
 
         <div class="hidden mobile:block select-none">
             <figure>
@@ -75,7 +81,7 @@
 
                 <div class="relative z-10 cursor-pointer">
                     {% for post in blog_posts %}
-                    <h3 style="text-shadow: black 2px 2px 0px;" class="hidden opacity-0 transition select-none 
+                    <h3 style="text-shadow: black 2px 2px 0px;" class="hidden opacity-0 transition duration-300 select-none 
                         absolute top-3 px-5 w-full text-center text-4xl mobile:hidden font-bold">
                         {{ post.name }}
                     </h3>
@@ -86,7 +92,7 @@
                     {% for post in blog_posts %}
                     <a href="/blogs/post/{{ post.id }}">
                         <img src="{{ './image.png' if post.thumbnail_url is none else post.thumbnail_url }}" 
-                        class="hidden transition animate-fade-in-faster select-none">
+                        class="hidden transition duration-300 animate-fade-in-faster select-none">
                     </a>
                     {% endfor %}
                 </figure>

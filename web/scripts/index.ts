@@ -60,14 +60,14 @@ function toggleSlideshowImage(slideshow: HTMLElement, index: number) {
     // show title on hover.
     let hover_callback = (e: MouseEvent) => {
         if (e.type == "mouseover") {
-            slideshow_images[index].classList.add("grayscale");
-            slideshow_images[index].classList.add("saturate-50");
+            slideshow_images[index].classList.add("blur-sm");
+            //slideshow_images[index].classList.add("saturate-50");
             slideshow_images[index].classList.add("brightness-50");
 
             slideshow_titles[index].classList.add("opacity-100");
         } else {
-            slideshow_images[index].classList.remove("grayscale");
-            slideshow_images[index].classList.remove("saturate-50");
+            slideshow_images[index].classList.remove("blur-sm");
+            //slideshow_images[index].classList.remove("saturate-50");
             slideshow_images[index].classList.remove("brightness-50");
 
             slideshow_titles[index].classList.remove("opacity-100");
