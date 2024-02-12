@@ -15,6 +15,11 @@ module.exports = {
                     500: "#0e1114"
                 },
                 goldyGreyy: "#222930",
+                goldyGreyy: {
+                    DEFAULT: "#222930",
+                    100: "#222930",
+                    300: "#2A2B2C"
+                },
                 goldyCream: "#fbc689",
                 goldyWhite: "#f1f1f1",
                 goldyOrangy: {
