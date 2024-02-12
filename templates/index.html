@@ -9,7 +9,7 @@
 {% endblock %}
 
 {% block body %}
-<body class="m-0 text-white bg-goldyDarky font-YanoneKaffeesatz tracking-widest">
+<body class="m-0 text-white bg-goldyDarky font-YanoneKaffeesatz tracking-wide">
 
     {% if status is not none %}
     <div class="bg-goldyOrangy bg-opacity-50 w-fit px-10 mobile:px-2 rounded-xl rounded-t-none mobile:rounded-none mx-auto select-none">
@@ -17,7 +17,7 @@
     </div>
     {% endif %}
 
-    <div class="grid grid-cols-3 gap-4 mobile:grid-cols-1 w-2/4 tablet:w-3/4 mobile:w-full mx-auto mt-5 select-none">
+    <div class="grid grid-cols-3 gap-4 mobile:grid-cols-1 w-2/4 tablet:w-3/4 mobile:w-full mx-auto mt-5 select-none tracking-widest">
 
         <div class="hidden mobile:block select-none">
             <figure>
@@ -63,7 +63,10 @@
         <div class="grid grid-cols-2 mobile:grid-cols-1">
 
             <div class="p-2">
-                <h2 class="underline text-xl text-center font-bold mb-2">OwO</h2>
+                <div class="text-xl text-center font-bold mb-2">
+                    <span class="pr-1">🏗️</span>
+                    <h2 class="inline underline">Under Construction</h2>
+                </div>
 
                 <p>This site is currently in alpha so this section is still currently under development. </p>
 
