@@ -135,7 +135,7 @@
     }
 
     #post-content p code {
-        @apply bg-black px-1 py-0.5 rounded-xl text-lg mobile:bg-goldyGreyy;
+        @apply bg-black px-2 py-1 pb-0.5 text-base rounded-xl mobile:bg-goldyGreyy;
     }
 
     #post-content pre code {
