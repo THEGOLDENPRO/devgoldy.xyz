@@ -84,8 +84,9 @@ async def read_post(request: Request, id: int):
         name = post["name"], 
         description = description, 
         image_url = thumbnail_url, 
-        site_name = None,
-        divider = None
+        site_name = None, 
+        divider = None, 
+        theme_colour = f"rgb({post['accent_colour']})"
     )
 
     return templates.TemplateResponse(
