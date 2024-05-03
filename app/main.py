@@ -11,6 +11,7 @@ from fastapi import FastAPI
 from fastapi.requests import Request
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
+from fastapi.responses import RedirectResponse
 
 from .anime import Anime
 from .config import Config, ProjectData
@@ -47,7 +48,7 @@ anime = Anime(constants.MAL_USERNAME, http_client)
 templates = Jinja2Templates(directory = "./templates")
 
 @app.get("/")
-async def index(request: Request, mode: Literal["legacy", "default"] = "default"):
+async def index(request: Request, mode: Literal["legacy", "default"] = constants.DEFAULT_HOME_MODE):
     blog_posts = []
     live_config = await config.get_config()
 
@@ -110,5 +111,9 @@ async def privacy(request: Request):
             **context.data
         }
     )
+
+@app.get("/favicon.ico")
+async def privacy():
+    return RedirectResponse("./rikka.png") # You saw it, didn't you...
 
 app.mount("/", StaticFiles(directory = "web"))

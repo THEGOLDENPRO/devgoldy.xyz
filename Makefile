@@ -1,7 +1,9 @@
 build: install-deps npm-install compile-ts tailwind
 
+pip = pip
+
 install-deps:
-	pip install -r requirements.txt
+	${pip} install -r requirements.txt
 
 npm-install:
 	npm i
@@ -15,8 +17,10 @@ tailwind:
 tailwind-watch:
 	npx tailwindcss -i ./web/input.css -o ./web/output.css --watch
 
+python = python
+
 docker-build:
-	python scripts/docker_build.py
+	${python} scripts/docker_build.py
 
 docker-compose:
 	docker compose up
