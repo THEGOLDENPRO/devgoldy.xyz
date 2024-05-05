@@ -10,9 +10,9 @@ module.exports = {
                 goldyPink: "#fb89ab",
                 goldyDarky: {
                     DEFAULT: "#0e1114",
-                    200: "#0a0b0d",
+                    200: "#0e1114",
                     300: "#0b0d0f",
-                    500: "#0e1114"
+                    500: "#0a0b0d",
                 },
                 goldyGreyy: "#222930",
                 goldyGreyy: {
