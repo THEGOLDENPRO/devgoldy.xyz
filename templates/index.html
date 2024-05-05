@@ -12,13 +12,24 @@
 
 {% block body %}
 <body class="m-0 text-white bg-goldyDarky-500 font-YanoneKaffeesatz tracking-wide">
-    <div class="-z-0 animated-static-bg"></div>
+    <div id="static-bg-div" class="-z-0 animated-static-bg"></div>
 
     {% if status is not none %}
     <div class="bg-goldyOrangy bg-opacity-50 w-fit mobile:w-full px-10 mobile:px-2 rounded-xl rounded-t-none mobile:rounded-none mx-auto select-none">
         <h2 class="font-bold text-center" style="text-shadow: black 1px 1px 0px;">{{ status|safe }}</h2>
     </div>
     {% endif %}
+
+    <div class="absolute top-6 left-6">
+        <label id="toggle-static-button" class="inline-flex items-center cursor-pointer">
+            <input type="checkbox" value="" class="sr-only peer">
+            <div class="relative w-11 h-6 bg-gray-300 peer-checked:bg-goldyCream rounded-full 
+            peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full after:content-[''] 
+            after:absolute after:top-[2px] after:start-[2px] after:bg-goldyDarky-200 after:rounded-full after:h-5 
+            after:w-5 after:transition-all"></div>
+            <span class="ms-3 mt-0.5 text-base 2.75rem text-gray-900 dark:text-gray-300">Disable Static</span>
+        </label>
+    </div>
 
     <div class="grid grid-cols-3 gap-4 mobile:grid-cols-1 w-2/4 tablet:w-3/4 mobile:w-full mx-auto mt-5 select-none tracking-widest">
 

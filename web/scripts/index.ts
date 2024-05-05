@@ -4,10 +4,32 @@ const links = document.getElementById("links");
 const image = document.getElementById("image");
 const its_goldy_text = document.getElementById("its_goldy_text");
 const quick_about_text = document.getElementById("quick_about_text");
+const toggle_static_button = document.getElementById("toggle-static-button");
+const static_bg_div = document.getElementById("static-bg-div");
 
 const blogs_slideshow = document.getElementById("blogs-slideshow");
 
 var blogs_slideshow_id: number;
+
+const elements_to_do: AnimationElements = [
+    [its_goldy_text, 250],
+    [quick_about_text, 2000],
+    [links, 1000],
+    [image, 1400]
+];
+
+// The goofy fading in animation thingy.
+doAnimationThingy(elements_to_do);
+
+// Slideshow stuff.
+if (blogs_slideshow !== null) {
+    toggleSlideshowImage(blogs_slideshow, 0);
+    blogs_slideshow_id = startSlideshowLoopThingy(blogs_slideshow, 1);
+}
+
+toggle_static_button?.addEventListener("mousedown", (e) => {
+    static_bg_div?.classList.toggle("hidden");
+});
 
 function doAnimationThingy(elements: AnimationElements) {
 
@@ -105,21 +127,4 @@ function startSlideshowLoopThingy(slideshow: HTMLElement, start_from: number = 0
 function stopSlideshowLoopThingy(id: number) {
     console.log(`Slideshow with id '${id}' is being stopped...`);
     clearInterval(id);
-}
-
-
-const elements_to_do: AnimationElements = [
-    [its_goldy_text, 250],
-    [quick_about_text, 2000],
-    [links, 1000],
-    [image, 1400]
-];
-
-// The goofy fading in animation thingy.
-doAnimationThingy(elements_to_do);
-
-// Slideshow stuff.
-if (blogs_slideshow !== null) {
-    toggleSlideshowImage(blogs_slideshow, 0);
-    blogs_slideshow_id = startSlideshowLoopThingy(blogs_slideshow, 1);
 }
