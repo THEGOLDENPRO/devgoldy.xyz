@@ -51,7 +51,7 @@
     }
 
     a {
-        @apply text-goldyOrangy-300 font-bold transition duration-300 hover:text-goldyOrangy-800
+        @apply text-goldyOrangy-300 font-bold transition duration-300 hover:text-goldyOrangy-800 relative
     }
 
     body {

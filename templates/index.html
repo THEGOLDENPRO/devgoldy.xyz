@@ -5,11 +5,14 @@
 
 <link rel="stylesheet" href="./output.css">
 
+<link rel="stylesheet" href="./animated_static_bg.css">
+
 <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 {% endblock %}
 
 {% block body %}
 <body class="m-0 text-white bg-goldyDarky font-YanoneKaffeesatz tracking-wide">
+    <div class="-z-0 animated-static-bg"></div>
 
     {% if status is not none %}
     <div class="bg-goldyOrangy bg-opacity-50 w-fit mobile:w-full px-10 mobile:px-2 rounded-xl rounded-t-none mobile:rounded-none mx-auto select-none">
@@ -26,8 +29,11 @@
             </figure>
         </div>
 
-        <div style="text-shadow: black 2px 2px 0px;" class="col-start-1 col-end-3 mobile:col-auto h-[100%] pt-5 mobile:pt-0">
-            <h1 id="its_goldy_text" class="opacity-0 text-7xl mobile:text-4xl text-goldyCream font-bold tracking-[0.5rem]">Hi, it's Goldy</h1>
+        <div style="text-shadow: black 2px 2px 0px;" class="col-start-1 col-end-3 mobile:col-auto h-[100%] pt-5 mobile:pt-0 ">
+            <h1 id="its_goldy_text" style="text-shadow: 3px 0.5px 1px #fb89ab, -1px -0.5px 2px #f57d3d;"
+            class="opacity-0 text-7xl mobile:text-4xl text-goldyCream font-bold tracking-[0.5rem]">
+                Hi, it's Goldy
+            </h1>
             <h2 id="quick_about_text" class="opacity-0 text-2xl mobile:text-xl">
                 I'm an up and coming <a href="./github">open-source
                     developer</a>.
