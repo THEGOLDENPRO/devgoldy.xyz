@@ -2,7 +2,7 @@ from __future__ import annotations
 from typing import TypedDict, TYPE_CHECKING, cast
 
 if TYPE_CHECKING:
-    from typing import Optional
+    from typing import Optional, Tuple
     from fastapi import Request
     from typing_extensions import NotRequired
 
@@ -55,3 +55,7 @@ class PageContextBuilder():
 
         if image_url is not None:
             self.data["site_image_url"] = image_url
+
+    @classmethod
+    def convert_rgb_to_hex(cls, rgb: Tuple[int, int, int]) -> str:
+        return "#%02x%02x%02x" % rgb

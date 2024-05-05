@@ -86,14 +86,16 @@ async def read_post(request: Request, id: int):
         image_url = thumbnail_url, 
         site_name = None, 
         divider = None, 
-        theme_colour = f"rgb({post['accent_colour']})"
+        theme_colour = PageContextBuilder.convert_rgb_to_hex(
+            # Adding fallback here as the old api doesn't have accent_colour.
+            tuple([int(value) for value in post.get("accent_colour", "9, 11, 17").split(",")])
+        )
     )
 
     return templates.TemplateResponse(
         "blogs/post.html", {
             "id": id, 
             "blog_name": post["name"], 
-            "blog_accent_colour": post.get("accent_colour", "9, 11, 17"), # Adding fallback here as the old api doesn't have accent_colour.
             "blog_date_added": datetime.fromisoformat(post["date_added"]).strftime("%b %d %Y"), 
             "blog_content": content, 
             "blog_thumbnail_url": thumbnail_url, 
