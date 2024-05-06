@@ -33,3 +33,5 @@ test:
 
 clean:
 	rm ./web/output.css
+	rm -r node_modules
+	rm package-lock.json

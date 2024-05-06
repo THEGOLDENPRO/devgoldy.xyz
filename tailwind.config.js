@@ -20,7 +20,11 @@ module.exports = {
                     100: "#222930",
                     300: "#2A2B2C"
                 },
-                goldyCream: "#fbc689",
+                goldyCream: {
+                    DEFAULT: "#fbc689",
+                    200: "#fbc689",
+                    800: "theme(colors.orange.50)"
+                },
                 goldyWhite: "#f1f1f1",
                 goldyOrangy: {
                     DEFAULT: "#f5671b",

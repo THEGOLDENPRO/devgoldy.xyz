@@ -12,7 +12,7 @@
 
 {% block body %}
 <body class="m-0 text-white bg-goldyDarky-500 font-YanoneKaffeesatz tracking-wide">
-    <div id="static-bg-div" class="-z-0 animated-static-bg"></div>
+    <div id="static-bg-div" class="z-10 animated-static-bg pointer-events-none"></div>
 
     {% if status is not none %}
     <div class="bg-goldyOrangy bg-opacity-50 w-fit mobile:w-full px-10 mobile:px-2 rounded-xl rounded-t-none mobile:rounded-none mx-auto select-none">
@@ -20,7 +20,7 @@
     </div>
     {% endif %}
 
-    <div class="absolute top-6 left-6">
+    <div class="absolute top-6 left-6 opacity-35 hover:opacity-100 transition tablet:hidden">
         <label id="toggle-static-button" class="inline-flex items-center cursor-pointer">
             <input type="checkbox" value="" class="sr-only peer">
             <div class="relative w-11 h-6 bg-gray-300 peer-checked:bg-goldyCream rounded-full 
@@ -75,9 +75,41 @@
 
     </div>
 
-    <div class="status mt-5 bg-goldyDarky-200 p-5 rounded-3xl mx-[20%] mobile:mx-auto">
+    <div class="mt-5 bg-goldyDarky-200 rounded-2xl mx-[20%] mobile:mx-auto">
 
-        <div class="grid grid-cols-2 mobile:grid-cols-1">
+        <div class="relative pt-2">
+            <div class="border-inherit py-1 select-none cursor-default">
+                <div class="mx-auto w-fit">
+                    <div class="bg-indigo-600 bg-opacity-40 rounded-lg p-0.5 px-2">
+                        <h2 data-tauri-drag-region class="inline text-white text-lg font-bold tracking-wider">
+                            Blogs
+                        </h2>
+                    </div>
+                </div>
+
+                <div style="stroke-opacity: 0.8;" class="absolute pt-2 pr-2 top-[0.35rem] right-2 space-x-0.5 fill-white stroke-black stroke-2">
+                    <button class="pointer-events-none bg-orange-100 will-change-auto rounded-md">
+                        <svg class="inline" width="24" height="20" viewBox="0 0 24 24">
+                            <path d="M5 11h14v2H5z"></path>
+                        </svg>
+                    </button>
+
+                    <button class="pointer-events-none bg-orange-100 will-change-auto rounded-md">
+                        <svg class="inline" width="24" height="16" viewBox="0 0.5 24 24">
+                            <path d="M20 3H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zm-1 16H5V5h14v14z"></path>
+                        </svg>
+                    </button>
+
+                    <button class="pointer-events-none bg-orange-100 h-[24px] will-change-auto rounded-md">
+                        <svg class="inline" width="24" height="24" viewBox="0 0.5 24 24">
+                            <path d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-2 mobile:grid-cols-1 p-5">
 
             <div class="p-2">
                 <div class="text-xl text-center font-bold mb-2">
