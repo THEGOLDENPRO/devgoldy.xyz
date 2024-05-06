@@ -4,8 +4,9 @@ const links = document.getElementById("links");
 const image = document.getElementById("image");
 const its_goldy_text = document.getElementById("its_goldy_text");
 const quick_about_text = document.getElementById("quick_about_text");
-const toggle_static_button = document.getElementById("toggle-static-button");
+const toggle_effects_button = document.getElementById("toggle-effects-button");
 const static_bg_div = document.getElementById("static-bg-div");
+const about_me_div = document.getElementById("about-me-div");
 
 const blogs_slideshow = document.getElementById("blogs-slideshow");
 
@@ -27,8 +28,9 @@ if (blogs_slideshow !== null) {
     blogs_slideshow_id = startSlideshowLoopThingy(blogs_slideshow, 1);
 }
 
-toggle_static_button?.addEventListener("mousedown", (e) => {
+toggle_effects_button?.addEventListener("mousedown", (e) => {
     static_bg_div?.classList.toggle("hidden");
+    about_me_div?.classList.toggle("animated-crt-lines");
 });
 
 function doAnimationThingy(elements: AnimationElements) {
