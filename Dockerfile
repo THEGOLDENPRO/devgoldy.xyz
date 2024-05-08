@@ -7,6 +7,7 @@ WORKDIR /app
 COPY /app ./app
 COPY /web ./web
 COPY /templates ./templates
+COPY /markdown ./markdown
 
 COPY requirements.txt .
 COPY package.json .

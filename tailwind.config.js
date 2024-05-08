@@ -33,6 +33,9 @@ module.exports = {
                     800: "#f5be3d"
                 },
                 goldyGreen: "#d0f54c"
+            },
+            dropShadow: {
+                "pinky-drop": "3px 0.5px 1px #fb89ab",
             }
         },
         screens: {

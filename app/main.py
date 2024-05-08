@@ -48,7 +48,7 @@ anime = Anime(constants.MAL_USERNAME, http_client)
 templates = Jinja2Templates(directory = "./templates")
 
 @app.get("/")
-async def index(request: Request, mode: Literal["legacy", "default"] = constants.DEFAULT_HOME_MODE):
+async def index(request: Request, mode: Literal["legacy", "new"] = constants.DEFAULT_HOME_MODE):
     blog_posts = []
     live_config = await config.get_config()
 
@@ -70,6 +70,9 @@ async def index(request: Request, mode: Literal["legacy", "default"] = constants
         image_url = "https://devgoldy.xyz/image.png"
     )
 
+    with open("./markdown/about_me.md") as file:
+        about_me_content = basic_markdown.convert(file.read())
+
     status_msg = None
 
     status = live_config.get("status")
@@ -79,10 +82,11 @@ async def index(request: Request, mode: Literal["legacy", "default"] = constants
 
     return templates.TemplateResponse(
         "legacy_index.html" if mode == "legacy" else "index.html", {
-            "status": status_msg,
+            "status": status_msg, 
+            "about_me_content": about_me_content, 
             "blog_posts": blog_posts, 
             "anime_list": await anime.get_anime_status(), 
-            "open_source_projects": live_config.get("projects", [projects_placeholder]),
+            "open_source_projects": live_config.get("projects", [projects_placeholder]), 
 
             **context.data
         }

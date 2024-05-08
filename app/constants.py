@@ -24,4 +24,4 @@ LICENSE_URL = config("LICENSE_URL", "https://github.com/THEGOLDENPRO/devgoldy.xy
 BLOG_CDN_URL = config("BLOG_CDN_URL", "https://cdn.devgoldy.xyz/goldy-exe")
 BLOG_API_URL = config("BLOG_API_URL", "https://api.devgoldy.xyz/goldy-exe/v1")
 
-DEFAULT_HOME_MODE = config("DEFAULT_HOME_MODE", "default")
+DEFAULT_HOME_MODE = config("DEFAULT_HOME_MODE", "new")

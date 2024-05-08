@@ -21,14 +21,14 @@
     </div>
     {% endif %}
 
-    <div class="absolute top-6 left-6 opacity-35 hover:opacity-100 transition tablet:hidden">
+    <div class="absolute top-6 mobile:top-8 left-6 mobile:left-2 opacity-35 hover:opacity-100 transition">
         <label id="toggle-effects-button" class="inline-flex items-center cursor-pointer">
             <input type="checkbox" value="" class="sr-only peer">
             <div class="relative w-11 h-6 bg-gray-300 peer-checked:bg-goldyCream rounded-full 
             peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full after:content-[''] 
             after:absolute after:top-[2px] after:start-[2px] after:bg-goldyDarky-200 after:rounded-full after:h-5 
             after:w-5 after:transition-all"></div>
-            <span class="ms-3 mt-0.5 text-base 2.75rem text-gray-900 dark:text-gray-300">Disable Effects</span>
+            <span class="ms-3 mobile:ms-2 mt-0.5 text-base mobile:text-sm 2.75rem text-gray-900 dark:text-gray-300">Disable Effects</span>
         </label>
     </div>
 
@@ -42,8 +42,8 @@
         </div>
 
         <div style="text-shadow: black 2px 2px 0px;" class="col-start-1 col-end-3 mobile:col-auto h-[100%] pt-5 mobile:pt-0 ">
-            <h1 id="its_goldy_text" style="text-shadow: 3px 0.5px 1px #fb89ab, -1px -0.5px 2px #f57d3d;"
-            class="opacity-0 text-7xl mobile:text-4xl text-goldyCream font-bold tracking-[0.5rem]">
+            <h1 id="its_goldy_text" style="text-shadow: 3px 0.5px 1px #fb89ab;"
+            class="opacity-0 text-7xl mobile:text-4xl mobile:drop-shadow-none text-goldyCream font-bold tracking-[0.5rem]">
                 Hi, it's Goldy
             </h1>
             <h2 id="quick_about_text" class="opacity-0 text-2xl mobile:text-xl">
@@ -76,7 +76,7 @@
 
     </div>
 
-    <div class="grid grid-cols-2 gap-8 mobile:grid-cols-1 p-5 mx-[20%] mobile:mx-auto mt-5">
+    <div class="grid grid-cols-2 gap-8 mobile:grid-cols-1 p-5 mx-[20%] tablet:mx-0 mt-5">
 
         <div id="about-me-div" class="animated-crt-lines bg-goldyDarky bg-opacity-10 rounded-md border-2 border-opacity-60 border-goldyCream">
     
@@ -84,12 +84,12 @@
                 <div class="select-none cursor-default">
                     <div class="mx-auto w-fit">
                         <div class="text-xl my-1.5 px-2">
-                            <span class="pr-1">🏗️</span>
-                            <h2 class="inline text-white font-bold tracking-wider">Under Construction</h2>
+                            <span class="pr-1">✨</span>
+                            <h2 class="inline text-white font-bold tracking-wider">About Me</h2>
                         </div>
                     </div>
-    
-                    <div style="stroke-opacity: 0.8;" class="absolute pt-2 pr-2 top-0 right-0 space-x-0.5 fill-white stroke-white stroke-2">
+
+                    <div style="stroke-opacity: 0.8;" class="absolute tablet:hidden pt-2 pr-2 top-0 right-0 space-x-0.5 fill-white stroke-white stroke-2">
                         <button class="pointer-events-none border-2 border-opacity-70 border-goldyCream will-change-auto rounded-md">
                             <svg class="inline" width="24" height="20" viewBox="0 0 24 24">
                                 <path d="M5 11h14v2H5z"></path>
@@ -110,17 +110,9 @@
                     </div>
                 </div>
             </div>
-    
-            <div class="p-6">
-                <p>This site is currently in alpha so this section is still currently under development. </p>
-    
-                <br>
-        
-                <p>I added some temporary hyperlinks below to other sections of the site:</p>
-        
-                <ul class="ml-5">
-                    <li>- <a href="./blogs/">new blog site</a></li>
-                </ul>
+
+            <div class="p-6 tablet:p-3 font-typewriter">
+                {{ about_me_content|safe }}
             </div>
     
         </div>
@@ -135,7 +127,7 @@
                         </div>
                     </div>
     
-                    <div style="stroke-opacity: 0.8;" class="absolute pt-2 pr-2 top-0 right-0 space-x-0.5 fill-white stroke-white stroke-2">
+                    <div style="stroke-opacity: 0.8;" class="absolute tablet:hidden pt-2 pr-2 top-0 right-0 space-x-0.5 fill-white stroke-white stroke-2">
                         <button class="pointer-events-none border-2 border-opacity-70 border-goldyCream will-change-auto rounded-md">
                             <svg class="inline" width="24" height="20" viewBox="0 0 24 24">
                                 <path d="M5 11h14v2H5z"></path>
@@ -157,11 +149,11 @@
                 </div>
             </div>
     
-            <div id="blogs-slideshow" class="p-6">
+            <div id="blogs-slideshow" class="p-6 tablet:p-3">
                 <div class="relative z-10 cursor-pointer">
                     {% for post in blog_posts %}
                     <h3 style="text-shadow: black 2px 2px 0px;" class="hidden opacity-0 transition duration-300 select-none 
-                        absolute top-3 px-5 w-full text-center text-4xl tracking-normal mobile:hidden font-bold">
+                        absolute top-3 px-5 w-full text-center text-3xl font-typewriter tracking-normal mobile:hidden font-bold">
                         {{ post.name }}
                     </h3>
                     {% endfor %}
