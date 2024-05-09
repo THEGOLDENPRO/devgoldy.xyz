@@ -4,11 +4,10 @@ from typing import TYPE_CHECKING, TypedDict
 if TYPE_CHECKING:
     from typing import List
     from typing_extensions import NotRequired
-    from xml.etree.ElementTree import Element
 
+import toml
 from pathlib import Path
 from aiofiles import open
-import defusedxml.ElementTree as ET
 
 __all__ = ("Config",)
 
@@ -16,6 +15,7 @@ class ProjectData(TypedDict):
     name: str
     description: str
     git: str
+    image: NotRequired[str]
 
 class LinkerData(TypedDict):
     id: str
@@ -41,29 +41,4 @@ class Config():
         text = await config_file.read()
         await config_file.close()
 
-        return self.__tree_to_dict(ET.fromstring(text))
-
-    def __tree_to_dict(self, tree: Element) -> ConfigData:
-        documents = list(tree)
-
-        return {
-            "status": documents[0].text,
-            "linkers": [
-                {
-                    "id": element[0].text,
-                    "title": element[1].text,
-                    "description": element[2].text,
-                    "site_name": element[3].text,
-                    "image_url": element[4].text,
-                    "colour": element[5].text,
-                    "url": element[6].text
-                } for element in documents[1]
-            ],
-            "projects": [
-                {
-                    "name": element[0].text,
-                    "description": element[1].text,
-                    "git": element[2].text
-                } for element in documents[2]
-            ]
-        }
+        return toml.loads(text)["config"]

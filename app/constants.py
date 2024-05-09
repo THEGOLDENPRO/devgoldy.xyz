@@ -14,7 +14,7 @@ __all__ = (
 
 MAX_DESCRIPTION_LENGTH = 200
 
-CONFIG_PATH = config("CONFIG_PATH", "./config.xml")
+CONFIG_PATH = config("CONFIG_PATH", "./config.toml")
 MAL_USERNAME = config("MAL_USERNAME", "thegoldenpro")
 
 SOURCE_CODE_URL = config("SOURCE_CODE_URL", "https://github.com/THEGOLDENPRO/devgoldy.xyz")

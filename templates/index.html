@@ -117,7 +117,7 @@
 
         </div>
 
-        <div id="blogs-div" class="bg-goldyDarky bg-opacity-10 rounded-md border-2 border-opacity-60 border-goldyCream">
+        <div id="blogs-div" class="bg-goldyDarky bg-opacity-10 rounded-md border-2 border-opacity-60 border-goldyCream h-min">
     
             <div class="relative pt-1">
                 <div class="select-none cursor-default">
@@ -208,9 +208,9 @@
                 </div>
             </div>
 
-            <div class="grid grid-cols-3 mobile:grid-cols-1 gap-4 p-5">
+            <div class="grid grid-cols-2 mobile:grid-cols-1 gap-4 p-5">
                 {% for project in open_source_projects %}
-                <div title="{{ project.description }}" class="opacity-30 hover:opacity-100 sepia hover:sepia-0 transition">
+                <div title="{{ project.description }}" class="opacity-30 hover:opacity-100 sepia hover:sepia-0 transition h-min">
                     <a href="{{ project.git }}">
                         <img src="{{ './image.jpg' if project.image is none else project.image }}" 
                         class="transition rounded-lg duration-300 animate-fade-in-faster select-none">

@@ -11,3 +11,4 @@ config.xml
 .ruff_cache
 *.js
 !*.config.js
+config.toml

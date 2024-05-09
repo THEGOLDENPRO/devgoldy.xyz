@@ -85,16 +85,18 @@ async def index(request: Request, mode: Literal["legacy", "new"] = constants.DEF
     for index, project in enumerate(projects):
         git_url = project["git"]
 
-        projects[index]["image"] = None
+        project_image_url = projects[index].get("image")
 
-        if "https://github.com" in git_url:
+        if project_image_url is None and "https://github.com" in git_url:
             split_git_url = git_url.split("/")
 
             git_user = split_git_url[-2]
             repo_name = split_git_url[-1]
 
-            projects[index]["image"] = "https://opengraph.githubassets.com/d6e56308869b44ec6a37a53b7735b6d5bdd7131635f70cae050baf0197620f3a" \
+            project_image_url = "https://opengraph.githubassets.com/d6e56308869b44ec6a37a53b7735b6d5bdd7131635f70cae050baf0197620f3a" \
                 f"/{git_user}/{repo_name}"
+
+        projects[index]["image"] = project_image_url
 
     return templates.TemplateResponse(
         "legacy_index.html" if mode == "legacy" else "index.html", {
