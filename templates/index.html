@@ -208,7 +208,7 @@
                 </div>
             </div>
 
-            <div class="grid grid-cols-3 gap-4 p-5">
+            <div class="grid grid-cols-3 mobile:grid-cols-1 gap-4 p-5">
                 {% for project in open_source_projects %}
                 <div title="{{ project.description }}" class="opacity-30 hover:opacity-100 sepia hover:sepia-0 transition">
                     <a href="{{ project.git }}">
