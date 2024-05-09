@@ -41,11 +41,11 @@ projects_placeholder: ProjectData = {
     "git": "https://cdn.devgoldy.xyz/ricky.webm"
 }
 
-basic_markdown = Markdown()
 http_client = ClientSession()
 config = Config(constants.CONFIG_PATH)
 anime = Anime(constants.MAL_USERNAME, http_client)
 templates = Jinja2Templates(directory = "./templates")
+basic_markdown = Markdown()
 
 @app.get("/")
 async def index(request: Request, mode: Literal["legacy", "new"] = constants.DEFAULT_HOME_MODE):

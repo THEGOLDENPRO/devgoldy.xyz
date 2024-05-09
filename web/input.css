@@ -105,11 +105,11 @@
         @apply rounded-3xl my-3;
     }
 
-    #post-content ul {
+    #post-content ul, #about-me-div ul {
         @apply list-disc pl-8;
     }
 
-    #post-content ol {
+    #post-content ol, #about-me-div ol {
         @apply list-decimal pl-8;
     }
 
