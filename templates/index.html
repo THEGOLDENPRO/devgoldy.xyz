@@ -170,10 +170,56 @@
     
                 <div class="text-center mt-3">
                     {% for number in range(blog_posts|length) %}
-                    <button onclick="toggleSlideshowImage(blogs_slideshow, '{{ number }}'); stopSlideshowLoopThingy(blogs_slideshow_id);" class="w-3 h-3 rounded-full m-1 bg-gray-600"></button>
+                    <button onclick="toggleSlideshowImage(blogs_slideshow, '{{ number }}'); stopSlideshowLoopThingy(blogs_slideshow_id);" class="w-4 h-4 rounded-full m-1 bg-gray-600"></button>
                     {% endfor %}
                 </div>
             </div>
+        </div>
+
+        <div id="projects-div" class="col-span-2 mobile:col-span-1 bg-goldyDarky bg-opacity-10 rounded-md border-2 border-opacity-60 border-goldyCream">
+
+            <div class="relative pt-1">
+                <div class="select-none cursor-default">
+                    <div class="mx-auto w-fit">
+                        <div class="text-xl my-1.5 px-2">
+                            <h2 class="inline text-white font-bold tracking-wider">⭐ Projects</h2>
+                        </div>
+                    </div>
+
+                    <div style="stroke-opacity: 0.8;" class="absolute tablet:hidden pt-2 pr-2 top-0 right-0 space-x-0.5 fill-white stroke-white stroke-2">
+                        <button class="pointer-events-none border-2 border-opacity-70 border-goldyCream will-change-auto rounded-md">
+                            <svg class="inline" width="24" height="20" viewBox="0 0 24 24">
+                                <path d="M5 11h14v2H5z"></path>
+                            </svg>
+                        </button>
+
+                        <button class="pointer-events-none border-2 border-opacity-70 border-goldyCream will-change-auto rounded-md">
+                            <svg class="inline" width="24" height="16" viewBox="0 0.5 24 24">
+                                <path d="M20 3H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zm-1 16H5V5h14v14z"></path>
+                            </svg>
+                        </button>
+
+                        <button class="pointer-events-none border-2 border-opacity-70 border-goldyCream h-[28px] will-change-auto rounded-md">
+                            <svg class="inline" width="24" height="24" viewBox="0 0.5 24 24">
+                                <path d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-3 gap-4 p-5">
+                {% for project in open_source_projects %}
+                <div title="{{ project.description }}" class="opacity-30 hover:opacity-100 sepia hover:sepia-0 transition">
+                    <a href="{{ project.git }}">
+                        <img src="{{ './image.jpg' if project.image is none else project.image }}" 
+                        class="transition rounded-lg duration-300 animate-fade-in-faster select-none">
+                    </a>
+                    <h3 class="mt-2 text-center text-gray-300 text-lg tracking-wider">{{ project.name }}</h3>
+                </div>
+                {% endfor %}
+            </div>
+
         </div>
 
     </div>

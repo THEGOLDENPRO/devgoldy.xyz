@@ -50,7 +50,7 @@ basic_markdown = Markdown()
 @app.get("/")
 async def index(request: Request, mode: Literal["legacy", "new"] = constants.DEFAULT_HOME_MODE):
     blog_posts = []
-    live_config = await config.get_config()
+    config_data = await config.get_config()
 
     async with http_client.request("GET", constants.BLOG_API_URL + "/posts", params = {"limit": "8"}) as r:
         if r.ok:
@@ -67,7 +67,7 @@ async def index(request: Request, mode: Literal["legacy", "new"] = constants.DEF
         request, 
         name = "Home", 
         description = "My main website.", 
-        image_url = "https://devgoldy.xyz/image.png"
+        image_url = "https://devgoldy.xyz/image.jpg"
     )
 
     with open("./markdown/about_me.md") as file:
@@ -75,10 +75,26 @@ async def index(request: Request, mode: Literal["legacy", "new"] = constants.DEF
 
     status_msg = None
 
-    status = live_config.get("status")
+    status = config_data.get("status")
 
     if not status == "" and status is not None:
         status_msg = basic_markdown.convert(status)
+
+    projects = config_data.get("projects", [projects_placeholder])
+
+    for index, project in enumerate(projects):
+        git_url = project["git"]
+
+        projects[index]["image"] = None
+
+        if "https://github.com" in git_url:
+            split_git_url = git_url.split("/")
+
+            git_user = split_git_url[-2]
+            repo_name = split_git_url[-1]
+
+            projects[index]["image"] = "https://opengraph.githubassets.com/d6e56308869b44ec6a37a53b7735b6d5bdd7131635f70cae050baf0197620f3a" \
+                f"/{git_user}/{repo_name}"
 
     return templates.TemplateResponse(
         "legacy_index.html" if mode == "legacy" else "index.html", {
@@ -86,7 +102,7 @@ async def index(request: Request, mode: Literal["legacy", "new"] = constants.DEF
             "about_me_content": about_me_content, 
             "blog_posts": blog_posts, 
             "anime_list": await anime.get_anime_status(), 
-            "open_source_projects": live_config.get("projects", [projects_placeholder]), 
+            "open_source_projects": projects, 
 
             **context.data
         }
