@@ -16,7 +16,7 @@
     <div id="static-bg-div" class="animated-static-bg z-10 pointer-events-none"></div>
 
     {% if status is not none %}
-    <div class="bg-goldyOrangy bg-opacity-50 w-fit mobile:w-full px-10 mobile:px-2 rounded-xl rounded-t-none mobile:rounded-none mx-auto select-none">
+    <div class="bg-goldyCream bg-opacity-60 w-fit mobile:w-full px-10 mobile:px-2 rounded-xl rounded-t-none mobile:rounded-none mx-auto select-none">
         <h2 class="font-bold text-center" style="text-shadow: black 1px 1px 0px;">{{ status|safe }}</h2>
     </div>
     {% endif %}
@@ -76,7 +76,7 @@
 
     </div>
 
-    <div class="grid grid-cols-2 gap-8 mobile:grid-cols-1 p-5 mx-[15%] tablet:mx-0 mt-5">
+    <div class="grid grid-cols-2 gap-8 mobile:grid-cols-1 p-5 mx-[10%] tablet:mx-0 mt-5">
 
         <div id="about-me-div" class="animated-crt-lines bg-goldyDarky bg-opacity-10 rounded-md border-2 border-opacity-60 border-goldyCream">
 
@@ -111,7 +111,7 @@
                 </div>
             </div>
 
-            <div class="p-6 tablet:p-3 font-typewriter text-lg text-[1.05rem] tracking-widest">
+            <div class="p-6 tablet:p-3 font-typewriter text-base !text-[1.08rem] mobile:!text-base tracking-widest">
                 {{ about_me_content|safe }}
             </div>
 
@@ -211,7 +211,7 @@
                 </div>
             </div>
 
-            <div style="grid-template-rows: masonry;" class="grid grid-cols-2 mobile:columns-1 gap-4 p-5">
+            <div class="grid grid-cols-2 mobile:grid-cols-1 gap-4 p-5">
                 {% for project in open_source_projects %}
                 <div title="{{ project.description }}" style="order: {{ loop.index }};" class="flex justify-center items-center 
                 opacity-40 hover:opacity-100 sepia hover:sepia-0 transition w-full">
