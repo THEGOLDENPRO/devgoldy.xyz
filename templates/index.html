@@ -21,7 +21,8 @@
     </div>
     {% endif %}
 
-    <div class="absolute top-6 mobile:top-8 left-6 mobile:left-2 opacity-35 hover:opacity-100 transition">
+    <div class="absolute top-6 {{ 'mobile:top-8' if status is not none else 'mobile:top-4' }} 
+    left-6 {{ 'mobile:left-2' if status is not none else 'mobile:left-4' }} opacity-35 hover:opacity-100 transition">
         <label id="toggle-effects-button" class="inline-flex items-center cursor-pointer">
             <input type="checkbox" value="" class="sr-only peer">
             <div class="relative w-11 h-6 bg-gray-300 peer-checked:bg-goldyCream rounded-full 
@@ -89,7 +90,7 @@
                         </div>
                     </div>
 
-                    <div style="stroke-opacity: 0.8;" class="absolute tablet:hidden pt-2 pr-2 top-0 right-0 space-x-0.5 fill-white stroke-white stroke-2">
+                    <div style="stroke-opacity: 0.8;" class="absolute tablet:hidden cursor-not-allowed pt-2 pr-2 top-0 right-0 space-x-0.5 fill-white stroke-white stroke-2">
                         <button class="pointer-events-none border-2 border-opacity-70 border-goldyCream will-change-auto rounded-md">
                             <svg class="inline" width="24" height="20" viewBox="0 0 24 24">
                                 <path d="M5 11h14v2H5z"></path>
@@ -128,7 +129,7 @@
                             </div>
                         </div>
         
-                        <div style="stroke-opacity: 0.8;" class="absolute tablet:hidden pt-2 pr-2 top-0 right-0 space-x-0.5 fill-white stroke-white stroke-2">
+                        <div style="stroke-opacity: 0.8;" class="absolute tablet:hidden cursor-not-allowed pt-2 pr-2 top-0 right-0 space-x-0.5 fill-white stroke-white stroke-2">
                             <button class="pointer-events-none border-2 border-opacity-70 border-goldyCream will-change-auto rounded-md">
                                 <svg class="inline" width="24" height="20" viewBox="0 0 24 24">
                                     <path d="M5 11h14v2H5z"></path>
@@ -189,7 +190,7 @@
                         </div>
                     </div>
 
-                    <div style="stroke-opacity: 0.8;" class="absolute tablet:hidden pt-2 pr-2 top-0 right-0 space-x-0.5 fill-white stroke-white stroke-2">
+                    <div style="stroke-opacity: 0.8;" class="absolute tablet:hidden cursor-not-allowed pt-2 pr-2 top-0 right-0 space-x-0.5 fill-white stroke-white stroke-2">
                         <button class="pointer-events-none border-2 border-opacity-70 border-goldyCream will-change-auto rounded-md">
                             <svg class="inline" width="24" height="20" viewBox="0 0 24 24">
                                 <path d="M5 11h14v2H5z"></path>

@@ -78,7 +78,7 @@ async def index(request: Request, mode: Literal["legacy", "new"] = constants.DEF
     status = config_data.get("status")
 
     if not status == "" and status is not None:
-        status_msg = basic_markdown.convert(status)
+        status_msg = basic_markdown.convert(status[:50])
 
     projects = config_data.get("projects", [projects_placeholder])
 
@@ -112,7 +112,7 @@ async def index(request: Request, mode: Literal["legacy", "new"] = constants.DEF
 
 @app.get("/privacy")
 async def privacy(request: Request):
-    with open("./privacy_policy.md") as file:
+    with open("./markdown/privacy_policy.md") as file:
         privacy_policy_content = basic_markdown.convert(file.read())
 
     context = PageContextBuilder(

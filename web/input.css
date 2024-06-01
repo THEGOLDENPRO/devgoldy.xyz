@@ -54,6 +54,10 @@
         @apply text-goldyOrangy-300 font-bold transition duration-300 hover:text-goldyOrangy-800
     }
 
+    html {
+        @apply scroll-smooth;
+    }
+
     body {
         @apply selection:bg-goldyCream selection:text-exeBlack;
     }
