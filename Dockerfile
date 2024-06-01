@@ -13,7 +13,6 @@ COPY requirements.txt .
 COPY package.json .
 COPY tailwind.config.js .
 COPY Makefile .
-COPY privacy_policy.md .
 
 RUN apt-get update && apt-get install -y make git nodejs npm
 
