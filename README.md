@@ -4,6 +4,8 @@
 
   <sub>My main website.</sub>
 
+  <img width="1000px" src="https://github.com/THEGOLDENPRO/devgoldy.xyz/assets/66202304/cf1a7dbb-5598-4de6-8e46-224523aad3f2">
+
 </div>
 
 ## Prerequisites
