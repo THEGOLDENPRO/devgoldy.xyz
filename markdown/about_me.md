@@ -4,7 +4,7 @@ Computer geek based in the UK, loves to shill open-source and Linux. Programmer 
 
 <div align="center">
 
-  <img src="./lain.jpg" width="280px">
+  <img class="rounded-md" src="./lain.jpg" width="280px">
 
   <sub>Website partially inspired by <u>art style</u> of Serial Experiments Lain.</sub>
 
