@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from datetime import datetime
 from markdown import Markdown
+from bs4 import BeautifulSoup
 
 from fastapi import APIRouter, Request
 from fastapi.templating import Jinja2Templates
@@ -72,12 +73,12 @@ async def read_post(request: Request, id: int):
         data = await r.text("utf-8")
         content = markdown.convert(data)
 
-    description = content.split("<p>", 2)[1].split("</p>", 1)[0]
+    description = BeautifulSoup(content).find("p").get_text()
 
     content = content.replace('src="./', f'src="./{id}/') # Redirects all html elements linking to root to the blog's cdn redirect.
 
     if len(description) >= MAX_DESCRIPTION_LENGTH:
-        description[:MAX_DESCRIPTION_LENGTH] += "..."
+        description = description[:MAX_DESCRIPTION_LENGTH] + "..."
 
     context = PageContextBuilder(
         request, 

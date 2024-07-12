@@ -10,3 +10,4 @@ meow-inator-5000 @ git+https://github.com/THEGOLDENPRO/meow-inator-5000
 Markdown
 pymdown-extensions
 toml
+beautifulsoup4
