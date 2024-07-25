@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-    content: ["./web/**/*.{html,js}", "./templates/**/*.{html,js}", "./markdown/**/*.{md}"],
+    content: ["./web/**/*.{html,js}", "./templates/**/*.{html,js}", "./markdown/**/*.md"],
     plugins: [],
     theme: {
         extend: {
@@ -36,6 +36,29 @@ module.exports = {
             },
             dropShadow: {
                 "pinky-drop": "3px 0.5px 1px #fb89ab",
+            },
+            animation: {
+                "flicker": "flicker 0.00001s infinite ease-in",
+                "fade-in": "fadeIn ease 5s",
+                "fade-in-faster": "fadeIn ease 3s"
+            },
+            keyframes: {
+                flicker: {
+                    "from" : {
+                        textShadow: "1px 0 0 theme(colors.goldyPink), -2px 0 0 theme(colors.goldyOrangy.300);",
+                    },
+                    "to" : {
+                        textShadow: "3.6px 0.5px 2px theme(colors.goldyPink), -1px -0.5px 2px theme(colors.goldyOrangy.300);",
+                    },
+                },
+                fadeIn: {
+                    "from": {
+                        opacity: "0",
+                    },
+                    "to": {
+                        opacity: "1",
+                    }
+                }
             }
         },
         screens: {
@@ -52,29 +75,6 @@ module.exports = {
             "hacked": ["Hacked-KerX"],
             "typewriter": ["atwriter"],
             "dosis": ["Dosis"]
-        },
-        animation: {
-            "flicker": "flicker 0.00001s infinite ease-in",
-            "fade-in": "fadeIn ease 5s",
-            "fade-in-faster": "fadeIn ease 3s"
-        },
-        keyframes: {
-            flicker: {
-                "from" : {
-                    textShadow: "1px 0 0 theme(colors.goldyPink), -2px 0 0 theme(colors.goldyOrangy.300);",
-                },
-                "to" : {
-                    textShadow: "3.6px 0.5px 2px theme(colors.goldyPink), -1px -0.5px 2px theme(colors.goldyOrangy.300);",
-                },
-            },
-            fadeIn: {
-                "from": {
-                    opacity: "0",
-                },
-                "to": {
-                    opacity: "1",
-                }
-            }
         }
     }
 }

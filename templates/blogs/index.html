@@ -8,7 +8,7 @@
 {% endblock %}
 
 {% block body %}
-<body class="font-dosis text-white bg-exeBlack selection:bg-goldyCream selection:text-exeBlack">
+<body class="font-dosis text-white bg-goldyDarky-500 selection:bg-goldyCream selection:text-exeBlack">
     <header>
         <div class="text-7xl mobile:text-4xl font-bold font-hacked text-center py-5 select-none animate-flicker drop-shadow-flicker">
             <a style="color: white !important;" href=".">
@@ -48,12 +48,12 @@
             </div>
         {% endif %}
 
-        <h1 class="text-center pt-8 text-lg underline">
+        <h1 class="text-center pt-8 text-xl underline">
             Latest Posts
         </h1>
 
         {% if posts|length == 0 %}
-            <h1 class="text-center pt-2">
+            <h1 class="text-center pt-2 text-lg">
                 umm, well this is awkward...
             </h1>
         {% endif %}
@@ -62,7 +62,7 @@
 
             {% for post in posts %}
                 <a style="color: white !important;" href="/blogs/post/{{ post.id }}">
-                    <article class="block w-64 flex-shrink-0 mobile:w-auto bg-exeGray bg-opacity-5 p-2 will-change-transform
+                    <article class="block w-96 flex-shrink-0 mobile:w-auto bg-exeGray bg-opacity-5 p-2 will-change-transform
                     border-exeGray border-[1px] rounded-3xl transition-transform ease-in-out duration-500 
                     cursor-pointer overflow-hidden hover:scale-90">
                         <figure class="rounded-2xl overflow-hidden">
@@ -70,8 +70,8 @@
                             style="{{ 'filter: saturate(30%);' if post.thumbnail_url is none }}">
                         </figure>
                         <div>
-                            <h2 class="text-center pt-2 tracking-wider font-bold mobile:text-xl">{{ post.name }}</h2>
-                            <h4 class="text-center pt-2 text-sm text-exeGray mt-auto">{{ post.date_added }}</h4>
+                            <h2 class="text-center pt-2 tracking-wider font-bold text-lg mobile:text-xl">{{ post.name }}</h2>
+                            <h4 class="text-center pt-1 text-base text-exeGray mt-auto">{{ post.date_added }}</h4>
                         </div>
                     </article>
                 </a>

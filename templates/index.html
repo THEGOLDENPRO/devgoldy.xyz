@@ -42,7 +42,17 @@
             </figure>
         </div>
 
-        <div style="text-shadow: black 2px 2px 0px;" class="col-start-1 col-end-3 mobile:col-auto h-[100%] pt-5 mobile:pt-0 ">
+        <div style="text-shadow: black 2px 2px 0px;" class="col-start-1 col-end-3 mobile:col-auto h-[100%] pt-5 mobile:pt-0">
+
+            <noscript class="absolute z-10">
+                <h3 class="italic line-through">I ain't rebuilding this shit to work without javascript.</h3>
+                <br>
+                <h3>My old site works without javascript though:</h3>
+                <a href="/?mode=legacy">
+                    <h3>https://devgoldy.xyz/?mode=legacy</h3>
+                </a>
+            </noscript>
+
             <h1 id="its_goldy_text" style="text-shadow: 3px 0.5px 1px #fb89ab;"
             class="opacity-0 text-7xl mobile:text-4xl mobile:drop-shadow-none text-goldyCream font-bold tracking-[0.5rem]">
                 Hi, it's Goldy
@@ -150,8 +160,12 @@
                         </div>
                     </div>
                 </div>
-        
+
                 <div id="blogs-slideshow" class="p-6 tablet:p-3">
+                    <noscript>
+                        <h3 class="italic">Welp this slideshow will break without javascript.</h3>
+                    </noscript>
+
                     <div class="relative z-10 cursor-pointer">
                         {% for post in blog_posts %}
                         <h3 style="text-shadow: black 2px 2px 0px;" class="hidden opacity-0 transition duration-300 select-none 
@@ -215,13 +229,13 @@
             <div class="grid grid-cols-2 mobile:grid-cols-1 gap-4 p-5">
                 {% for project in open_source_projects %}
                 <div title="{{ project.description }}" style="order: {{ loop.index }};" class="flex justify-center items-center 
-                opacity-40 hover:opacity-100 sepia hover:sepia-0 transition w-full">
+                opacity-40 hover:opacity-100 mobile:opacity-100 sepia hover:sepia-0 mobile:sepia-0 transition w-full">
                     <div>
                         <a href="{{ project.git }}">
                             <img src="{{ './image.jpg' if project.image is none else project.image }}" 
                             class="transition rounded-lg duration-300 animate-fade-in-faster select-none">
                         </a>
-                        <h3 class="mt-2 text-center text-gray-300 text-lg tracking-wider">{{ project.name }}</h3>
+                        <h3 class="mt-2 text-center text-gray-300 text-xl tracking-wider">{{ project.name }}</h3>
                     </div>
                 </div>
                 {% endfor %}
