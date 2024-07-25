@@ -134,6 +134,23 @@ async def privacy(request: Request):
         }
     )
 
+@app.get("/mopping-girl")
+@app.get("/give-mopping-girl-a-salary")
+async def privacy(request: Request):
+    context = PageContextBuilder(
+        request, 
+        name = "Give mopping girl a salary!", 
+        description = "It's unacceptable that mopping girl does not have a salary, click to find out how long she's been working. 💀", 
+        image_url = "/mopping_girl.gif", 
+        theme_colour = "#009e05"
+    )
+
+    return templates.TemplateResponse(
+        "give_mg_salary.html", {
+            **context.data
+        }
+    )
+
 @app.get("/favicon.ico")
 async def privacy():
     return RedirectResponse("./rikka.png") # You saw it, didn't you...

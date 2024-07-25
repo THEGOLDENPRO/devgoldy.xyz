@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+
+{% block head %}
+{{ super() }}
+
+<link rel="stylesheet" href="./output.css">
+
+<style>
+    footer {
+        font-family: atwriter;
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+
+<body class="m-10 mobile:m-5 text-white bg-pink-950 font-dosis drop-shadow-md">
+
+    <h1 class="font-extrabold text-6xl mobile:text-4xl text-center"># HASHTAG GIVE MOPPING GIRL A SALARY! ✊</h1>
+
+    <div class="m-10 mb-8 mobile:mb-2 text-2xl text-center animate-bounce">
+        <h2 class="inline">Mopping girl has been mopping and cleaning devgoldy.xyz for </h2>
+        <h2 id="timestamp" class="inline font-bold text-goldyOrangy">
+            <h2 id="calculating-text" class="inline font-bold italic">calculating...</h2>
+        </h2>
+        <h2 class="inline font-bold">WITHOUT A SALARY!!!</h2>
+    </div>
+
+    <div
+        class="w-[40rem] mx-auto mobile:w-auto bg-goldyDarky bg-opacity-10 rounded-md border-2 border-opacity-60 border-goldyCream">
+
+        <div class="relative pt-1">
+            <div class="select-none cursor-default">
+                <div class="mx-auto w-fit">
+                    <div class="text-xl my-1.5 px-2">
+                        <span class="pr-1">💽</span>
+                        <h2 class="inline text-white font-bold tracking-wider">HelpMoppingGirl.exe</h2>
+                    </div>
+                </div>
+
+                <div style="stroke-opacity: 0.8;"
+                    class="absolute tablet:hidden cursor-not-allowed pt-2 pr-2 top-0 right-0 space-x-0.5 fill-white stroke-white stroke-2">
+                    <button
+                        class="pointer-events-none border-2 border-opacity-70 border-goldyCream will-change-auto rounded-md">
+                        <svg class="inline" width="24" height="20" viewBox="0 0 24 24">
+                            <path d="M5 11h14v2H5z"></path>
+                        </svg>
+                    </button>
+
+                    <button
+                        class="pointer-events-none border-2 border-opacity-70 border-goldyCream will-change-auto rounded-md">
+                        <svg class="inline" width="24" height="16" viewBox="0 0.5 24 24">
+                            <path
+                                d="M20 3H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zm-1 16H5V5h14v14z">
+                            </path>
+                        </svg>
+                    </button>
+
+                    <button
+                        class="pointer-events-none border-2 border-opacity-70 border-goldyCream h-[28px] will-change-auto rounded-md">
+                        <svg class="inline" width="24" height="24" viewBox="0 0.5 24 24">
+                            <path
+                                d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z">
+                            </path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="p-6 tablet:p-3 font-typewriter text-base !text-[1.08rem] mobile:!text-base tracking-widest">
+            <div class="grid grid-cols-2 gap-2">
+
+                <div class="grid grid-rows-2">
+                    <div>
+                        <h2>This is just unacceptable; donate so I can afford to give her a salary.</h2>
+                    </div>
+
+                    <div class="relative">
+                        <div class="absolute top-1/2 -translate-y-1/2 w-max">
+                            <a class="inline-block" href="https://github.com/sponsors/THEGOLDENPRO">
+                                <img src="https://img.shields.io/badge/sponsor-30363D?style=for-the-badge&logo=GitHub-Sponsors&logoColor=#EA4AAA"
+                                    style="max-width: 100%;">
+                            </a>
+                            <a class="inline-block" href="https://ko-fi.com/goldytgp">
+                                <img
+                                    src="https://img.shields.io/badge/Ko--fi-F16061?style=for-the-badge&logo=ko-fi&logoColor=white">
+                            </a>
+                            <a class="mt-2" href="https://www.buymeacoffee.com/goldytgp">
+                                <img
+                                    src="https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <img class="w-96 mx-auto rounded-lg" src="/lucky_star_thumbs_up.jpg">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="mobile:hidden h-72">
+        <h1 class="pt-40 font-extrabold text-xl text-center opacity-30">Let's fill this space ッ</h1>
+    </div>
+
+</body>
+
+<script src="/scripts/moment.min.js"></script>
+
+<script>
+    const timestampH2 = document.getElementById("timestamp");
+    const calculatingText = document.getElementById("calculating-text");
+
+    function setTime() {
+        timestampH2.innerText = moment("2024-05-09", "YYYY-MM-DD").fromNow().replace(" ago", "");
+    }
+
+    setTime();
+    calculatingText.classList.add("hidden");
+
+    setInterval(setTime, 1000);
+
+</script>
+{% endblock %}
