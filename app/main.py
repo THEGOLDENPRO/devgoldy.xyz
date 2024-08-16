@@ -5,6 +5,8 @@ import os
 from datetime import datetime
 from markdown import Markdown
 from aiohttp import ClientSession
+from fastapi_tailwind import tailwind
+from contextlib import asynccontextmanager
 from meow_inator_5000.woutews import nya_service
 
 from fastapi import FastAPI
@@ -21,14 +23,28 @@ from . import constants, __version__
 
 __all__ = ("app",)
 
-ROOT_PATH = (lambda x: x if x is not None else "")(os.environ.get("ROOT_PATH")) # Like: /aghpb/v1
+ROOT_PATH = os.environ.get("ROOT_PATH", "") # Like: /aghpb/v1
 
+static_files = StaticFiles(directory = "web")
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Compile tailwind css.
+    popen = tailwind.compile(
+        output_stylesheet_path = static_files.directory + "/output.css",
+        tailwind_stylesheet_path = "./web/input.css"
+    )
+
+    yield
+
+    popen.terminate()
 
 app = FastAPI(
     docs_url = None, 
     redoc_url = None,
     root_path = ROOT_PATH,
-    version = __version__
+    version = __version__,
+    lifespan = lifespan
 )
 app.include_router(nya_service.router)
 
@@ -103,7 +119,7 @@ async def index(request: Request, mode: Literal["legacy", "new"] = constants.DEF
             "status": status_msg, 
             "about_me_content": about_me_content, 
             "blog_posts": blog_posts, 
-            "anime_list": await anime.get_anime_status(), 
+            "anime_list": await anime.get_anime_status() if mode == "legacy" else [], 
             "open_source_projects": projects, 
 
             **context.data
@@ -152,7 +168,7 @@ async def privacy(request: Request):
     )
 
 @app.get("/favicon.ico")
-async def privacy():
+async def favicon():
     return RedirectResponse("./rikka.png") # You saw it, didn't you...
 
-app.mount("/", StaticFiles(directory = "web"))
+app.mount("/", static_files)

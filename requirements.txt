@@ -11,3 +11,4 @@ Markdown
 pymdown-extensions
 toml
 beautifulsoup4
+fastapi-tailwind

@@ -1,26 +1,14 @@
-build: install-deps npm-install compile-ts tailwind
+build: install-deps
 
-pip = pip
+PIP = pip
 
 install-deps:
-	${pip} install -r requirements.txt
+	${PIP} install -r requirements.txt
 
-npm-install:
-	npm i
-
-compile-ts:
-	npx tsc ./web/scripts/*.ts --target ES2016
-
-tailwind:
-	npx tailwindcss -i ./web/input.css -o ./web/output.css
-
-tailwind-watch:
-	npx tailwindcss -i ./web/input.css -o ./web/output.css --watch
-
-python = python
+PYTHON = python
 
 docker-build:
-	${python} scripts/docker_build.py
+	${PYTHON} scripts/docker_build.py
 
 docker-compose:
 	docker compose up
@@ -33,5 +21,3 @@ test:
 
 clean:
 	rm ./web/output.css
-	rm -r node_modules
-	rm package-lock.json

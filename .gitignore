@@ -9,6 +9,4 @@ package-lock.json
 jikan4snek_cache
 config.xml
 .ruff_cache
-index.js
-!*.config.js
 config.toml

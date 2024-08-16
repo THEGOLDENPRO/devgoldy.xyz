@@ -10,11 +10,8 @@ COPY /templates ./templates
 COPY /markdown ./markdown
 
 COPY requirements.txt .
-COPY package.json .
 COPY tailwind.config.js .
 COPY Makefile .
-
-RUN apt-get update && apt-get install -y make git nodejs npm
 
 RUN make
 

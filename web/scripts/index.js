@@ -1,9 +1,3 @@
-/*
-I don't use the typescript script any more as on v1.3.8 I dropped nodejs as a dependency,
-*/
-
-type AnimationElements = ([HTMLElement | null, number])[];
-
 const links = document.getElementById("links");
 const image = document.getElementById("image");
 const its_goldy_text = document.getElementById("its_goldy_text");
@@ -14,9 +8,9 @@ const about_me_div = document.getElementById("about-me-div");
 
 const blogs_slideshow = document.getElementById("blogs-slideshow");
 
-var blogs_slideshow_id: number;
+var blogs_slideshow_id;
 
-const elements_to_do: AnimationElements = [
+const elements_to_do = [
     [its_goldy_text, 250],
     [quick_about_text, 2000],
     [links, 1000],
@@ -32,23 +26,21 @@ if (blogs_slideshow !== null) {
     blogs_slideshow_id = startSlideshowLoopThingy(blogs_slideshow, 1);
 }
 
-toggle_effects_button?.addEventListener("mousedown", (e) => {
-    static_bg_div?.classList.toggle("hidden");
-    about_me_div?.classList.toggle("animated-crt-lines");
+toggle_effects_button === null || toggle_effects_button === void 0 ? void 0 : toggle_effects_button.addEventListener("mousedown", (e) => {
+    static_bg_div === null || static_bg_div === void 0 ? void 0 : static_bg_div.classList.toggle("hidden");
+    about_me_div === null || about_me_div === void 0 ? void 0 : about_me_div.classList.toggle("animated-crt-lines");
 });
 
-function doAnimationThingy(elements: AnimationElements) {
+function doAnimationThingy(elements) {
 
     for (let [element, timeout] of elements) {
 
         if (element !== null) {
 
-            setTimeout(
-                () => {
-                    element.classList.remove("opacity-0");
-                    element.classList.add("animate-fade-in");
-                }, timeout
-            );
+            setTimeout(() => {
+                element.classList.remove("opacity-0");
+                element.classList.add("animate-fade-in");
+            }, timeout);
 
         }
 
@@ -56,7 +48,7 @@ function doAnimationThingy(elements: AnimationElements) {
 
 }
 
-function toggleSlideshowImage(slideshow: HTMLElement, index: number) {
+function toggleSlideshowImage(slideshow, index) {
     const slideshow_images = slideshow.getElementsByTagName("img");
     const slideshow_buttons = slideshow.getElementsByTagName("button");
     const slideshow_titles = slideshow.getElementsByTagName("h3");
@@ -86,20 +78,19 @@ function toggleSlideshowImage(slideshow: HTMLElement, index: number) {
     slideshow_titles[index].classList.remove("hidden");
 
     // show title on hover.
-    let hover_callback = (e: MouseEvent) => {
+    let hover_callback = (e) => {
         if (e.type == "mouseover") {
             slideshow_images[index].classList.add("blur-sm");
             //slideshow_images[index].classList.add("saturate-50");
             slideshow_images[index].classList.add("brightness-50");
             slideshow_images[index].classList.add("sepia");
-
             slideshow_titles[index].classList.add("opacity-100");
-        } else {
+        }
+        else {
             slideshow_images[index].classList.remove("blur-sm");
             //slideshow_images[index].classList.remove("saturate-50");
             slideshow_images[index].classList.remove("brightness-50");
             slideshow_images[index].classList.remove("sepia");
-
             slideshow_titles[index].classList.remove("opacity-100");
         }
     };
@@ -111,28 +102,27 @@ function toggleSlideshowImage(slideshow: HTMLElement, index: number) {
     slideshow_images[index].addEventListener("mouseleave", hover_callback);
 }
 
-function startSlideshowLoopThingy(slideshow: HTMLElement, start_from: number = 0) {
+function startSlideshowLoopThingy(slideshow, start_from = 0) {
     console.log(`Slideshow with id '${slideshow.id}' is being started...`);
 
     const slideshow_images = slideshow.getElementsByTagName("img");
 
-    let index: number = start_from;
-    const max_index: number = slideshow_images.length - 1;
+    let index = start_from;
+    const max_index = slideshow_images.length - 1;
 
     return setInterval(
         () => {
             if (index > max_index) {
                 index = 0;
             }
-
             toggleSlideshowImage(slideshow, index);
-
             index += 1;
-        }, 6000
+        }, 
+        6000
     );
 }
 
-function stopSlideshowLoopThingy(id: number) {
+function stopSlideshowLoopThingy(id) {
     console.log(`Slideshow with id '${id}' is being stopped...`);
     clearInterval(id);
 }
