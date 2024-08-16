@@ -13,6 +13,8 @@ COPY requirements.txt .
 COPY tailwind.config.js .
 COPY Makefile .
 
+RUN apt-get update && apt-get install -y git
+
 RUN pip install -r requirements.txt
 
 EXPOSE 8000
