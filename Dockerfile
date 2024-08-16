@@ -13,7 +13,7 @@ COPY requirements.txt .
 COPY tailwind.config.js .
 COPY Makefile .
 
-RUN make
+RUN pip install -r requirements.txt
 
 EXPOSE 8000
 ENV LISTEN_PORT = 8000
