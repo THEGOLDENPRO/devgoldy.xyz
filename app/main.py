@@ -13,12 +13,15 @@ from fastapi import FastAPI
 from fastapi.requests import Request
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
+from starlette.exceptions import HTTPException
 from fastapi.responses import RedirectResponse
 
 from .anime import Anime
+from .routers import blogs, linkers
 from .config import Config, ProjectData
 from .context_builder import PageContextBuilder
-from .routers import blogs, linkers
+from .CAIPIRINHA_CAIPIRINHA_WHOOOO_YEEEAAAAHHH import CAIPIRINHA_CAIPIRINHA_WHOOOO_YEEEAAAAHHH_or_http_exception
+
 from . import constants, __version__
 
 __all__ = ("app",)
@@ -152,7 +155,7 @@ async def privacy(request: Request):
 
 @app.get("/mopping-girl")
 @app.get("/give-mopping-girl-a-salary")
-async def privacy(request: Request):
+async def mopping_girl(request: Request):
     context = PageContextBuilder(
         request, 
         name = "Give mopping girl a salary!", 
@@ -170,5 +173,9 @@ async def privacy(request: Request):
 @app.get("/favicon.ico")
 async def favicon():
     return RedirectResponse("./rikka.png") # You saw it, didn't you...
+
+@app.exception_handler(HTTPException)
+async def custom_http_exception_handler(request: Request, exception: HTTPException):
+    return await CAIPIRINHA_CAIPIRINHA_WHOOOO_YEEEAAAAHHH_or_http_exception(request, exception)
 
 app.mount("/", static_files)

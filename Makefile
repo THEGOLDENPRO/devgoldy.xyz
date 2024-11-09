@@ -17,7 +17,7 @@ run:
 	uvicorn app.main:app --reload --port 8083
 
 test:
-	ruff .
+	ruff check .
 
 clean:
 	rm ./web/output.css

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 Not Found!</title>
+</head>
+    <body>
+        <h1 style="font-size: 50px; color: white;">404 Not Found!</h1>
+
+        <video id="caipirinha-caipirinha" autoplay width="700px" muted loop>
+            <source src="/caipirinha.webm" type="video/webm">
+            Your browser does not support the video tag.
+        </video>
+
+        <h2 id="click-audio-text" style="color: aqua;">Click anywhere for audio!</h2>
+    </body>
+
+    <script>
+        var click_audio_text = document.getElementById("click-audio-text");
+        var caipirinha_caipirinha_video = document.getElementById("caipirinha-caipirinha");
+
+        window.addEventListener("click", () => {
+            caipirinha_caipirinha_video.muted = false;
+            click_audio_text.style.animation = "none";
+        })
+    </script>
+
+    <style>
+        html {
+            background: rgb(59, 161, 0);
+            font-family: 'Times New Roman';
+            animation: caipirinha-disco 5s steps(1) infinite;
+        }
+
+        #click-audio-text {
+            width: fit-content;
+            animation: bigger-smaller-text 1s alternate infinite, caipirinha-disco 1s steps(1) infinite;
+        }
+
+        @keyframes bigger-smaller-text {
+            from {
+                font-size: unset;
+            }
+            to {
+                font-size: 100px;
+            }
+        }
+
+        @keyframes caipirinha-disco {
+            10% {
+                background: rgb(0, 0, 110);
+            }
+            20% {
+                background: rgb(49, 110, 0);
+            }
+            30% {
+                background: rgb(110, 4, 0);
+            }
+            40% {
+                background: rgb(0, 103, 110);
+            }
+            50% {
+                background: rgb(84, 0, 110);
+            }
+            60% {
+                background: rgb(108, 110, 0);
+            }
+            70% {
+                background: rgb(110, 0, 82);
+            }
+            80% {
+                background: rgb(0, 110, 73);
+            }
+            90% {
+                background: rgb(110, 0, 0);
+            }
+            100% {
+                background: rgb(0, 110, 0);
+            }
+        }
+    </style>
+</html>
