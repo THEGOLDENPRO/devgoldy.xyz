@@ -21,16 +21,23 @@
     </div>
     {% endif %}
 
-    <div class="absolute top-6 {{ 'mobile:top-8' if status is not none else 'mobile:top-4' }} 
-    left-6 {{ 'mobile:left-2' if status is not none else 'mobile:left-4' }} opacity-35 hover:opacity-100 transition">
-        <label id="toggle-effects-button" class="inline-flex items-center cursor-pointer">
-            <input type="checkbox" value="" class="sr-only peer">
-            <div class="relative w-11 h-6 bg-gray-300 peer-checked:bg-goldyCream rounded-full 
-            peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full after:content-[''] 
-            after:absolute after:top-[2px] after:start-[2px] after:bg-goldyDarky-200 after:rounded-full after:h-5 
-            after:w-5 after:transition-all"></div>
-            <span class="ms-3 mobile:ms-2 mt-0.5 text-base mobile:text-sm 2.75rem text-gray-300">Disable Effects</span>
-        </label>
+    <div class="relative">
+        <div class="absolute left-6 top-2 {{ 'mobile:left-2' if status is not none else 'mobile:left-4' }} opacity-35 hover:opacity-100 transition">
+            <label id="toggle-effects-button" class="inline-flex items-center cursor-pointer">
+                <input type="checkbox" value="" class="sr-only peer">
+                <div class="relative w-11 h-6 bg-gray-300 peer-checked:bg-goldyCream rounded-full 
+                peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full after:content-[''] 
+                after:absolute after:top-[2px] after:start-[2px] after:bg-goldyDarky-200 after:rounded-full after:h-5 
+                after:w-5 after:transition-all"></div>
+                <span class="ms-3 mobile:ms-2 mt-0.5 text-base mobile:text-sm 2.75rem text-gray-300">Disable Effects</span>
+            </label>
+        </div>
+
+        <div class="absolute w-fit right-7 mobile:hidden opacity-35 hover:opacity-100 transition">
+            <h2>
+                <a class="text-lg" href="?mode=legacy">Legacy Site!</a>
+            </h2>
+        </div>
     </div>
 
     <div class="grid grid-cols-3 gap-4 mobile:grid-cols-1 w-2/4 tablet:w-3/4 mobile:w-full mx-auto mt-5 select-none tracking-widest">
@@ -135,7 +142,9 @@
                     <div class="select-none cursor-default">
                         <div class="mx-auto w-fit">
                             <div class="text-xl my-1.5 px-2">
-                                <h2 class="inline text-white font-bold tracking-wider">📖 My Blogs</h2>
+                                <a href="/blogs">
+                                    <h2 class="inline text-white font-bold tracking-wider">📖 My Blogs</h2>
+                                </a>
                             </div>
                         </div>
         
@@ -145,13 +154,15 @@
                                     <path d="M5 11h14v2H5z"></path>
                                 </svg>
                             </button>
-        
-                            <button class="pointer-events-none border-2 border-opacity-70 border-goldyCream will-change-auto rounded-md">
-                                <svg class="inline" width="24" height="16" viewBox="0 0.5 24 24">
-                                    <path d="M20 3H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zm-1 16H5V5h14v14z"></path>
-                                </svg>
-                            </button>
-        
+
+                            <a href="/blogs">
+                                <button class="border-2 border-opacity-70 border-goldyCream will-change-auto rounded-md">
+                                    <svg class="inline" width="24" height="16" viewBox="0 0.5 24 24">
+                                        <path d="M20 3H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zm-1 16H5V5h14v14z"></path>
+                                    </svg>
+                                </button>
+                            </a>
+
                             <button class="pointer-events-none border-2 border-opacity-70 border-goldyCream h-[28px] will-change-auto rounded-md">
                                 <svg class="inline" width="24" height="24" viewBox="0 0.5 24 24">
                                     <path d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"></path>

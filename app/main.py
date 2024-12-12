@@ -97,7 +97,7 @@ async def index(request: Request, mode: Literal["legacy", "new"] = constants.DEF
     status = config_data.get("status")
 
     if not status == "" and status is not None:
-        status_msg = basic_markdown.convert(status[:50])
+        status_msg = basic_markdown.convert(status)
 
     projects = config_data.get("projects", [projects_placeholder])
 
