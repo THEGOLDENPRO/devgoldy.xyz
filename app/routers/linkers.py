@@ -63,7 +63,7 @@ async def custom_linkers(request: Request, linker_id: str):
 
     for linker in live_config["linkers"]:
 
-        if linker["id"] == linker_id:
+        if linker.get("id") == linker_id:
 
             return templates.TemplateResponse(
                 "linker.html", {
@@ -77,4 +77,9 @@ async def custom_linkers(request: Request, linker_id: str):
                 }
             )
 
-    raise HTTPException(404, detail = "That link does not exist darling." if random.randint(0, 6) == 0 else None)
+    wait_what = "That link does not exist darling. Wait what, you had a 14.285714285714285% chance of getting this error message."
+
+    raise HTTPException(
+        404,
+        detail = wait_what if random.randint(0, 6) == 0 else None
+    )

@@ -6,12 +6,15 @@ if TYPE_CHECKING:
 
 import re
 from starlette.exceptions import HTTPException
+from fastapi.templating import Jinja2Templates
 from fastapi.responses import FileResponse, Response
 from fastapi.exception_handlers import http_exception_handler
 
 __all__ = (
     "CAIPIRINHA_CAIPIRINHA_WHOOOO_YEEEAAAAHHH_or_http_exception",
 )
+
+templates = Jinja2Templates(directory = "./templates")
 
 async def CAIPIRINHA_CAIPIRINHA_WHOOOO_YEEEAAAAHHH_or_http_exception(request: Request, exception: HTTPException) -> FileResponse | Response:
     user_agent_string = request.headers.get("user-agent", "").lower()
@@ -20,7 +23,12 @@ async def CAIPIRINHA_CAIPIRINHA_WHOOOO_YEEEAAAAHHH_or_http_exception(request: Re
     # css you won't be able to enjoy it on mobile :)
     if exception.status_code == 404 and not is_mobile_device(user_agent_string):
         # I don't wanna redirect hence the use of file response.
-        return FileResponse("./web/404.html")
+        return templates.TemplateResponse(
+            "404.html", {
+                "request": request,
+                "detail": exception.detail
+            }
+        )
 
     normal_http_exception = await http_exception_handler(request, exception)
     return normal_http_exception
