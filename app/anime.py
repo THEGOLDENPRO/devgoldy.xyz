@@ -2,18 +2,18 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from typing import Dict, Tuple, Optional, List
+    from typing import Dict, Tuple, List
 
-from aiohttp import ClientSession
 from datetime import datetime, timedelta
+
+from .async_http_client import get_http_client
 
 __all__ = ("Anime",)
 
 class Anime():
-    def __init__(self, username: str, http_session: Optional[ClientSession] = None) -> None:
+    def __init__(self, username: str) -> None:
         self.username = username
 
-        self._session = http_session
         self.__history_cache: Tuple[float, Dict[str, str]] = (0, {})
         self.__updates_cache: Tuple[float, Dict[str, str]] = (0, {})
 
@@ -67,7 +67,7 @@ class Anime():
         current_timestamp = datetime.now().timestamp()
 
         if current_timestamp > self.__history_cache[0]:
-            session = self.__get_session()
+            session = await get_http_client()
             r = await session.get(f"https://api.jikan.moe/v4/users/{self.username}/history")
             data = await r.json() if r.ok else {}
 
@@ -81,7 +81,7 @@ class Anime():
         current_timestamp = datetime.now().timestamp()
 
         if current_timestamp > self.__updates_cache[0]:
-            session = self.__get_session()
+            session = await get_http_client()
             r = await session.get(f"https://api.jikan.moe/v4/users/{self.username}/userupdates")
             data = await r.json() if r.ok else {}
 
@@ -90,9 +90,3 @@ class Anime():
             )
 
         return self.__updates_cache[1]
-
-    def __get_session(self) -> ClientSession:
-        if self._session is None:
-            self._session = ClientSession()
-
-        return self._session

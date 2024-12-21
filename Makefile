@@ -13,9 +13,6 @@ docker-build:
 docker-compose:
 	docker compose up
 
-run:
-	uvicorn app.main:app --reload --port 8083
-
 test:
 	ruff check .
 

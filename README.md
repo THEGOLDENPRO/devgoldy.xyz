@@ -9,11 +9,15 @@
 </div>
 
 ## Prerequisites
-- [NodeJS](https://nodejs.org/en)
-- [Python 3.8+](https://www.python.org/) (With **venv** installed)
-- [Make](https://www.gnu.org/software/make/) (Optional, but without it you will need to copy and paste the commands from the Makefile)
+- ~~[NodeJS](https://nodejs.org/en)~~ (no longer needed)
+- ~~[Python 3.8+](https://www.python.org/)~~ (Might still work on 3.8 but versions below 3.9 are now depreacted)
+- [Python 3.9+](https://www.python.org/)
+- [Make](https://www.gnu.org/software/make/) (Optional)
 
 ## Run Locally
+> ![WARNING]
+> As I don't really expect people to run my website other than myself, these instructions will not be maintained hence it can be out of date and not work.
+
 1. Git clone repo.
 ```sh
 git clone https://github.com/THEGOLDENPRO/devgoldy.xyz
@@ -33,15 +37,17 @@ Windows:
 cd env/Scripts && activate
 ```
 
-4. BUILD!!!!
+4. Install dependencies.
 ```sh
-make
-```
-If you don't have GNU make installed, then go into the Makefile and find out how to run those commands yourself. Lmao
-
-5. RUN!!!!
-```sh
-make run
+pip install -r requirements.txt
 ```
 
-> ### Not much here yet.
+5. Create configuration file.
+```sh
+cp config.template.toml config.toml
+```
+
+6. RUN!!!!
+```sh
+fastapi dev
+```

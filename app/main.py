@@ -4,7 +4,6 @@ from typing import Literal
 import os
 from datetime import datetime
 from markdown import Markdown
-from aiohttp import ClientSession
 from fastapi_tailwind import tailwind
 from contextlib import asynccontextmanager
 from meow_inator_5000.woutews import nya_service
@@ -19,6 +18,7 @@ from fastapi.responses import RedirectResponse
 from .anime import Anime
 from .routers import blogs, linkers
 from .config import Config, ProjectData
+from .async_http_client import get_http_client
 from .context_builder import PageContextBuilder
 from .CAIPIRINHA_CAIPIRINHA_WHOOOO_YEEEAAAAHHH import CAIPIRINHA_CAIPIRINHA_WHOOOO_YEEEAAAAHHH_or_http_exception
 
@@ -60,9 +60,8 @@ projects_placeholder: ProjectData = {
     "git": "https://cdn.devgoldy.xyz/ricky.webm"
 }
 
-http_client = ClientSession()
 config = Config(constants.CONFIG_PATH)
-anime = Anime(constants.MAL_USERNAME, http_client)
+anime = Anime(constants.MAL_USERNAME)
 templates = Jinja2Templates(directory = "./templates")
 basic_markdown = Markdown()
 
@@ -70,6 +69,7 @@ basic_markdown = Markdown()
 async def index(request: Request, mode: Literal["legacy", "new"] = constants.DEFAULT_HOME_MODE):
     blog_posts = []
     config_data = await config.get_config()
+    http_client = await get_http_client()
 
     async with http_client.request("GET", constants.BLOG_API_URL + "/posts", params = {"limit": "8"}) as r:
         if r.ok:

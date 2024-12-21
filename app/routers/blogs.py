@@ -8,14 +8,13 @@ from fastapi import APIRouter, Request
 from fastapi.templating import Jinja2Templates
 from fastapi.exceptions import HTTPException
 from fastapi.responses import HTMLResponse, RedirectResponse
-from aiohttp import ClientSession
 
+from ..async_http_client import get_http_client
 from ..context_builder import PageContextBuilder
 from ..constants import BLOG_API_URL, BLOG_CDN_URL, MAX_DESCRIPTION_LENGTH
 
 router = APIRouter(prefix = "/blogs")
 
-http_client = ClientSession()
 markdown = Markdown(extensions = ["fenced_code", "sane_lists", "pymdownx.tilde"])
 templates = Jinja2Templates(directory = "templates")
 
@@ -23,6 +22,8 @@ templates = Jinja2Templates(directory = "templates")
 @router.get("/")
 async def index(request: Request):
     posts = []
+
+    http_client = await get_http_client()
 
     async with http_client.get(BLOG_API_URL + "/posts") as r:
         if r.ok:
@@ -56,6 +57,8 @@ async def index(request: Request):
 async def read_post(request: Request, id: int):
     post = {}
     content: str = ""
+
+    http_client = await get_http_client()
 
     async with http_client.get(BLOG_API_URL + f"/post/{id}") as r:
         if not r.ok:
