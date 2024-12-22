@@ -28,14 +28,14 @@ __all__ = ("app",)
 
 ROOT_PATH = os.environ.get("ROOT_PATH", "") # Like: /aghpb/v1
 
-static_files = StaticFiles(directory = "web")
+static_files = StaticFiles(directory = "static")
 
 @asynccontextmanager
-async def lifespan(app: FastAPI):
+async def lifespan(_: FastAPI):
     # Compile tailwind css.
     popen = tailwind.compile(
         output_stylesheet_path = static_files.directory + "/output.css",
-        tailwind_stylesheet_path = "./web/input.css"
+        tailwind_stylesheet_path = "./input.css"
     )
 
     yield
@@ -43,7 +43,7 @@ async def lifespan(app: FastAPI):
     popen.terminate()
 
 app = FastAPI(
-    docs_url = None, 
+    docs_url = None,
     redoc_url = None,
     root_path = ROOT_PATH,
     version = __version__,
@@ -51,8 +51,8 @@ app = FastAPI(
 )
 app.include_router(nya_service.router)
 
-app.include_router(linkers.router)
 app.include_router(blogs.router)
+app.include_router(linkers.router)
 
 projects_placeholder: ProjectData = {
     "name": "Wait what",
@@ -66,7 +66,7 @@ templates = Jinja2Templates(directory = "./templates")
 basic_markdown = Markdown()
 
 @app.get("/")
-async def index(request: Request, mode: Literal["legacy", "new"] = constants.DEFAULT_HOME_MODE):
+async def index(request: Request, mode: Literal["legacy", "stable"] = constants.DEFAULT_HOME_MODE):
     blog_posts = []
     config_data = await config.get_config()
     http_client = await get_http_client()
@@ -75,18 +75,18 @@ async def index(request: Request, mode: Literal["legacy", "new"] = constants.DEF
         if r.ok:
             blog_posts = [
                 {
-                    "id": post["id"], 
-                    "name": post["name"], 
+                    "id": post["id"],
+                    "name": post["name"],
                     "thumbnail_url": constants.BLOG_CDN_URL + post["thumbnail"] if post["thumbnail"] is not None else None, 
                     "date_added": datetime.fromisoformat(post["date_added"]).strftime("%b %d %Y")
                 } for post in await r.json()
             ]
 
     context = PageContextBuilder(
-        request, 
-        name = "Home", 
-        description = "My main website.", 
-        image_url = "https://devgoldy.xyz/image.jpg"
+        request,
+        name = "Home",
+        description = "My main website.",
+        image_url = "https://devgoldy.xyz/images/image.webp"
     )
 
     with open("./markdown/about_me.md") as file:
@@ -160,7 +160,7 @@ async def mopping_girl(request: Request):
         request, 
         name = "Give mopping girl a salary!", 
         description = "It's unacceptable that mopping girl does not have a salary, click to find out how long she's been working. 💀", 
-        image_url = "/mopping_girl.gif", 
+        image_url = "/images/mopping_girl.gif", 
         theme_colour = "#009e05"
     )
 
@@ -172,7 +172,7 @@ async def mopping_girl(request: Request):
 
 @app.get("/favicon.ico")
 async def favicon():
-    return RedirectResponse("./rikka.png") # You saw it, didn't you...
+    return RedirectResponse("./images/rikka.png") # You saw it, didn't you...
 
 @app.exception_handler(HTTPException)
 async def custom_http_exception_handler(request: Request, exception: HTTPException):

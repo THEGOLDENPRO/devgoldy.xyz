@@ -113,13 +113,13 @@
                                 <path d="M5 11h14v2H5z"></path>
                             </svg>
                         </button>
-    
+
                         <button class="pointer-events-none border-2 border-opacity-70 border-goldyCream will-change-auto rounded-md">
                             <svg class="inline" width="24" height="16" viewBox="0 0.5 24 24">
                                 <path d="M20 3H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zm-1 16H5V5h14v14z"></path>
                             </svg>
                         </button>
-    
+
                         <button class="pointer-events-none border-2 border-opacity-70 border-goldyCream h-[28px] will-change-auto rounded-md">
                             <svg class="inline" width="24" height="24" viewBox="0 0.5 24 24">
                                 <path d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"></path>
@@ -137,7 +137,7 @@
 
         <div class="flex justify-center items-center">
             <div id="blogs-div" class="bg-goldyDarky bg-opacity-10 rounded-md border-2 border-opacity-60 border-goldyCream h-min">
-        
+
                 <div class="relative pt-1">
                     <div class="select-none cursor-default">
                         <div class="mx-auto w-fit">
@@ -147,7 +147,7 @@
                                 </a>
                             </div>
                         </div>
-        
+
                         <div style="stroke-opacity: 0.8;" class="absolute tablet:hidden cursor-not-allowed pt-2 pr-2 top-0 right-0 space-x-0.5 fill-white stroke-white stroke-2">
                             <button class="pointer-events-none border-2 border-opacity-70 border-goldyCream will-change-auto rounded-md">
                                 <svg class="inline" width="24" height="20" viewBox="0 0 24 24">
@@ -185,16 +185,16 @@
                         </h3>
                         {% endfor %}
                     </div>
-        
+
                     <figure class="overflow-hidden rounded-3xl">
                         {% for post in blog_posts %}
                         <a href="/blogs/post/{{ post.id }}">
-                            <img src="{{ './image.png' if post.thumbnail_url is none else post.thumbnail_url }}" 
+                            <img src="{{ './images/no_image_cat.jpg' if post.thumbnail_url is none else post.thumbnail_url }}" 
                             class="hidden transition duration-300 animate-fade-in-faster select-none">
                         </a>
                         {% endfor %}
                     </figure>
-        
+
                     <div class="text-center mt-3">
                         {% for number in range(blog_posts|length) %}
                         <button onclick="toggleSlideshowImage(blogs_slideshow, '{{ number }}'); stopSlideshowLoopThingy(blogs_slideshow_id);" class="w-4 h-4 rounded-full m-1 bg-gray-600"></button>
@@ -243,7 +243,7 @@
                 opacity-40 hover:opacity-100 mobile:opacity-100 sepia hover:sepia-0 mobile:sepia-0 transition w-full">
                     <div>
                         <a href="{{ project.git }}">
-                            <img src="{{ './image.jpg' if project.image is none else project.image }}" 
+                            <img src="{{ './images/no_image_cat.jpg' if project.image is none else project.image }}" 
                             class="transition rounded-lg duration-300 animate-fade-in-faster select-none">
                         </a>
                         <h3 class="mt-2 text-center text-gray-300 text-xl tracking-wider">{{ project.name }}</h3>

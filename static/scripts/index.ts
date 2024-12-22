@@ -1,5 +1,5 @@
 /*
-I don't use the typescript script any more as on v1.3.8 I dropped nodejs as a dependency,
+I don't use the typescript script any more, as of v1.3.8 I dropped nodejs as a dependency,
 */
 
 type AnimationElements = ([HTMLElement | null, number])[];
