@@ -41,6 +41,4 @@ def is_mobile_device(user_agent_string: str) -> bool:
 
     match = mobile_user_agent_regex_pattern.search(user_agent_string)
 
-    print(">><", match)
-
     return bool(match)

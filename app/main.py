@@ -3,7 +3,7 @@ from typing import Literal
 
 import os
 from datetime import datetime
-from markdown import Markdown
+from pyromark import Markdown
 from fastapi_tailwind import tailwind
 from contextlib import asynccontextmanager
 from meow_inator_5000.woutews import nya_service
@@ -60,10 +60,10 @@ projects_placeholder: ProjectData = {
     "git": "https://cdn.devgoldy.xyz/ricky.webm"
 }
 
+basic_markdown = Markdown()
 config = Config(constants.CONFIG_PATH)
 anime = Anime(constants.MAL_USERNAME)
 templates = Jinja2Templates(directory = "./templates")
-basic_markdown = Markdown()
 
 @app.get("/")
 async def index(request: Request, mode: Literal["legacy", "stable"] = constants.DEFAULT_HOME_MODE):
@@ -86,18 +86,18 @@ async def index(request: Request, mode: Literal["legacy", "stable"] = constants.
         request,
         name = "Home",
         description = "My main website.",
-        image_url = "https://devgoldy.xyz/images/image.webp"
+        image_url = "/images/image.webp"
     )
 
     with open("./markdown/about_me.md") as file:
-        about_me_content = basic_markdown.convert(file.read())
+        about_me_content = basic_markdown.html(file.read())
 
     status_msg = None
 
     status = config_data.get("status")
 
     if not status == "" and status is not None:
-        status_msg = basic_markdown.convert(status)
+        status_msg = basic_markdown.html(status)
 
     projects = config_data.get("projects", [projects_placeholder])
 
@@ -132,7 +132,7 @@ async def index(request: Request, mode: Literal["legacy", "stable"] = constants.
 @app.get("/privacy")
 async def privacy(request: Request):
     with open("./markdown/privacy_policy.md") as file:
-        privacy_policy_content = basic_markdown.convert(file.read())
+        privacy_policy_content = basic_markdown.html(file.read())
 
     context = PageContextBuilder(
         request, 

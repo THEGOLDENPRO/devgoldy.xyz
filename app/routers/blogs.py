@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from datetime import datetime
-from markdown import Markdown
+from pyromark import Markdown, Options
 from bs4 import BeautifulSoup
 
 from fastapi import APIRouter, Request
@@ -15,7 +15,12 @@ from ..constants import BLOG_API_URL, BLOG_CDN_URL, MAX_DESCRIPTION_LENGTH
 
 router = APIRouter(prefix = "/blogs")
 
-markdown = Markdown(extensions = ["fenced_code", "sane_lists", "pymdownx.tilde"])
+markdown = Markdown(
+    options = Options.ENABLE_HEADING_ATTRIBUTES
+    | Options.ENABLE_STRIKETHROUGH
+    | Options.ENABLE_TABLES
+)
+#markdown = Markdown(extensions = ["fenced_code", "sane_lists", "pymdownx.tilde"])
 templates = Jinja2Templates(directory = "templates")
 
 @router.get("")
@@ -74,7 +79,7 @@ async def read_post(request: Request, id: int):
             raise HTTPException(404, "SHIT WE MESSED UP! HOW DID THIS HAPPEN!!!!!")
 
         data = await r.text("utf-8")
-        content = markdown.convert(data)
+        content = markdown.html(data)
 
     description = BeautifulSoup(content).find("p").get_text()
 

@@ -6,7 +6,7 @@ aiohttp
 python-decouple
 typing-extensions
 meow-inator-5000 @ git+https://github.com/THEGOLDENPRO/meow-inator-5000
-Markdown
+pyromark
 pymdown-extensions
 toml
 beautifulsoup4

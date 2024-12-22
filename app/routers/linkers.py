@@ -25,7 +25,7 @@ async def anime_(request: Request):
             "site_name": "MyAnimeList",
             "image_url": "https://devgoldy.xyz/mal_logo.png",
             "colour": "#3db8ff",
-            "redirect_url": "https://myanimelist.net/animelist/thegoldenpro?status=7"
+            "redirect_url": "https://myanimelist.net/animelist/thegoldenpro?status=2"
         }
     )
 
