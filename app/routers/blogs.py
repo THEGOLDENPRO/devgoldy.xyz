@@ -9,6 +9,7 @@ from fastapi.templating import Jinja2Templates
 from fastapi.exceptions import HTTPException
 from fastapi.responses import HTMLResponse, RedirectResponse
 
+from ..goldy_exe_api import GoldyEXEAPI
 from ..async_http_client import get_http_client
 from ..context_builder import PageContextBuilder
 from ..constants import BLOG_API_URL, BLOG_CDN_URL, MAX_DESCRIPTION_LENGTH
@@ -20,26 +21,14 @@ markdown = Markdown(
     | Options.ENABLE_STRIKETHROUGH
     | Options.ENABLE_TABLES
 )
+goldy_exe_api = GoldyEXEAPI()
 #markdown = Markdown(extensions = ["fenced_code", "sane_lists", "pymdownx.tilde"])
 templates = Jinja2Templates(directory = "templates")
 
 @router.get("")
 @router.get("/")
 async def index(request: Request):
-    posts = []
-
-    http_client = await get_http_client()
-
-    async with http_client.get(BLOG_API_URL + "/posts") as r:
-        if r.ok:
-            posts = [
-                {
-                    "id": post["id"],
-                    "name": post["name"],
-                    "thumbnail_url": BLOG_CDN_URL + post.get("thumbnail") if post.get("thumbnail") is not None else None,
-                    "date_added": datetime.fromisoformat(post.get("date_added")).strftime("%b %d %Y")
-                } for post in await r.json()
-            ]
+    posts = await goldy_exe_api.get_blog_posts()
 
     context = PageContextBuilder(
         request, 

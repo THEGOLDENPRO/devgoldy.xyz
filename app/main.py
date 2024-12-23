@@ -2,7 +2,6 @@ from __future__ import annotations
 from typing import Literal
 
 import os
-from datetime import datetime
 from pyromark import Markdown
 from fastapi_tailwind import tailwind
 from contextlib import asynccontextmanager
@@ -17,8 +16,8 @@ from fastapi.responses import RedirectResponse
 
 from .anime import Anime
 from .routers import blogs, linkers
+from .goldy_exe_api import GoldyEXEAPI
 from .config import Config, ProjectData
-from .async_http_client import get_http_client
 from .context_builder import PageContextBuilder
 from .CAIPIRINHA_CAIPIRINHA_WHOOOO_YEEEAAAAHHH import CAIPIRINHA_CAIPIRINHA_WHOOOO_YEEEAAAAHHH_or_http_exception
 
@@ -61,26 +60,15 @@ projects_placeholder: ProjectData = {
 }
 
 basic_markdown = Markdown()
-config = Config(constants.CONFIG_PATH)
+goldy_exe_api = GoldyEXEAPI()
 anime = Anime(constants.MAL_USERNAME)
+config = Config(constants.CONFIG_PATH)
 templates = Jinja2Templates(directory = "./templates")
 
 @app.get("/")
 async def index(request: Request, mode: Literal["legacy", "stable"] = constants.DEFAULT_HOME_MODE):
-    blog_posts = []
     config_data = await config.get_config()
-    http_client = await get_http_client()
-
-    async with http_client.request("GET", constants.BLOG_API_URL + "/posts", params = {"limit": "8"}) as r:
-        if r.ok:
-            blog_posts = [
-                {
-                    "id": post["id"],
-                    "name": post["name"],
-                    "thumbnail_url": constants.BLOG_CDN_URL + post["thumbnail"] if post["thumbnail"] is not None else None, 
-                    "date_added": datetime.fromisoformat(post["date_added"]).strftime("%b %d %Y")
-                } for post in await r.json()
-            ]
+    blog_posts = await goldy_exe_api.get_blog_posts(8)
 
     context = PageContextBuilder(
         request,
@@ -119,11 +107,11 @@ async def index(request: Request, mode: Literal["legacy", "stable"] = constants.
 
     return templates.TemplateResponse(
         "legacy_index.html" if mode == "legacy" else "index.html", {
-            "status": status_msg, 
-            "about_me_content": about_me_content, 
-            "blog_posts": blog_posts, 
-            "anime_list": await anime.get_anime_status() if mode == "legacy" else [], 
-            "open_source_projects": projects, 
+            "status": status_msg,
+            "about_me_content": about_me_content,
+            "blog_posts": blog_posts,
+            "anime_list": await anime.get_anime_status() if mode == "legacy" else [],
+            "open_source_projects": projects,
 
             **context.data
         }

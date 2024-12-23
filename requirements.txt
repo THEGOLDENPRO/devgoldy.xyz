@@ -1,5 +1,4 @@
 fastapi[standard]
-watchfiles
 aiofiles
 jinja2
 aiohttp
@@ -7,7 +6,6 @@ python-decouple
 typing-extensions
 meow-inator-5000 @ git+https://github.com/THEGOLDENPRO/meow-inator-5000
 pyromark
-pymdown-extensions
 toml
 beautifulsoup4
 fastapi-tailwind

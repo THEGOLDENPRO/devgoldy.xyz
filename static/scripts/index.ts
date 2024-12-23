@@ -1,5 +1,7 @@
 /*
-I don't use the typescript script any more, as of v1.3.8 I dropped nodejs as a dependency,
+THIS SCRIPT IS NO LONGER USED!
+
+I don't use the typescript script any more, as of v1.3.8 I dropped nodejs as a dependency, so only index.js is used from now on.
 */
 
 type AnimationElements = ([HTMLElement | null, number])[];
