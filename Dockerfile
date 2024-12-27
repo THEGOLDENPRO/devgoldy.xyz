@@ -5,13 +5,14 @@ USER root
 WORKDIR /app
 
 COPY /app ./app
-COPY /web ./web
+COPY /static ./static
 COPY /templates ./templates
 COPY /markdown ./markdown
 
+COPY input.css .
 COPY requirements.txt .
+COPY static_config.toml .
 COPY tailwind.config.js .
-COPY Makefile .
 
 RUN apt-get update && apt-get install -y git
 

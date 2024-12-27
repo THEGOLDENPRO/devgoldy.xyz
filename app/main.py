@@ -90,11 +90,12 @@ async def index(request: Request, mode: Literal["legacy", "stable"] = constants.
     projects = config_data.get("projects", [projects_placeholder])
 
     for index, project in enumerate(projects):
-        git_url = project["git"]
+        url = project["link"]
 
         project_image_url = projects[index].get("image")
 
-        if project_image_url is None and "https://github.com" in git_url:
+        if project_image_url is None and "https://github.com" in url:
+            git_url = url
             split_git_url = git_url.split("/")
 
             git_user = split_git_url[-2]

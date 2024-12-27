@@ -15,7 +15,7 @@ __all__ = ("Config",)
 class ProjectData(TypedDict):
     name: str
     description: str
-    git: str
+    link: str
     image: NotRequired[str]
 
 class LinkerData(TypedDict):

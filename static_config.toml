@@ -1,76 +1,77 @@
 [[config.projects]]
-name = "📚 AGHPB API"
-description = "API that spits out anime girls holding programming books."
-git = "https://github.com/THEGOLDENPRO/aghpb_api"
-image = "https://github.com/THEGOLDENPRO/aghpb_api/raw/main/assets/screenshot_1.png"
+name = "🌹 roseate (WIP)"
+description = "A small and simple but fancy image viewer built with Rust and Typescript that's cross platform."
+link = "https://github.com/cloudy-org/roseate"
+image = "https://github.com/cloudy-org/roseate/raw/main/assets/dev_preview_2.png"
 
 [[config.projects]]
 name = "🎞️ mov-cli"
 description = "A cli tool that allows you to watch everything and anything from your terminal."
-git = "https://github.com/mov-cli/mov-cli"
+link = "https://github.com/mov-cli/mov-cli"
 image = "./images/mov_cli_showcase.png"
+
+[[config.projects]]
+name = "✨🔥 fastapi-tailwind"
+description = "Streamlined approach for adding TailwindCSS to FastAPI without NodeJS."
+link = "https://github.com/THEGOLDENPRO/fastapi-tailwind"
+image = "https://github.com/THEGOLDENPRO/fastapi-tailwind/raw/main/assets/example_page_showcase.png"
+
+[[config.projects]]
+name = "📚 AGHPB API"
+description = "API that spits out anime girls holding programming books."
+link = "https://github.com/THEGOLDENPRO/aghpb_api"
+image = "https://github.com/THEGOLDENPRO/aghpb_api/raw/main/assets/screenshot_1.png"
 
 [[config.projects]]
 name = "🤍 Bad Apple in Ursina 🖤"
 description = "Bad apple in a python 3d game engine, Ursina ʕ •ᴥ•ʔ."
-git = "https://github.com/THEGOLDENPRO/Bad-Apple-in-Ursina"
+link = "https://github.com/THEGOLDENPRO/Bad-Apple-in-Ursina"
 image = "https://github.com/THEGOLDENPRO/Bad-Apple-in-Ursina/raw/master/images/preview.gif"
 
 [[config.projects]]
 name = "💛 Goldy Bot Framework"
 description = "My custom tuned discord bot framework."
-git = "https://github.com/Goldy-Bot/Goldy-Bot-Framework"
+link = "https://github.com/Goldy-Bot/Goldy-Bot-Framework"
 image = "https://github.com/Goldy-Bot/mal_cord/raw/main/assets/showcase_2.gif"
 
 [[config.projects]]
 name = "🐍 snakelings"
 description = "A collection of small exercises to assist beginners at reading and writing Python code. [WIP]"
-git = "https://github.com/THEGOLDENPRO/snakelings"
+link = "https://github.com/THEGOLDENPRO/snakelings"
 image = "https://raw.githubusercontent.com/THEGOLDENPRO/snakelings/main/assets/preview.png"
 
 [[config.projects]]
 name = "🌠 GFE"
 description = "Goldy's first editor. Built in Rust 🦀 with the ICED 🧊 tool kit."
-git = "https://github.com/THEGOLDENPRO/gfe"
+link = "https://github.com/THEGOLDENPRO/gfe"
 image = "./images/gfe_showcase.png"
-
-[[config.projects]]
-name = "✨🔥 fastapi-tailwind"
-description = "Streamlined approach for adding TailwindCSS to FastAPI without NodeJS."
-git = "https://github.com/THEGOLDENPRO/fastapi-tailwind"
-image = "https://github.com/THEGOLDENPRO/fastapi-tailwind/raw/main/assets/example_page_showcase.png"
-
-[[config.projects]]
-name = "🌹 roseate (WIP)"
-description = "A small and simple but fancy image viewer built with Rust and Typescript that's cross platform."
-git = "https://github.com/cloudy-org/roseate"
 
 [[config.projects]]
 name = "Anmoku 安黙"
 description = "A peaceful and fully typed MyAnimeList / Jikan Python API wrapper with caching and proper rate limiting."
-git = "https://github.com/THEGOLDENPRO/anmoku"
+link = "https://github.com/THEGOLDENPRO/anmoku"
 
 [[config.projects]]
 name = "🟣 JS:QP Core"
 description = "WIP open source minecraft package management library."
-git = "https://github.com/JS-Quick-Pack/jsqp-core"
+link = "https://github.com/JS-Quick-Pack/jsqp-core"
 
 [[config.projects]]
 name = "⚫ aghpb.c 📚"
 description = "Anime girls holding programming books API wrapper for ⚫ C."
-git = "https://github.com/THEGOLDENPRO/aghpb.c"
+link = "https://github.com/THEGOLDENPRO/aghpb.c"
 
 [[config.projects]]
 name = "🟣 koff"
 description = "🟣 Temporary KDE osu! full screen fix."
-git = "https://github.com/THEGOLDENPRO/kde-osu-fullscreen-fix"
+link = "https://github.com/THEGOLDENPRO/kde-osu-fullscreen-fix"
 
 [[config.projects]]
 name = "🦀 aghpb.rs 📚"
 description = "Anime girls holding programming books API wrapper for 🦀 Rust."
-git = "https://github.com/THEGOLDENPRO/aghpb.rs"
+link = "https://github.com/THEGOLDENPRO/aghpb.rs"
 
 [[config.projects]]
 name = "💾 hello world debloated af"
 description = "Hello world in intel assembly."
-git = "https://github.com/THEGOLDENPRO/hello-world-debloated-af"
+link = "https://github.com/THEGOLDENPRO/hello-world-debloated-af"
