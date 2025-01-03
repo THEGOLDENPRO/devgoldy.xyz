@@ -8,9 +8,13 @@ and <img class="inline w-14 -m-5 -mr-3" src="./images/tux_back_flips.gif">[Linux
 
 <div align="center">
 
-  <img class="rounded-lg" src="./images/lain.jpg" width="270px">
+  <img class="rounded-lg" src="./images/lain_using_computer.gif" width="425px">
 
-  <sub>Website style inspired by [webcore](https://aesthetics.fandom.com/wiki/Webcore) and late 1990s to early 2000s <u>ascetics</u> found in anime like [Serial Experiments Lain](https://myanimelist.net/anime/339/Serial_Experiments_Lain).</sub>
+<div class="max-w-[500px]">
+
+  <sub>Website style inspired by [webcore](https://aesthetics.fandom.com/wiki/Webcore) (late 1990s - early 2000s) <u>ascetics</u>, particularly such found in anime like [Serial Experiments Lain](https://myanimelist.net/anime/339/Serial_Experiments_Lain).</sub>
+
+</div>
 
 </div>
 
