@@ -15,7 +15,7 @@
 - [Make](https://www.gnu.org/software/make/) (Optional)
 
 ## Run Locally
-> ![WARNING]
+> [!WARNING]
 > As I don't really expect people to run my website other than myself, these instructions will not be maintained hence it can be out of date and not work.
 
 1. Git clone repo.
