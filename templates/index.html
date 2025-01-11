@@ -17,7 +17,7 @@
 
     {% if status is not none %}
     <div class="bg-goldyCream bg-opacity-60 w-fit mobile:w-full px-10 mobile:px-2 rounded-xl rounded-t-none mobile:rounded-none mx-auto select-none">
-        <h2 class="font-bold text-center" style="text-shadow: black 1px 1px 0px;">{{ status|safe }}</h2>
+        <h2 class="font-bold text-center text-xl small-screen:text-lg mobile:text-base" style="text-shadow: black 1px 1px 0px;">{{ status|safe }}</h2>
     </div>
     {% endif %}
 
@@ -40,7 +40,7 @@
         </div>
     </div>
 
-    <div class="grid grid-cols-3 gap-4 mobile:grid-cols-1 w-2/4 tablet:w-3/4 mobile:w-full mx-auto mt-5 select-none tracking-widest">
+    <div class="grid grid-cols-3 gap-4 mobile:grid-cols-1 w-2/4 small-screen:w-4/5 tablet:w-3/4 mobile:w-full mx-auto mt-5 select-none tracking-widest">
 
         <div class="hidden mobile:block select-none">
             <figure>
@@ -94,7 +94,7 @@
 
     </div>
 
-    <div class="grid grid-cols-2 gap-8 mobile:grid-cols-1 p-5 mx-[10%] tablet:mx-0 mt-5">
+    <div class="grid grid-cols-2 gap-8 small-screen:gap-4 mobile:grid-cols-1 p-5 mx-[10%] small-screen:mx-2 tablet:mx-0 mt-5">
 
         <div id="about-me-div" class="animated-crt-lines bg-goldyDarky bg-opacity-10 rounded-md border-2 border-opacity-60 border-goldyCream">
 
