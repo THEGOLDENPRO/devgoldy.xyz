@@ -27,7 +27,8 @@ async def CAIPIRINHA_CAIPIRINHA_WHOOOO_YEEEAAAAHHH_or_http_exception(request: Re
             "404.html", {
                 "request": request,
                 "detail": exception.detail
-            }
+            },
+            status_code = 404,
         )
 
     normal_http_exception = await http_exception_handler(request, exception)
