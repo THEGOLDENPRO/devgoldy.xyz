@@ -8,4 +8,5 @@ meow-inator-5000 @ git+https://github.com/THEGOLDENPRO/meow-inator-5000
 pyromark
 toml
 beautifulsoup4
-fastapi-tailwind
+# Need to hold onto tailwindcss v3 for now until I refactor my codebase to support v4
+fastapi-tailwind==1.0.2b1
