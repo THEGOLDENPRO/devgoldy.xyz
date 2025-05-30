@@ -1,4 +1,4 @@
-> 03/01/2024
+> 03/01/2025
 
 My privacy policy is simple: **I don't track your usage, I do not collect or store any of your data EXCEPT IP addresses and a select few of basic HTTP information required for my web server to function.**
 
