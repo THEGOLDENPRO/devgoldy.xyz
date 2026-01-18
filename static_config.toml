@@ -2,7 +2,7 @@
 name = "🌹 roseate (WIP)"
 description = "A small and simple but fancy image viewer built with Rust and Typescript that's cross platform."
 link = "https://github.com/cloudy-org/roseate"
-image = "https://github.com/cloudy-org/roseate/raw/main/assets/dev_preview_2.png"
+image = "https://raw.githubusercontent.com/cloudy-org/roseate/main/app/assets/dev_preview_2.png"
 
 [[config.projects]]
 name = "🎞️ mov-cli"
