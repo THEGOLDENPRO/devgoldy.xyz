@@ -19,7 +19,7 @@ COPY tailwind.config.js .
 RUN apt-get update && apt-get install -y git
 
 COPY uv.lock .
-RUN uv sync --locked --frozen --no-dev
+RUN uv sync --locked --no-dev
 
 EXPOSE 8000
 ENV LISTEN_PORT=8000
