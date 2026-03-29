@@ -1,64 +1,128 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-/* 🚀 fonts */
-/* ---------- */
-@font-face {
-    font-family: "Dosis";
-    src: url("./fonts/Dosis.ttf");
+/* I'm still migrating some stuff from v3 hence why I'm using config... */
+@config './tailwind.config.js';
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+    *,
+    ::after,
+    ::before,
+    ::backdrop,
+    ::file-selector-button {
+        border-color: var(--color-gray-200, currentcolor);
+    }
 }
 
-@font-face {
-    font-family: "atwriter";
-    src: url("./fonts/atwriter.ttf");
+@utility links {
+    & li {
+        @apply inline-block px-3;
+    }
+
+    & a {
+        @apply text-gray-300 hover:text-white transition-all;
+    }
+
+    & i {
+        @apply relative text-3xl top-1;
+    }
 }
 
-@font-face {
-    font-family: "Hacked-KerX";
-    src: url("./fonts/Hacked-KerX.ttf");
+@layer utilities {
+    /* 🚀 fonts */
+    @font-face {
+        font-family: 'Dosis';
+        src: url('./fonts/Dosis.ttf');
+    }
+
+    @font-face {
+        font-family: 'atwriter';
+        src: url('./fonts/atwriter.ttf');
+    }
+
+    @font-face {
+        font-family: 'Hacked-KerX';
+        src: url('./fonts/Hacked-KerX.ttf');
+    }
+
+    @font-face {
+        font-family: 'YanoneKaffeesatz';
+        src: url('./fonts/YanoneKaffeesatz.ttf');
+    }
+
+    /* ✨ custom devgoldy.xyz scrollbar */
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: transparent;
+        border-radius: 5px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #f1f1f1;
+        border-radius: 10px;
+    }
+
+    /* firefox scrollbar support */
+    html {
+        scrollbar-color: #f1f1f1 transparent;
+    }
+
+    /* --------------------------------- */
 }
 
-@font-face {
-    font-family: "YanoneKaffeesatz";
-    src: url("./fonts/YanoneKaffeesatz.ttf");
-}
+@theme {
+    /* custom colours */
+    --color-exe-black: #090b11;
+    --color-exe-gray: #9ca3af;
+    --color-goldy-pink: #fb89ab;
 
-/* ✨ custom devgoldy.xyz scrollbar */
-/* --------------------------------- */
-::-webkit-scrollbar {
-    width: 10px;
-}
+    --color-goldy-darky: #0e1114;
+    --color-goldy-darky-200: #0e1114;
+    --color-goldy-darky-300: #0b0d0f;
+    --color-goldy-darky-500: #0a0b0d;
 
-::-webkit-scrollbar-track {
-    background: transparent;
-    border-radius: 5px;
-}
+    --color-goldy-greyy: #222930;
+    --color-goldy-greyy-100: #222930;
+    --color-goldy-greyy-300: #2a2b2c;
 
-::-webkit-scrollbar-thumb {
-    background: #f1f1f1;
-    border-radius: 10px;
-}
+    --color-goldy-cream: #fbc689;
+    --color-goldy-cream-200: #fbc689;
+    --color-goldy-cream-800: var(--color-orange-50);
 
-/* firefox scrollbar support */
-html {
-    scrollbar-color: #f1f1f1 transparent;
-}
+    --color-goldy-white: #f1f1f1;
 
-/* --------------------------------- */
+    --color-goldy-orangy: #f5671b;
+    --color-goldy-orangy-100: #f5671b;
+    --color-goldy-orangy-300: #f57d3d;
+    --color-goldy-orangy-800: #f5be3d;
+
+    --color-goldy-green: #d0f54c;
+
+    /* custom drop shadow colours */
+    --color-pinky-drop: 3px 0.5px 1px #fb89ab;
+}
 
 @layer base {
-
     h1, h2, h3, h4, h5, h6, p, li {
         @apply font-medium;
     }
 
     strong {
-        @apply font-[900];
+        @apply font-black;
     }
 
     a {
-        @apply text-goldyOrangy-300 font-bold transition duration-300 hover:text-goldyOrangy-800
+        @apply text-goldy-orangy-300 font-bold transition duration-300 hover:text-goldy-orangy-800
     }
 
     html {
@@ -66,49 +130,42 @@ html {
     }
 
     body {
-        @apply selection:bg-goldyCream selection:text-exeBlack;
+        @apply selection:bg-goldy-cream selection:text-exe-black;
     }
 
 }
 
 @layer components {
-    .links li {
-        @apply inline-block px-3;
-    }
-
-    .links a {
-        @apply text-gray-300 hover:text-white transition-all;
-    }
-
-    .links i {
-        @apply relative text-3xl top-1;
-    }
-
     #post-content * {
         @apply mb-4;
     }
 
     #post-content h1 {
-        @apply font-extrabold text-5xl mobile:text-2xl mt-6 !mb-1.5 underline;
+        @apply font-extrabold text-5xl mobile:text-2xl mt-6 mb-1.5! underline;
     }
 
     #post-content h2 {
-        @apply font-bold text-4xl mobile:text-xl mt-5 !mb-0;
+        @apply font-bold text-4xl mobile:text-xl mt-5 mb-0!;
     }
 
     #post-content h3 {
-        @apply text-3xl mobile:text-xl underline mt-3 !mb-0;
+        @apply text-3xl mobile:text-xl underline mt-3 mb-0!;
     }
 
     #post-content h4 {
-        @apply text-2xl mobile:text-lg underline !mb-0;
+        @apply text-2xl mobile:text-lg underline mb-0!;
     }
 
-    #post-content h1, #post-content h2, #post-content h3, #post-content h4 {
-        @apply text-goldyCream;
+    #post-content h1,
+    #post-content h2,
+    #post-content h3,
+    #post-content h4 {
+        @apply text-goldy-cream;
     }
 
-    #post-content h5, #post-content h6, #post-content p {
+    #post-content h5,
+    #post-content h6,
+    #post-content p {
         @apply text-xl mobile:text-base;
     }
 
@@ -116,15 +173,18 @@ html {
         @apply rounded-3xl my-3;
     }
 
-    #post-content ul, #about-me-div ul {
+    #post-content ul,
+    #about-me-div ul {
         @apply list-disc pl-8;
     }
 
-    #post-content ol, #about-me-div ol {
+    #post-content ol,
+    #about-me-div ol {
         @apply list-decimal pl-8;
     }
 
-    #post-content ul *, #post-content ol * {
+    #post-content ul *,
+    #post-content ol * {
         @apply mb-0;
     }
 
@@ -133,15 +193,15 @@ html {
     }
 
     #post-content blockquote {
-        @apply p-4 my-4 border-l-4 border-exeGray;
+        @apply p-4 my-4 border-l-4 border-exe-gray;
     }
 
     #post-content blockquote p {
-        @apply !m-0;
+        @apply m-0!;
     }
 
     #post-content p code {
-        @apply bg-black px-2 py-1 pb-0.5 text-base rounded-xl mobile:bg-goldyGreyy;
+        @apply bg-black px-2 py-1 pb-0.5 text-base rounded-xl mobile:bg-goldy-greyy;
     }
 
     #post-content pre code {

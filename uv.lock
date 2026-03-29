@@ -340,7 +340,7 @@ requires-dist = [
     { name = "aiohttp", specifier = "~=3.13.4" },
     { name = "beautifulsoup4", specifier = "~=4.14.3" },
     { name = "fastapi", extras = ["standard"], specifier = "~=0.134" },
-    { name = "fastapi-tailwind", specifier = "==1.0.2b1" },
+    { name = "fastapi-tailwind", specifier = "~=2.0.4a1" },
     { name = "jinja2", specifier = "~=3.1.6" },
     { name = "meow-inator-5000", git = "https://github.com/THEGOLDENPRO/meow-inator-5000" },
     { name = "pyromark", specifier = "~=0.9.10" },
@@ -444,23 +444,18 @@ wheels = [
 
 [[package]]
 name = "fastapi-tailwind"
-version = "1.0.2b1"
+version = "2.0.4a1"
 source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "fastapi" },
-    { name = "typer" },
-]
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/39/21/3b5d354a6c6563f03b2c5eb5593405c192ff0c6b958765688200465be287/fastapi_tailwind-1.0.2b1-py3-none-macosx_10_9_arm64.whl", hash = "sha256:d1e7715254e915f4818ee1df4ee8a6d688253af26c72faccd4fe6ab31beff990", size = 19997471, upload-time = "2024-12-13T00:24:37.685Z" },
-    { url = "https://files.pythonhosted.org/packages/c5/c4/517d290a17b54b70ccb3b2fe73b8f2350bda4c27ffea5be38e56898d8cad/fastapi_tailwind-1.0.2b1-py3-none-macosx_10_9_x86_64.whl", hash = "sha256:1d1c1055608de9eebaf75dad6adb13a4a5cdedeb6d75027b8051d24d8c9f4d68", size = 21578093, upload-time = "2024-12-13T00:24:51.122Z" },
-    { url = "https://files.pythonhosted.org/packages/23/de/a32adff327a8aca5b603dd4b66ee1169f75f18e44f70557633258efd41cb/fastapi_tailwind-1.0.2b1-py3-none-manylinux2014_aarch64.whl", hash = "sha256:9a9d596bcb7e963ee1946148481adede6e492d92dd2ce5aabe0b4b22aea26d78", size = 18864799, upload-time = "2024-12-13T00:25:02.986Z" },
-    { url = "https://files.pythonhosted.org/packages/97/45/df9c0da7abfc3a0ec60e963a37621684bc7c31db88052431388b8179e266/fastapi_tailwind-1.0.2b1-py3-none-manylinux2014_armv7l.whl", hash = "sha256:bbb23217dfa3f635921d1990a6c82337d042c1039923b13d2ccab9087145837e", size = 18167729, upload-time = "2024-12-13T00:25:14.505Z" },
-    { url = "https://files.pythonhosted.org/packages/45/bd/b20296ce70d572e91da0a41bbf7223965f9e62608d887439544da47f5311/fastapi_tailwind-1.0.2b1-py3-none-manylinux2014_x86_64.whl", hash = "sha256:26e219714a3be0aac69de7fab93e8ab839d97dedf469c25d346f0e17ee46c61e", size = 19180681, upload-time = "2024-12-13T00:25:26.517Z" },
-    { url = "https://files.pythonhosted.org/packages/77/10/34460974c8c7117a797db6c493a13ba593e3354404a427efffe6a6925e84/fastapi_tailwind-1.0.2b1-py3-none-musllinux_1_2_aarch64.whl", hash = "sha256:d603e3bf6cb0145918a6019ce8aff211065a959ffce29edca68edded89e37464", size = 18864968, upload-time = "2024-12-13T00:25:38.911Z" },
-    { url = "https://files.pythonhosted.org/packages/16/80/ae607fc4a1e0f2e0770bb5b3bd8a17e4ee7cc79a5166b581765921964185/fastapi_tailwind-1.0.2b1-py3-none-musllinux_1_2_armv7l.whl", hash = "sha256:009d5b82e4f61ab7b1bc051eaaaf591898c1876475b55bb73dc4f6a2485d5ebd", size = 18167897, upload-time = "2024-12-13T00:25:51.324Z" },
-    { url = "https://files.pythonhosted.org/packages/02/a6/ad1a0e2faf49c1470fe3e232dfa027de92eea63a9220a3caf8f4064e9039/fastapi_tailwind-1.0.2b1-py3-none-musllinux_1_2_x86_64.whl", hash = "sha256:887268306b45ee890f3976b4ba7c5acd0f39278a4f66c4371dfbe1f1f72bae41", size = 19180849, upload-time = "2024-12-13T00:26:03.276Z" },
-    { url = "https://files.pythonhosted.org/packages/eb/25/515ce442da77ba84088618ba2b503fc0dac3abac5edec0a1e08a5cd0a2dc/fastapi_tailwind-1.0.2b1-py3-none-win_amd64.whl", hash = "sha256:0b4b7ef4286a84d683ff812bf1ddd9f373ec943212d67d38fae3f097be6c5157", size = 17984956, upload-time = "2024-12-13T00:26:14.411Z" },
-    { url = "https://files.pythonhosted.org/packages/a0/aa/d77fe56dcfc45571ccc3dc18ecb98ba1065ccfc0506134b071bb5f95c862/fastapi_tailwind-1.0.2b1-py3-none-win_arm64.whl", hash = "sha256:8aac683c18c07fdb476121d85dbbd7fa485ff027f5b5540de28baf8a4e9a01cf", size = 13241703, upload-time = "2024-12-13T00:26:25.105Z" },
+    { url = "https://files.pythonhosted.org/packages/8f/25/65d75ea5755f6bb434792c65b6dc5a3bfd431337c534bb69062061c47769/fastapi_tailwind-2.0.4a1-py3-none-macosx_10_9_arm64.whl", hash = "sha256:f66285ed4110c70eb8f76fe79babbfdee0f9347ad3772361aa98bc5840bc824a", size = 27435032, upload-time = "2025-07-10T01:26:24.178Z" },
+    { url = "https://files.pythonhosted.org/packages/0b/5d/54e1b4abe96a713b187519246f92c4d006b3e6b1c4fdc6729cb3ad5f3fbf/fastapi_tailwind-2.0.4a1-py3-none-macosx_10_9_x86_64.whl", hash = "sha256:9b7d6a353fcd3ce2801d3fab92ea4c6aa885fd5fc8f422995d6dc9ba301f0bec", size = 29026594, upload-time = "2025-07-10T01:26:28.051Z" },
+    { url = "https://files.pythonhosted.org/packages/22/8d/7181b1082b8543c19e55fc7b984aebae41b6ea8a935dc5d8425c4fd88932/fastapi_tailwind-2.0.4a1-py3-none-macosx_11_0_arm64.whl", hash = "sha256:7fface9db6e857c4f6fee911d105ad8fc122182c49b47a9eca1c69402b8fa4aa", size = 27435031, upload-time = "2025-07-10T01:26:33.198Z" },
+    { url = "https://files.pythonhosted.org/packages/2e/ea/fffb59b7fb84c73434a58faddf82ebeeb362656c25f1dc75d17ad49afa60/fastapi_tailwind-2.0.4a1-py3-none-macosx_11_0_x86_64.whl", hash = "sha256:41f6ca75d3b2b8f71ae79f8e43df7827d13fce97cf2d1eef1349aba5d8ae34fa", size = 29026593, upload-time = "2025-07-10T01:26:36.428Z" },
+    { url = "https://files.pythonhosted.org/packages/41/67/8f5b2fcbcc646de44244528a654b52bda6677fc3b51030b62274e15285eb/fastapi_tailwind-2.0.4a1-py3-none-manylinux2014_aarch64.whl", hash = "sha256:3156edfff1a1375ef0b825267f793fa0eabf68c9c0ff36535ccadc5a99bfe416", size = 42897865, upload-time = "2025-07-10T01:26:40.471Z" },
+    { url = "https://files.pythonhosted.org/packages/fe/d9/e11c8b37d9298119769bb8dabdd2b1e186434c1514049a12985eb71d65d1/fastapi_tailwind-2.0.4a1-py3-none-manylinux2014_x86_64.whl", hash = "sha256:1d72cb949c7f509e67e0424daee365b4640e7c1a087f29430d643468bc41376c", size = 44681236, upload-time = "2025-07-10T01:26:45.062Z" },
+    { url = "https://files.pythonhosted.org/packages/94/24/c050046ab35d06959e1144615d5ffdc1707af197886e63b35ce6f46adbd7/fastapi_tailwind-2.0.4a1-py3-none-musllinux_1_2_aarch64.whl", hash = "sha256:5e16efe827ba44d45a59b195d59a6f17d120cb4394069477e831fbd574802fcc", size = 40838788, upload-time = "2025-07-10T01:26:49.459Z" },
+    { url = "https://files.pythonhosted.org/packages/95/36/aa5a939b31bf88bf48f18bbeb2ca7bbb31d28b96fd7235093f8c59c92cb0/fastapi_tailwind-2.0.4a1-py3-none-musllinux_1_2_x86_64.whl", hash = "sha256:3934b63e2bf23b42a3cdf6b97a8f17d2ff3ac20d7a011f054e2d6cc8287cd4ce", size = 42289518, upload-time = "2025-07-10T01:26:53.659Z" },
+    { url = "https://files.pythonhosted.org/packages/26/76/a857b0407ce71a43ce15683383d99eac0167f61294e6387c524b9abfd7f9/fastapi_tailwind-2.0.4a1-py3-none-win_amd64.whl", hash = "sha256:374cc85380e7030e1a12dc7e0b73b65c0ca504d573f0209b2b6f41294b313c69", size = 45700405, upload-time = "2025-07-10T01:26:58.156Z" },
 ]
 
 [[package]]

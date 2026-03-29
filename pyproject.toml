@@ -14,7 +14,7 @@ dependencies = [
     "pyromark~=0.9.10",
     "beautifulsoup4~=4.14.3",
     # Website doesn't support tailwind v4 yet
-    "fastapi-tailwind==1.0.2b1",
+    "fastapi-tailwind~=2.0.4a1",
 ]
 
 [build-system]
@@ -29,6 +29,6 @@ include = ["app*"]
 
 [dependency-groups]
 dev = [
-    "ruff>=0.15.8",
-    "ty>=0.0.26",
+    "ruff~=0.15.8",
+    "ty~=0.0.26",
 ]
