@@ -3,7 +3,7 @@ name = "devgoldy-xyz"
 version = "0.1.0"
 description = "My main Website"
 readme = "README.md"
-requires-python = ">=3.11"
+requires-python = "~=3.13.0"
 dependencies = [
     "fastapi[standard]~=0.134",
     "aiofiles~=25.1.0",

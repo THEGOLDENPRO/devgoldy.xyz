@@ -10,8 +10,8 @@
 
 ## Prerequisites
 - ~~[NodeJS](https://nodejs.org/en)~~ (no longer needed)
-- ~~[Python 3.8+](https://www.python.org/)~~ (versions below 3.11 are deprecated)
-- [Python 3.11+](https://www.python.org/)
+- ~~[Python 3.8+](https://www.python.org/)~~ (is now constrained to one major python version)
+- [Python 3.13](https://www.python.org/)
 
 ## Run Locally
 > [!WARNING]
