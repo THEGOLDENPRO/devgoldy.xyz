@@ -12,3 +12,4 @@ config.xml
 .ruff_cache
 config.toml
 *.egg-info
+package.json
