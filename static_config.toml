@@ -1,8 +1,8 @@
 [[config.projects]]
 name = "🌹 roseate (WIP)"
-description = "A small and simple but fancy image viewer built with Rust and Typescript that's cross platform."
+description = "A fast, GPU-accelerated image viewer built for simplicity and customization."
 link = "https://github.com/cloudy-org/roseate"
-image = "https://raw.githubusercontent.com/cloudy-org/roseate/main/app/assets/dev_preview_2.png"
+image = "https://raw.githubusercontent.com/cloudy-org/roseate/main/assets/alpha_preview_1.png"
 
 [[config.projects]]
 name = "🎞️ mov-cli"
