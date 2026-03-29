@@ -5,7 +5,7 @@ if TYPE_CHECKING:
     from typing import List, Tuple
     from typing_extensions import NotRequired
 
-import toml
+import tomllib
 from pathlib import Path
 from aiofiles import open
 from datetime import datetime
@@ -46,12 +46,12 @@ class Config():
             merged_config_data: ConfigData = None
 
             async with open(self.static_config_path, mode = "r", encoding = "utf+8") as file:
-                merged_config_data = toml.loads(await file.read())["config"]
+                merged_config_data = tomllib.loads(await file.read())["config"]
 
             if self.local_config_path.exists() is True:
 
                 async with open(self.local_config_path, mode = "r", encoding = "utf+8") as file:
-                    local_config_data = toml.loads(await file.read())["config"]
+                    local_config_data = tomllib.loads(await file.read())["config"]
                     merged_config_data.update(local_config_data)
 
             self.config_data = (now, merged_config_data)

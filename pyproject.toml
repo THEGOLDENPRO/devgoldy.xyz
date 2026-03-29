@@ -1,0 +1,34 @@
+[project]
+name = "devgoldy-xyz"
+version = "0.1.0"
+description = "My main Website"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi[standard]~=0.134",
+    "aiofiles~=25.1.0",
+    "jinja2~=3.1.6",
+    "aiohttp~=3.13.4",
+    "python-decouple~=3.8",
+    "meow-inator-5000 @ git+https://github.com/THEGOLDENPRO/meow-inator-5000",
+    "pyromark~=0.9.10",
+    "beautifulsoup4~=4.14.3",
+    # Website doesn't support tailwind v4 yet
+    "fastapi-tailwind==1.0.2b1",
+]
+
+[build-system]
+requires = ["setuptools >= 77.0.3"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.dynamic]
+version = { attr = "app.__version__" }
+
+[tool.setuptools.packages.find]
+include = ["app*"]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.15.8",
+    "ty>=0.0.26",
+]

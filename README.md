@@ -10,9 +10,8 @@
 
 ## Prerequisites
 - ~~[NodeJS](https://nodejs.org/en)~~ (no longer needed)
-- ~~[Python 3.8+](https://www.python.org/)~~ (Might still work on 3.8 but versions below 3.9 are now depreacted)
-- [Python 3.9+](https://www.python.org/)
-- [Make](https://www.gnu.org/software/make/) (Optional)
+- ~~[Python 3.8+](https://www.python.org/)~~ (versions below 3.11 are deprecated)
+- [Python 3.11+](https://www.python.org/)
 
 ## Run Locally
 > [!WARNING]
