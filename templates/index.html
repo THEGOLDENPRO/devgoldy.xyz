@@ -22,16 +22,16 @@
     {% endif %}
 
     <div class="relative">
-        <div class="absolute left-6 top-2 {{ 'mobile:left-2' if status is not none else 'mobile:left-4' }} opacity-35 hover:opacity-100 transition">
+        <button class="absolute left-6 top-2 {{ 'mobile:left-2' if status is not none else 'mobile:left-4' }} opacity-35 hover:opacity-100 transition">
             <label id="toggle-effects-button" class="inline-flex items-center cursor-pointer">
-                <input type="checkbox" value="" class="sr-only peer">
+                <input data-click type="checkbox" value="" class="sr-only peer">
                 <div class="relative w-11 h-6 bg-gray-300 peer-checked:bg-goldy-cream rounded-full 
                 peer peer-checked:after:translate-x-full peer-checked:rtl:after:-translate-x-full after:content-[''] 
                 after:absolute after:top-[2px] after:left-[2px] after:bg-goldy-darky-200 after:rounded-full after:h-5 
                 after:w-5 after:transition-all"></div>
                 <span class="ms-3 mobile:ms-2 mt-0.5 text-base mobile:text-sm 2.75rem text-gray-300">Disable Effects</span>
             </label>
-        </div>
+        </button>
 
         <div class="absolute w-fit right-7 mobile:hidden opacity-35 hover:opacity-100 transition">
             <h2>
@@ -70,7 +70,7 @@
             </h2>
 
             <div id="links" class="opacity-0 links text-center text-2xl mobile:text-xl h-full transition ease-in duration-[5s]">
-                <ul class="relative pt-[8%]">
+                <ul class="relative pt-[8%] pb-[2%]">
                     <li>
                         <a href="./github"><i class='bx bxl-github'></i> Github</a>
                     </li>
@@ -94,9 +94,9 @@
 
     </div>
 
-    <div class="grid grid-cols-2 gap-8 small-screen:gap-4 mobile:grid-cols-1 p-5 mx-[10%] small-screen:mx-2 tablet:mx-0 mt-5">
+    <div class="grid grid-cols-2 gap-8 small-screen:gap-4 mobile:grid-cols-1 p-5 mx-[10%] small-screen:mx-2 tablet:mx-0 mt-1">
 
-        <div id="about-me-div" class="animated-crt-lines bg-goldyDarky bg-opacity-10 rounded-md border-2 border-opacity-60 border-goldy-cream">
+        <div id="about-me-div" class="animated-crt-lines bg-goldy-darky bg-opacity-10 rounded-md border-2 border-opacity-60 border-goldy-cream">
 
             <div class="relative pt-1">
                 <div class="select-none cursor-default">
@@ -132,12 +132,10 @@
             <div class="p-6 tablet:p-3 font-typewriter text-base text-[1.08rem]! mobile:text-base! tracking-widest">
                 {{ about_me_content|safe }}
             </div>
-
         </div>
 
-        <div class="flex justify-center items-center">
-            <div id="blogs-div" class="bg-goldyDarky bg-opacity-10 rounded-md border-2 border-opacity-60 border-goldy-cream h-min">
-
+        <div class="grid grid-rows-[auto_1fr] gap-8 small-screen:gap-4 mobile:grid-cols-1">
+            <div id="blogs-div" class="bg-goldy-darky bg-opacity-10 rounded-md border-2 border-opacity-60 border-goldy-cream h-min">
                 <div class="relative pt-1">
                     <div class="select-none">
                         <div class="mx-auto w-fit">
@@ -202,15 +200,64 @@
                     </div>
                 </div>
             </div>
+
+            <div id="music-player-div" class="bg-yellow-50/20 bg-opacity-10 rounded-md border-2 border-opacity-60 border-goldy-cream">
+                <div class="relative pt-1">
+                    <div class="select-none cursor-default">
+                        <div class="mx-auto w-fit">
+                            <div class="text-xl my-1.5 px-2">
+                                <h2 class="inline text-white font-bold tracking-wider">💿 Music Player</h2>
+                            </div>
+                        </div>
+
+                        <div style="stroke-opacity: 0.8;" class="absolute tablet:hidden cursor-not-allowed pt-2 pr-2 top-0 right-0 space-x-0.5 fill-white stroke-white stroke-2">
+                            <button class="pointer-events-none border-2 border-opacity-70 border-goldy-cream will-change-auto rounded-md">
+                                <svg class="inline" width="24" height="20" viewBox="0 0 24 24">
+                                    <path d="M5 11h14v2H5z"></path>
+                                </svg>
+                            </button>
+
+                            <button class="pointer-events-none border-2 border-opacity-70 border-goldy-cream will-change-auto rounded-md">
+                                <svg class="inline" width="24" height="16" viewBox="0 0.5 24 24">
+                                    <path d="M20 3H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zm-1 16H5V5h14v14z"></path>
+                                </svg>
+                            </button>
+
+                            <button class="pointer-events-none border-2 border-opacity-70 border-goldy-cream h-[28px] will-change-auto rounded-md">
+                                <svg class="inline" width="24" height="24" viewBox="0 0.5 24 24">
+                                    <path d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative p-3 tablet:p-3">
+                    <div class="bg-stone-950 text-green-500 p-5">
+                        <h3 id="music-player-display-text" class="font-typewriter text-base text-[1.08rem]! mobile:text-base! tracking-widest">
+                            Press play to load YouTube.
+                        </h3>
+                    </div>
+
+                    <div class="mt-3 flex justify-center items-center">
+                        <button id="music-player-play-button" class="cursor-pointer bg-yellow-50 text-black px-4 py-1 border-2 
+                            border-t-white border-l-white border-b-black border-r-black 
+                            active:border-t-black active:border-l-black active:border-b-white active:border-r-white">
+                            <span class="relative active:top-[1px] active:left-[1px]">▶︎</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
-        <div id="projects-div" class="col-span-2 mobile:col-span-1 bg-goldyDarky bg-opacity-10 rounded-md border-2 border-opacity-60 border-goldy-cream">
+        <div id="projects-div" class="col-span-2 mobile:col-span-1 bg-goldy-darky bg-opacity-10 rounded-md border-2 border-opacity-60 border-goldy-cream">
 
             <div class="relative pt-1">
                 <div class="select-none cursor-default">
                     <div class="mx-auto w-fit">
                         <div class="text-xl my-1.5 px-2">
-                            <h2 class="inline text-white font-bold tracking-wider">⭐ Projects</h2>
+                            <h2 class="inline text-white font-bold tracking-wider">⭐ Cool Projects</h2>
                         </div>
                     </div>
 
@@ -249,13 +296,30 @@
                     </div>
                 </div>
                 {% endfor %}
+
+                <div class="block order-last opacity-40 hover:opacity-90 mobile:opacity-90 transition w-full select-none">
+                    <a href="/github" class="block h-5/6 w-full bg-black rounded-lg">
+                        <div class="h-full w-full flex justify-center items-center">
+                            <h2 class="text-white font-typewriter text-4xl tracking-wider">
+                                <img class="inline-block" width="80px" src="./images/github_ani.gif">
+                                More Projects
+                            </h2>
+                        </div>
+                    </a>
+
+                    <h3 class="mt-2 text-center text-gray-300 text-xl tracking-wider">
+                        ...and for all my other projects click here!
+                    </h3>
+                </div>
             </div>
 
         </div>
 
     </div>
 
-    <script src="./scripts/index.js"></script>
+    <div id="yt-music-embed" class="hidden"></div>
 
+    <script src="./scripts/index.js"></script>
+    <script id="yt-music-script" src="./scripts/yt_music.js"></script>
 </body>
 {% endblock %}
