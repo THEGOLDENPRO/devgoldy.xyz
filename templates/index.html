@@ -27,7 +27,7 @@
                 <input data-click type="checkbox" value="" class="sr-only peer">
                 <div class="relative w-11 h-6 bg-gray-300 peer-checked:bg-goldy-cream rounded-full 
                 peer peer-checked:after:translate-x-full peer-checked:rtl:after:-translate-x-full after:content-[''] 
-                after:absolute after:top-[2px] after:left-[2px] after:bg-goldy-darky-200 after:rounded-full after:h-5 
+                after:absolute after:top-[2px] after:left-[2px] after:bg-goldy-darky after:rounded-full after:h-5 
                 after:w-5 after:transition-all"></div>
                 <span class="ms-3 mobile:ms-2 mt-0.5 text-base mobile:text-sm 2.75rem text-gray-300">Disable Effects</span>
             </label>
@@ -134,14 +134,15 @@
             </div>
         </div>
 
-        <div class="grid grid-rows-[auto_1fr] gap-8 small-screen:gap-4 mobile:grid-cols-1">
+        <div class="grid grid-rows-[auto_1fr] mobile:grid-rows-1 gap-8 small-screen:gap-4 mobile:grid-cols-1">
             <div id="blogs-div" class="bg-goldy-darky bg-opacity-10 rounded-md border-2 border-opacity-60 border-goldy-cream h-min">
                 <div class="relative pt-1">
                     <div class="select-none">
                         <div class="mx-auto w-fit">
                             <div class="text-xl my-1.5 px-2">
                                 <a href="/blogs">
-                                    <h2 class="inline text-white font-bold tracking-wider">📖 My Blogs</h2>
+                                    <span class="pr-1">📖</span>
+                                    <h2 class="inline text-white font-bold tracking-wider">My Blogs</h2>
                                 </a>
                             </div>
                         </div>
@@ -201,12 +202,13 @@
                 </div>
             </div>
 
-            <div id="music-player-div" class="bg-yellow-50/20 bg-opacity-10 rounded-md border-2 border-opacity-60 border-goldy-cream">
+            <div id="music-player-div" class="bg-yellow-50/15 bg-opacity-10 rounded-md border-2 border-opacity-60 border-goldy-cream mobile:hidden">
                 <div class="relative pt-1">
                     <div class="select-none cursor-default">
                         <div class="mx-auto w-fit">
                             <div class="text-xl my-1.5 px-2">
-                                <h2 class="inline text-white font-bold tracking-wider">💿 Music Player</h2>
+                                <span class="pr-1">💿</span>
+                                <h2 class="inline text-white font-bold tracking-wider">Music Player</h2>
                             </div>
                         </div>
 
@@ -257,7 +259,8 @@
                 <div class="select-none cursor-default">
                     <div class="mx-auto w-fit">
                         <div class="text-xl my-1.5 px-2">
-                            <h2 class="inline text-white font-bold tracking-wider">⭐ Cool Projects</h2>
+                            <span class="pr-1">⭐</span>
+                            <h2 class="inline text-white font-bold tracking-wider">Cool Projects</h2>
                         </div>
                     </div>
 
