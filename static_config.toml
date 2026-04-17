@@ -41,37 +41,11 @@ link = "https://github.com/THEGOLDENPRO/snakelings"
 image = "https://raw.githubusercontent.com/THEGOLDENPRO/snakelings/main/assets/preview.png"
 
 [[config.projects]]
-name = "🌠 GFE"
-description = "Goldy's first editor. Built in Rust 🦀 with the ICED 🧊 tool kit."
-link = "https://github.com/THEGOLDENPRO/gfe"
-image = "./images/gfe_showcase.png"
+name = "😺 http-cat-cli"
+link = "https://github.com/THEGOLDENPRO/http-cat-cli"
+image = "https://raw.githubusercontent.com/THEGOLDENPRO/http-cat-cli/main/assets/http_cat_showcase.png"
 
 [[config.projects]]
 name = "Anmoku 安黙"
 description = "A peaceful and fully typed MyAnimeList / Jikan Python API wrapper with caching and proper rate limiting."
 link = "https://github.com/THEGOLDENPRO/anmoku"
-
-[[config.projects]]
-name = "🟣 JS:QP Core"
-description = "WIP open source minecraft package management library."
-link = "https://github.com/JS-Quick-Pack/jsqp-core"
-
-[[config.projects]]
-name = "⚫ aghpb.c 📚"
-description = "Anime girls holding programming books API wrapper for ⚫ C."
-link = "https://github.com/THEGOLDENPRO/aghpb.c"
-
-[[config.projects]]
-name = "🟣 koff"
-description = "🟣 Temporary KDE osu! full screen fix."
-link = "https://github.com/THEGOLDENPRO/kde-osu-fullscreen-fix"
-
-[[config.projects]]
-name = "🦀 aghpb.rs 📚"
-description = "Anime girls holding programming books API wrapper for 🦀 Rust."
-link = "https://github.com/THEGOLDENPRO/aghpb.rs"
-
-[[config.projects]]
-name = "💾 hello world debloated af"
-description = "Hello world in intel assembly."
-link = "https://github.com/THEGOLDENPRO/hello-world-debloated-af"
