@@ -5,15 +5,13 @@ description = "My main Website"
 readme = "README.md"
 requires-python = "~=3.13.0"
 dependencies = [
-    "fastapi[standard]~=0.134",
+    "fastapi[standard]~=0.136.0",
     "aiofiles~=25.1.0",
     "jinja2~=3.1.6",
-    "aiohttp~=3.13.4",
+    "aiohttp~=3.13.5",
     "python-decouple~=3.8",
-    "meow-inator-5000 @ git+https://github.com/THEGOLDENPRO/meow-inator-5000",
     "pyromark~=0.9.10",
     "beautifulsoup4~=4.14.3",
-    # Website doesn't support tailwind v4 yet
     "fastapi-tailwind~=2.0.4a1",
 ]
 
@@ -29,6 +27,6 @@ include = ["app*"]
 
 [dependency-groups]
 dev = [
-    "ruff~=0.15.8",
-    "ty~=0.0.26",
+    "ruff~=0.15.11",
+    "ty~=0.0.31",
 ]
