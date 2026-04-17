@@ -9,6 +9,8 @@ from fastapi.exceptions import HTTPException
 from .. import constants
 from ..config import Config
 
+__all__ = ()
+
 router = APIRouter()
 templates = Jinja2Templates(directory = "./templates")
 

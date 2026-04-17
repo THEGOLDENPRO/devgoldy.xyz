@@ -8,9 +8,7 @@ if TYPE_CHECKING:
 
 from . import constants
 
-__all__ = (
-    "PageContextBuilder",
-)
+__all__ = ()
 
 class PageContextData(TypedDict):
     request: Request
@@ -26,12 +24,12 @@ class PageContextData(TypedDict):
 
 class PageContextBuilder():
     def __init__(
-        self, 
+        self,
         request: Request,
-        name: str, 
-        description: str, 
-        image_url: Optional[str] = None, 
-        site_name: Optional[str] = "Goldy", 
+        name: str,
+        description: str,
+        image_url: Optional[str] = None,
+        site_name: Optional[str] = "Goldy",
         divider: Optional[str] = " • ",
         theme_colour: str = "#fbc689"
     ) -> None:

@@ -2,15 +2,14 @@ from __future__ import annotations
 from typing import TYPE_CHECKING, TypedDict
 
 if TYPE_CHECKING:
-    from typing import List, Tuple
-    from typing_extensions import NotRequired
+    from typing import List, Tuple, NotRequired
 
 import tomllib
 from pathlib import Path
 from aiofiles import open
 from datetime import datetime
 
-__all__ = ("Config",)
+__all__ = ()
 
 class ProjectData(TypedDict):
     name: str
@@ -28,7 +27,7 @@ class LinkerData(TypedDict):
     url: str
 
 class ConfigData(TypedDict):
-    status: str
+    status: NotRequired[str]
     projects: NotRequired[List[ProjectData]]
     linkers: NotRequired[List[LinkerData]]
 
