@@ -1,5 +1,5 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING, TypedDict, Optional
 
 if TYPE_CHECKING:
     from typing import List, Tuple, NotRequired
@@ -42,7 +42,7 @@ class Config():
         now = datetime.now().timestamp()
 
         if now > self.config_data[0] + 120:
-            merged_config_data: ConfigData = None
+            merged_config_data: Optional[ConfigData] = None
 
             async with open(self.static_config_path, mode = "r", encoding = "utf+8") as file:
                 merged_config_data = tomllib.loads(await file.read())["config"]

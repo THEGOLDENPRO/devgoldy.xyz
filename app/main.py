@@ -1,4 +1,4 @@
-from __future__ import annotations
+import typing
 from typing import Literal
 
 import os
@@ -34,7 +34,7 @@ static_files = StaticFiles(directory = "static")
 async def lifespan(_: FastAPI):
     # Compile tailwind css.
     popen = tailwind.compile(
-        output_stylesheet_path = static_files.directory + "/output.css",
+        output_stylesheet_path = str(static_files.directory) + "/output.css",
         tailwind_stylesheet_path = "./input.css",
         watch = constants.DEBUG,
     )
@@ -93,22 +93,21 @@ async def index(request: Request, mode: Literal["legacy", "stable"] = constants.
         ]
     )
 
-    for index, project in enumerate(projects):
-        url = project["link"]
+    for index in range(len(projects)):
+        url = projects[index]["link"]
+        image_url = projects[index].get("image")
 
-        project_image_url = projects[index].get("image")
-
-        if project_image_url is None and "https://github.com" in url:
+        if image_url is None and "https://github.com" in url:
             git_url = url
             split_git_url = git_url.split("/")
 
             git_user = split_git_url[-2]
             repo_name = split_git_url[-1]
 
-            project_image_url = "https://opengraph.githubassets.com/d6e56308869b44ec6a37a53b7735b6d5bdd7131635f70cae050baf0197620f3a" \
+            image_url = "https://opengraph.githubassets.com/d6e56308869b44ec6a37a53b7735b6d5bdd7131635f70cae050baf0197620f3a" \
                 f"/{git_user}/{repo_name}"
 
-        projects[index]["image"] = project_image_url
+        projects[index]["image"] = typing.cast(str, image_url)
 
     about_me_content = markdown_sections.get_section_html("about_me")
 

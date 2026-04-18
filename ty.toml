@@ -1,4 +1,2 @@
-[[overrides]]
-exclude = [
-    "./app/anime.py",
-]
+[src]
+exclude = ["app/anime_api.py"]
