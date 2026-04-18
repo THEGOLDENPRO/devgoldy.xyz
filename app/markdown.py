@@ -7,21 +7,22 @@ __all__ = ()
 logger = logging.getLogger(__name__)
 
 class MarkdownSections():
-    def __init__(self, basic_markdown: Markdown):
+    def __init__(self, basic_markdown: Markdown, debug_mode: bool):
+        self.__debug_mode = debug_mode
         self.__basic_markdown = basic_markdown
 
-        self.__parsed_markdown_sections: dict[str, str] = self.__parse_all_markdown()
+        self.__parsed_markdown_sections: dict[str, str] = {}
 
     def get_section_html(self, section_id: str) -> str:
+        if self.__parsed_markdown_sections == {} or self.__debug_mode:
+            self.__parse_all_markdown()
+
         return self.__parsed_markdown_sections[section_id]
 
-    # might reuse this function somewhere
-    def __parse_all_markdown(self):
+    def __parse_all_markdown(self) -> None:
         logger.debug("Parsing all markdown files...")
 
         markdown_folder_path = Path("./markdown")
-
-        parsed_markdown_sections: dict[str, str] = {}
 
         for markdown_path in markdown_folder_path.glob("*.md"):
             logger.debug(f"Opening and parsing '{markdown_path.name}' markdown...")
@@ -29,6 +30,4 @@ class MarkdownSections():
             with markdown_path.open("r") as file:
                 parsed_markdown = self.__basic_markdown.html(file.read())
 
-            parsed_markdown_sections[markdown_path.stem] = parsed_markdown
-
-        return parsed_markdown_sections
+            self.__parsed_markdown_sections[markdown_path.stem] = parsed_markdown

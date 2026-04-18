@@ -295,22 +295,22 @@
                             <img src="{{ './images/no_image_cat.jpg' if project.image is none else project.image }}" 
                             class="transition rounded-lg duration-300 animate-fade-in-faster select-none">
                         </a>
-                        <h3 class="mt-2 text-center text-gray-300 text-xl tracking-wider">{{ project.name }}</h3>
+                        <h3 class="mt-2 text-center text-gray-300 text-2xl tablet:text-xl tracking-wider">{{ project.name }}</h3>
                     </div>
                 </div>
                 {% endfor %}
 
-                <div class="block order-last opacity-40 hover:opacity-90 mobile:opacity-90 transition w-full select-none">
-                    <a href="/github" class="block h-5/6 w-full bg-black rounded-lg">
-                        <div class="h-full w-full flex justify-center items-center">
-                            <h2 class="text-white font-typewriter text-4xl tracking-wider">
-                                <img class="inline-block" width="80px" src="./images/github_ani.gif">
+                <div class="block order-last opacity-40 hover:opacity-90 mobile:opacity-90 transition w-full h-fit select-none">
+                    <a href="/github">
+                        <div class="flex justify-center items-center h-64 tablet:h-32 w-full bg-black rounded-lg">
+                            <h2 class="text-white font-typewriter text-4xl tablet:text-xl tracking-wider">
+                                <img class="inline-block w-20 tablet:w-14" src="./images/github_ani.gif">
                                 More Projects
                             </h2>
                         </div>
                     </a>
 
-                    <h3 class="mt-2 text-center text-gray-300 text-xl tracking-wider">
+                    <h3 class="mt-2 text-center text-gray-300 text-2xl tablet:text-xl tracking-wider">
                         ...and for all my other projects click here!
                     </h3>
                 </div>

@@ -35,7 +35,8 @@ async def lifespan(_: FastAPI):
     # Compile tailwind css.
     popen = tailwind.compile(
         output_stylesheet_path = static_files.directory + "/output.css",
-        tailwind_stylesheet_path = "./input.css"
+        tailwind_stylesheet_path = "./input.css",
+        watch = constants.DEBUG,
     )
 
     yield
@@ -57,7 +58,7 @@ http_client = HTTPClient()
 basic_markdown = Markdown()
 config = Config(constants.CONFIG_PATH)
 templates = Jinja2Templates(directory = "./templates")
-markdown_sections = MarkdownSections(basic_markdown)
+markdown_sections = MarkdownSections(basic_markdown, debug_mode = constants.DEBUG)
 
 blog_api = BlogAPI()
 anime_api = AnimeAPI(username = constants.MAL_USERNAME)
