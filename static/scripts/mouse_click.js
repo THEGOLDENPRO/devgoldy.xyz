@@ -1,4 +1,4 @@
-const mouseClickAudio = new Audio("./audio/mouse_click.mp3");
+const mouseClickAudio = new Audio("/audio/mouse_click.mp3");
 
 window.addEventListener("click", (event) => {
     const target = event.target;
