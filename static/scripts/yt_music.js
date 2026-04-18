@@ -21,7 +21,7 @@ function onYouTubeIframeAPIReady() {
 }
 
 function onPlayerReady(_event) {
-    player.setVolume(25);
+    player.setVolume(30);
 
     musicPlayerDisplayText.innerText = "Press play again to play music.";
 
