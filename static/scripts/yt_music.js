@@ -45,6 +45,7 @@ musicPlayerButton.addEventListener("click", (event) => {
     musicPlayerDisplayText.innerText = "Loading YouTube embed...";
 });
 
+var musicTitle = null;
 var musicPlaying = false;
 
 musicPlayerButton.addEventListener("click", (event) => {
@@ -54,11 +55,15 @@ musicPlayerButton.addEventListener("click", (event) => {
 
     console.debug("Playing music with youtube embed API...");
 
-    const videoData = player.getVideoData();
-
-    musicPlayerDisplayText.innerText = (!musicPlaying) ? "▶︎ PLAYING - " + videoData.title : "◼ STOPPED";
-
     (!musicPlaying) ? player.playVideo() : player.stopVideo();
+
+    if (musicTitle == null) {
+        const videoData = player.getVideoData();
+
+        musicTitle = videoData.title;
+    }
+
+    musicPlayerDisplayText.innerText = (!musicPlaying) ? "▶︎ PLAYING - " + musicTitle : "◼ STOPPED";
 
     musicPlayerButton.innerText = (!musicPlaying) ? "◼" : "▶︎";
 
