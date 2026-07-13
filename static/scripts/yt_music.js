@@ -2,13 +2,22 @@ const musicPlayerDiv = document.getElementById("music-player-div");
 const musicPlayerButton = document.getElementById("music-player-play-button");
 const musicPlayerDisplayText = document.getElementById("music-player-display-text"); 
 
+const songIDs = [
+    "vUU-Yl2Dprk", // LAMP - Kokoro no Madobe ni...
+    "ELSAPf-z9VI", // LAMP - Futari no ita fukei
+];
+
 var player;
 
 function onYouTubeIframeAPIReady() {
+    const randomSongID = songIDs[Math.floor(Math.random() * songIDs.length)];
+
+    console.debug("Picked song id '" + randomSongID + "' from list.");
+
     player = new YT.Player("yt-music-embed", {
         height: "0",
         width: "0",
-        videoId: "vUU-Yl2Dprk",
+        videoId: randomSongID,
         host: "https://www.youtube-nocookie.com",
         playerVars: {
             "playsinline": 1,

@@ -12,11 +12,11 @@
 {% endblock %}
 
 {% block body %}
-<body class="m-0 text-white bg-goldy-darky-500 font-yanone-kaffeesatz tracking-wide">
+<body class="m-0 text-white bg-goldy-darky-orange font-yanone-kaffeesatz tracking-wide">
     <div id="static-bg-div" class="animated-static-bg z-10 pointer-events-none"></div>
 
     {% if status is not none %}
-    <div class="bg-goldy-cream bg-opacity-60 w-fit mobile:w-full px-10 mobile:px-2 rounded-xl rounded-t-none mobile:rounded-none mx-auto select-none">
+    <div class="bg-goldy-cream bg-opacity-60 w-fit mobile:w-full px-10 mobile:px-2 rounded-md rounded-t-none mobile:rounded-none mx-auto select-none">
         <h2 class="font-bold text-center text-xl small-screen:text-lg mobile:text-base" style="text-shadow: black 1px 1px 0px;">{{ status|safe }}</h2>
     </div>
     {% endif %}
@@ -96,7 +96,7 @@
 
     <div class="grid grid-cols-2 gap-8 small-screen:gap-4 mobile:grid-cols-1 p-5 mx-[10%] small-screen:mx-2 tablet:mx-0 mt-1">
 
-        <div id="about-me-div" class="animated-crt-lines bg-goldy-darky bg-opacity-10 rounded-md border-2 border-opacity-60 border-goldy-cream">
+        <div id="about-me-div" class="animated-crt-lines bg-goldy-darky/60 bg-opacity-10 rounded-md border-2 border-opacity-60 border-goldy-cream">
 
             <div class="relative pt-1">
                 <div class="select-none cursor-default">
@@ -135,7 +135,7 @@
         </div>
 
         <div class="grid grid-rows-[auto_1fr] mobile:grid-rows-1 gap-8 small-screen:gap-4 mobile:grid-cols-1">
-            <div id="blogs-div" class="bg-goldy-darky bg-opacity-10 rounded-md border-2 border-opacity-60 border-goldy-cream h-min">
+            <div id="blogs-div" class="bg-goldy-darky/60 bg-opacity-10 rounded-md border-2 border-opacity-60 border-goldy-cream h-min">
                 <div class="relative pt-1">
                     <div class="select-none">
                         <div class="mx-auto w-fit">
@@ -253,7 +253,7 @@
 
         </div>
 
-        <div id="projects-div" class="col-span-2 mobile:col-span-1 bg-goldy-darky bg-opacity-10 rounded-md border-2 border-opacity-60 border-goldy-cream">
+        <div id="projects-div" class="col-span-2 mobile:col-span-1 bg-goldy-darky/60 bg-opacity-10 rounded-md border-2 border-opacity-60 border-goldy-cream">
 
             <div class="relative pt-1">
                 <div class="select-none cursor-default">

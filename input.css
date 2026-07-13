@@ -86,16 +86,20 @@
     --color-exe-gray: #9ca3af;
     --color-goldy-pink: #fb89ab;
 
+    /* dark colours */
     --color-goldy-darky: #090B0D;
     --color-goldy-darky-500: #0a0b0d;
+
+    --color-goldy-darky-orange: #100C0B;
 
     --color-goldy-greyy: #222930;
     --color-goldy-greyy-100: #222930;
     --color-goldy-greyy-300: #2a2b2c;
 
+    --color-goldy-red: #fb89ab;
+
     --color-goldy-cream: #fbc689;
-    --color-goldy-cream-200: #fbc689;
-    --color-goldy-cream-800: var(--color-orange-50);
+    --color-goldy-cream-200: var(--color-goldy-cream);
 
     --color-goldy-white: #f1f1f1;
 
