@@ -1,0 +1,2 @@
+[src]
+exclude = ["app/anime_api.py"]

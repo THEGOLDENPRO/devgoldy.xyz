@@ -1,23 +1,24 @@
-from __future__ import annotations
+import typing
 from typing import Literal
 
 import os
 from pyromark import Markdown
 from fastapi_tailwind import tailwind
 from contextlib import asynccontextmanager
-from meow_inator_5000.woutews import nya_service
 
 from fastapi import FastAPI
 from fastapi.requests import Request
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
-from starlette.exceptions import HTTPException
 from fastapi.responses import RedirectResponse
+from starlette.exceptions import HTTPException
 
-from .anime import Anime
+from .config import Config
+from .blog_api import BlogAPI
+from .anime_api import AnimeAPI
 from .routers import blogs, linkers
-from .goldy_exe_api import GoldyEXEAPI
-from .config import Config, ProjectData
+from .http_client import HTTPClient
+from .markdown import MarkdownSections
 from .context_builder import PageContextBuilder
 from .CAIPIRINHA_CAIPIRINHA_WHOOOO_YEEEAAAAHHH import CAIPIRINHA_CAIPIRINHA_WHOOOO_YEEEAAAAHHH_or_http_exception
 
@@ -33,8 +34,9 @@ static_files = StaticFiles(directory = "static")
 async def lifespan(_: FastAPI):
     # Compile tailwind css.
     popen = tailwind.compile(
-        output_stylesheet_path = static_files.directory + "/output.css",
-        tailwind_stylesheet_path = "./input.css"
+        output_stylesheet_path = str(static_files.directory) + "/output.css",
+        tailwind_stylesheet_path = "./input.css",
+        watch = constants.DEBUG,
     )
 
     yield
@@ -48,27 +50,23 @@ app = FastAPI(
     version = __version__,
     lifespan = lifespan
 )
-app.include_router(nya_service.router)
 
 app.include_router(blogs.router)
 app.include_router(linkers.router)
 
-projects_placeholder: ProjectData = {
-    "name": "Wait what",
-    "description": "there seems to be nothing here :(",
-    "git": "https://cdn.devgoldy.xyz/ricky.webm"
-}
-
+http_client = HTTPClient()
 basic_markdown = Markdown()
-goldy_exe_api = GoldyEXEAPI()
-anime = Anime(constants.MAL_USERNAME)
 config = Config(constants.CONFIG_PATH)
 templates = Jinja2Templates(directory = "./templates")
+markdown_sections = MarkdownSections(basic_markdown, debug_mode = constants.DEBUG)
+
+blog_api = BlogAPI()
+anime_api = AnimeAPI(username = constants.MAL_USERNAME)
 
 @app.get("/")
 async def index(request: Request, mode: Literal["legacy", "stable"] = constants.DEFAULT_HOME_MODE):
     config_data = await config.get_config()
-    blog_posts = await goldy_exe_api.get_blog_posts(8)
+    blog_posts = await blog_api.get_blog_posts(http_client, limit = 8)
 
     context = PageContextBuilder(
         request,
@@ -77,41 +75,48 @@ async def index(request: Request, mode: Literal["legacy", "stable"] = constants.
         image_url = "/images/image.webp"
     )
 
-    with open("./markdown/about_me.md") as file:
-        about_me_content = basic_markdown.html(file.read())
-
     status_msg = None
 
     status = config_data.get("status")
 
-    if not status == "" and status is not None:
+    if status is not None:
         status_msg = basic_markdown.html(status)
 
-    projects = config_data.get("projects", [projects_placeholder])
+    projects = config_data.get(
+        "projects",
+        [
+            {
+                "name": "Wait what",
+                "description": "there seems to be nothing here :(",
+                "git": "https://cdn.devgoldy.xyz/ricky.webm"
+            }
+        ]
+    )
 
-    for index, project in enumerate(projects):
-        url = project["link"]
+    for index in range(len(projects)):
+        url = projects[index]["link"]
+        image_url = projects[index].get("image")
 
-        project_image_url = projects[index].get("image")
-
-        if project_image_url is None and "https://github.com" in url:
+        if image_url is None and "https://github.com" in url:
             git_url = url
             split_git_url = git_url.split("/")
 
             git_user = split_git_url[-2]
             repo_name = split_git_url[-1]
 
-            project_image_url = "https://opengraph.githubassets.com/d6e56308869b44ec6a37a53b7735b6d5bdd7131635f70cae050baf0197620f3a" \
+            image_url = "https://opengraph.githubassets.com/d6e56308869b44ec6a37a53b7735b6d5bdd7131635f70cae050baf0197620f3a" \
                 f"/{git_user}/{repo_name}"
 
-        projects[index]["image"] = project_image_url
+        projects[index]["image"] = typing.cast(str, image_url)
+
+    about_me_content = markdown_sections.get_section_html("about_me")
 
     return templates.TemplateResponse(
         "legacy_index.html" if mode == "legacy" else "index.html", {
             "status": status_msg,
             "about_me_content": about_me_content,
             "blog_posts": blog_posts,
-            "anime_list": await anime.get_anime_status() if mode == "legacy" else [],
+            "anime_list": await anime_api.get_anime_status(http_client) if mode == "legacy" else [],
             "open_source_projects": projects,
 
             **context.data
@@ -162,6 +167,12 @@ async def mopping_girl(request: Request):
 @app.get("/favicon.ico")
 async def favicon():
     return RedirectResponse("./images/rikka.png") # You saw it, didn't you...
+
+@app.get("/nya") # 😺 meow
+async def status(request: Request):
+    return {
+        "version": __version__
+    }
 
 @app.exception_handler(HTTPException)
 async def custom_http_exception_handler(request: Request, exception: HTTPException):

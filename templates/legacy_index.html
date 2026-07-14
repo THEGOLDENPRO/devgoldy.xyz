@@ -9,7 +9,7 @@
 {% endblock %}
 
 {% block body %}
-<body class="m-0 mt-10 text-white bg-goldyDarky font-YanoneKaffeesatz">
+<body class="m-0 mt-10 text-white bg-goldy-darky font-yanone-kaffeesatz">
     <div style="text-shadow: black 0px 0px 15px;" class="grid grid-cols-3 gap-4 mobile:grid-cols-1 w-2/4 tablet:w-3/4 mobile:w-full mx-auto select-none">
 
         <div class="hidden mobile:block select-none">
@@ -18,10 +18,10 @@
             </figure>
         </div>
 
-        <div class="col-start-1 col-end-3 mobile:col-auto h-[100%]">
-            <h1 class="text-7xl mobile:text-4xl text-goldyCream font-bold tracking-[0.5rem]">Hi, it's Goldy</h1>
+        <div class="col-start-1 col-end-3 mobile:col-auto h-full">
+            <h1 class="text-7xl mobile:text-4xl text-goldy-cream font-bold tracking-[0.5rem]">Hi, it's Goldy</h1>
             <h2 class="text-2xl mobile:text-xl">
-                I'm an up and coming <a class="text-goldyOrangy-300 font-bold" href="./github">open-source developer</a>.
+                I'm an up and coming <a class="text-goldy-orangy-300 font-bold" href="./github">open-source developer</a>.
             </h2>
 
             <div class="links text-center text-2xl mobile:text-xl h-full">
@@ -48,7 +48,7 @@
 
     </div>
 
-    <div class="status mt-5 bg-goldyDarky-500 p-5 rounded-3xl 
+    <div class="status mt-5 bg-goldy-darky-500 p-5 rounded-3xl 
     grid grid-cols-1 small-screen:grid-cols-2 gap-4 gap-y-10 mobile:gap-y-4 mx-[20%] mobile:mx-auto">
 
         <div class="blog-posts text-center">
@@ -59,7 +59,7 @@
 
             {% for post in blog_posts %}
                 <article>
-                    <h2>{{ post.date_added }} - <a class="text-goldyOrangy-300 font-bold" href="./blogs/post/{{ post.id }}">{{ post.name }}</a></h2>
+                    <h2>{{ post.date_added }} - <a class="text-goldy-orangy-300 font-bold" href="./blogs/post/{{ post.id }}">{{ post.name }}</a></h2>
                 </article>
             {% endfor %}
 
@@ -72,7 +72,7 @@
             </h1>
 
             {% for project in open_source_projects %}
-                <h2><a class="text-goldyOrangy-300 font-bold" href="{{ project.link }}">{{ project.name }}</a> - {{ project.description }}</h2>
+                <h2><a class="text-goldy-orangy-300 font-bold" href="{{ project.link }}">{{ project.name }}</a> - {{ project.description }}</h2>
             {% endfor %}
 
         </div>
@@ -84,7 +84,7 @@
             </h1>
 
             {% for anime in anime_list %}
-                <h2>{{ anime.date }} - {{ anime.action }} <a class="text-goldyOrangy-300 font-bold" href="{{ anime.url }}">{{ anime.title }}</a></h2>
+                <h2>{{ anime.date }} - {{ anime.action }} <a class="text-goldy-orangy-300 font-bold" href="{{ anime.url }}">{{ anime.title }}</a></h2>
             {% endfor %}
 
             <h2 class="mt-8">More status at  <a href="./anime">MyAnimeList</a></h2>

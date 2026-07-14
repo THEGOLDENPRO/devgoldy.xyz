@@ -71,8 +71,8 @@ function toggleSlideshowImage(slideshow: HTMLElement, index: number) {
     }
 
     for (let button of slideshow_buttons) {
-        if (button.classList.contains("!bg-goldyCream-200")) {
-            button.classList.remove("!bg-goldyCream-200");
+        if (button.classList.contains("!bg-goldy-cream-200")) {
+            button.classList.remove("!bg-goldy-cream-200");
         }
     }
 
@@ -84,20 +84,20 @@ function toggleSlideshowImage(slideshow: HTMLElement, index: number) {
 
     // show the current slideshow image and brighten it's button.
     slideshow_images[index].classList.remove("hidden");
-    slideshow_buttons[index].classList.add("!bg-goldyCream-200");
+    slideshow_buttons[index].classList.add("!bg-goldy-cream-200");
     slideshow_titles[index].classList.remove("hidden");
 
     // show title on hover.
     let hover_callback = (e: MouseEvent) => {
         if (e.type == "mouseover") {
-            slideshow_images[index].classList.add("blur-sm");
+            slideshow_images[index].classList.add("blur-xs");
             //slideshow_images[index].classList.add("saturate-50");
             slideshow_images[index].classList.add("brightness-50");
             slideshow_images[index].classList.add("sepia");
 
             slideshow_titles[index].classList.add("opacity-100");
         } else {
-            slideshow_images[index].classList.remove("blur-sm");
+            slideshow_images[index].classList.remove("blur-xs");
             //slideshow_images[index].classList.remove("saturate-50");
             slideshow_images[index].classList.remove("brightness-50");
             slideshow_images[index].classList.remove("sepia");

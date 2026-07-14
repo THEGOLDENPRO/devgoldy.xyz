@@ -1,18 +1,10 @@
 from decouple import config
 
-__all__ = (
-    "MAX_DESCRIPTION_LENGTH",
-    "CONFIG_PATH",
-    "MAL_USERNAME",
-    "SOURCE_CODE_URL",
-    "CHANGE_LOG_URL",
-    "LICENSE_URL",
-    "BLOG_CDN_URL",
-    "BLOG_API_URL",
-    "DEFAULT_HOME_MODE"
-)
+__all__ = ()
 
 MAX_DESCRIPTION_LENGTH = 200
+
+DEBUG = config("DEBUG", False, cast = bool)
 
 CONFIG_PATH = config("CONFIG_PATH", "./config.toml")
 MAL_USERNAME = config("MAL_USERNAME", "thegoldenpro")

@@ -8,7 +8,7 @@
 {% endblock %}
 
 {% block body %}
-<body class="font-dosis text-white bg-goldyDarky-500 selection:bg-goldyCream selection:text-exeBlack">
+<body class="font-dosis text-white bg-goldy-darky-500 selection:bg-goldy-cream selection:text-exe-black">
     <header>
         <div class="text-7xl mobile:text-4xl font-bold font-hacked text-center py-5 select-none animate-flicker drop-shadow-flicker">
             <a style="color: white !important;" href=".">
@@ -18,7 +18,7 @@
     </header>
 
     <a href="/" class="absolute top-6 left-6" style="color: white !important;">
-        <button href class="bg-exeGray bg-opacity-5 border-exeGray border-[1px] 
+        <button href class="bg-opacity-5 border-exe-gray border 
         px-3 py-2 mobile:p-0 mobile:px-1 rounded-2xl hover:scale-110 will-change-transform 
         transition-transform ease-in-out duration-500">
             <i class='bx bx-arrow-back relative top-[0.080rem]'></i>
@@ -26,7 +26,7 @@
         </button>
     </a>
 
-    <div class="block w-[100%] pb-5">
+    <div class="block w-full pb-5">
         {% if posts|length > 0 %}
             <div class="px-[5%] mx-auto max-w-4xl cursor-pointer">
 
@@ -40,7 +40,7 @@
 
                     <div>
                         <h2 class="text-center pt-2 font-bold text-4xl mobile:text-xl">{{ top_post.name }}</h2>
-                        <h4 class="text-center pt-2 text-exeGray">{{ top_post.date_added }}</h4>
+                        <h4 class="text-center pt-2 text-exe-gray">{{ top_post.date_added }}</h4>
                     </div>
 
                 </a>
@@ -62,8 +62,8 @@
 
             {% for post in posts %}
                 <a style="color: white !important;" href="/blogs/post/{{ post.id }}">
-                    <article class="block w-96 flex-shrink-0 mobile:w-auto bg-exeGray bg-opacity-5 p-2 will-change-transform
-                    border-exeGray border-[1px] rounded-3xl transition-transform ease-in-out duration-500 
+                    <article class="block w-96 shrink-0 mobile:w-auto bg-opacity-5 p-2 will-change-transform
+                    border-exe-gray border rounded-3xl transition-transform ease-in-out duration-500 
                     cursor-pointer overflow-hidden hover:scale-90">
                         <figure class="rounded-2xl overflow-hidden">
                             <img src="{{ './image.png' if post.thumbnail_url is none else post.thumbnail_url }}" 
@@ -71,7 +71,7 @@
                         </figure>
                         <div>
                             <h2 class="text-center pt-2 tracking-wider font-bold text-lg mobile:text-xl">{{ post.name }}</h2>
-                            <h4 class="text-center pt-1 text-base text-exeGray mt-auto">{{ post.date_added }}</h4>
+                            <h4 class="text-center pt-1 text-base text-exe-gray mt-auto">{{ post.date_added }}</h4>
                         </div>
                     </article>
                 </a>

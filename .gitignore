@@ -6,7 +6,10 @@ __pycache__
 node_modules
 package-lock.json
 .env
+.venv
 jikan4snek_cache
 config.xml
 .ruff_cache
 config.toml
+*.egg-info
+package.json

@@ -12,26 +12,26 @@
 {% endblock %}
 
 {% block body %}
-<body class="m-0 text-white bg-goldyDarky-500 font-YanoneKaffeesatz tracking-wide">
+<body class="m-0 text-white bg-goldy-darky-orange font-yanone-kaffeesatz tracking-wide">
     <div id="static-bg-div" class="animated-static-bg z-10 pointer-events-none"></div>
 
     {% if status is not none %}
-    <div class="bg-goldyCream bg-opacity-60 w-fit mobile:w-full px-10 mobile:px-2 rounded-xl rounded-t-none mobile:rounded-none mx-auto select-none">
+    <div class="bg-goldy-cream bg-opacity-60 w-fit mobile:w-full px-10 mobile:px-2 rounded-md rounded-t-none mobile:rounded-none mx-auto select-none">
         <h2 class="font-bold text-center text-xl small-screen:text-lg mobile:text-base" style="text-shadow: black 1px 1px 0px;">{{ status|safe }}</h2>
     </div>
     {% endif %}
 
     <div class="relative">
-        <div class="absolute left-6 top-2 {{ 'mobile:left-2' if status is not none else 'mobile:left-4' }} opacity-35 hover:opacity-100 transition">
+        <button class="absolute left-6 top-2 {{ 'mobile:left-2' if status is not none else 'mobile:left-4' }} opacity-35 hover:opacity-100 transition">
             <label id="toggle-effects-button" class="inline-flex items-center cursor-pointer">
-                <input type="checkbox" value="" class="sr-only peer">
-                <div class="relative w-11 h-6 bg-gray-300 peer-checked:bg-goldyCream rounded-full 
-                peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full after:content-[''] 
-                after:absolute after:top-[2px] after:start-[2px] after:bg-goldyDarky-200 after:rounded-full after:h-5 
+                <input data-click type="checkbox" value="" class="sr-only peer">
+                <div class="relative w-11 h-6 bg-gray-300 peer-checked:bg-goldy-cream rounded-full 
+                peer peer-checked:after:translate-x-full peer-checked:rtl:after:-translate-x-full after:content-[''] 
+                after:absolute after:top-[2px] after:left-[2px] after:bg-goldy-darky after:rounded-full after:h-5 
                 after:w-5 after:transition-all"></div>
                 <span class="ms-3 mobile:ms-2 mt-0.5 text-base mobile:text-sm 2.75rem text-gray-300">Disable Effects</span>
             </label>
-        </div>
+        </button>
 
         <div class="absolute w-fit right-7 mobile:hidden opacity-35 hover:opacity-100 transition">
             <h2>
@@ -49,7 +49,7 @@
             </figure>
         </div>
 
-        <div style="text-shadow: black 2px 2px 0px;" class="col-start-1 col-end-3 mobile:col-auto h-[100%] pt-5 mobile:pt-0">
+        <div style="text-shadow: black 2px 2px 0px;" class="col-start-1 col-end-3 mobile:col-auto h-full pt-5 mobile:pt-0">
 
             <noscript class="absolute z-10">
                 <h3 class="italic line-through">I ain't rebuilding this shit to work without javascript.</h3>
@@ -61,7 +61,7 @@
             </noscript>
 
             <h1 id="its_goldy_text" style="text-shadow: 3px 0.5px 1px #fb89ab;"
-            class="opacity-0 text-7xl mobile:text-4xl mobile:drop-shadow-none text-goldyCream font-bold tracking-[0.5rem]
+            class="opacity-0 text-7xl mobile:text-4xl mobile:drop-shadow-none text-goldy-cream font-bold tracking-[0.5rem]
             transition ease-in duration-500">
                 Hi, it's Goldy
             </h1>
@@ -70,7 +70,7 @@
             </h2>
 
             <div id="links" class="opacity-0 links text-center text-2xl mobile:text-xl h-full transition ease-in duration-[5s]">
-                <ul class="relative pt-[8%]">
+                <ul class="relative pt-[8%] pb-[2%]">
                     <li>
                         <a href="./github"><i class='bx bxl-github'></i> Github</a>
                     </li>
@@ -94,33 +94,33 @@
 
     </div>
 
-    <div class="grid grid-cols-2 gap-8 small-screen:gap-4 mobile:grid-cols-1 p-5 mx-[10%] small-screen:mx-2 tablet:mx-0 mt-5">
+    <div class="grid grid-cols-2 gap-8 small-screen:gap-4 mobile:grid-cols-1 p-5 mx-[10%] small-screen:mx-2 tablet:mx-0 mt-1">
 
-        <div id="about-me-div" class="animated-crt-lines bg-goldyDarky bg-opacity-10 rounded-md border-2 border-opacity-60 border-goldyCream">
+        <div id="about-me-div" class="animated-crt-lines bg-goldy-darky/60 bg-opacity-10 rounded-md border-2 border-opacity-60 border-goldy-cream">
 
             <div class="relative pt-1">
                 <div class="select-none cursor-default">
                     <div class="mx-auto w-fit">
                         <div class="text-xl my-1.5 px-2">
-                            <span class="pr-1">✨</span>
+                            <span class="pr-0.5">✨</span>
                             <h2 class="inline text-white font-bold tracking-wider">About Me</h2>
                         </div>
                     </div>
 
                     <div style="stroke-opacity: 0.8;" class="absolute tablet:hidden cursor-not-allowed pt-2 pr-2 top-0 right-0 space-x-0.5 fill-white stroke-white stroke-2">
-                        <button class="pointer-events-none border-2 border-opacity-70 border-goldyCream will-change-auto rounded-md">
+                        <button class="pointer-events-none border-2 border-opacity-70 border-goldy-cream will-change-auto rounded-md">
                             <svg class="inline" width="24" height="20" viewBox="0 0 24 24">
                                 <path d="M5 11h14v2H5z"></path>
                             </svg>
                         </button>
 
-                        <button class="pointer-events-none border-2 border-opacity-70 border-goldyCream will-change-auto rounded-md">
+                        <button class="pointer-events-none border-2 border-opacity-70 border-goldy-cream will-change-auto rounded-md">
                             <svg class="inline" width="24" height="16" viewBox="0 0.5 24 24">
                                 <path d="M20 3H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zm-1 16H5V5h14v14z"></path>
                             </svg>
                         </button>
 
-                        <button class="pointer-events-none border-2 border-opacity-70 border-goldyCream h-[28px] will-change-auto rounded-md">
+                        <button class="pointer-events-none border-2 border-opacity-70 border-goldy-cream h-[28px] will-change-auto rounded-md">
                             <svg class="inline" width="24" height="24" viewBox="0 0.5 24 24">
                                 <path d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"></path>
                             </svg>
@@ -129,41 +129,40 @@
                 </div>
             </div>
 
-            <div class="p-6 tablet:p-3 font-typewriter text-base !text-[1.08rem] mobile:!text-base tracking-widest">
+            <div class="p-6 tablet:p-3 font-typewriter text-base text-[1.08rem]! mobile:text-base! tracking-widest">
                 {{ about_me_content|safe }}
             </div>
-
         </div>
 
-        <div class="flex justify-center items-center">
-            <div id="blogs-div" class="bg-goldyDarky bg-opacity-10 rounded-md border-2 border-opacity-60 border-goldyCream h-min">
-
+        <div class="grid grid-rows-[auto_1fr] mobile:grid-rows-1 gap-8 small-screen:gap-4 mobile:grid-cols-1">
+            <div id="blogs-div" class="bg-goldy-darky/60 bg-opacity-10 rounded-md border-2 border-opacity-60 border-goldy-cream h-min">
                 <div class="relative pt-1">
-                    <div class="select-none cursor-default">
+                    <div class="select-none">
                         <div class="mx-auto w-fit">
                             <div class="text-xl my-1.5 px-2">
                                 <a href="/blogs">
-                                    <h2 class="inline text-white font-bold tracking-wider">📖 My Blogs</h2>
+                                    <span class="pr-0.5">📖</span>
+                                    <h2 class="inline text-white font-bold tracking-wider">My Blogs</h2>
                                 </a>
                             </div>
                         </div>
 
-                        <div style="stroke-opacity: 0.8;" class="absolute tablet:hidden cursor-not-allowed pt-2 pr-2 top-0 right-0 space-x-0.5 fill-white stroke-white stroke-2">
-                            <button class="pointer-events-none border-2 border-opacity-70 border-goldyCream will-change-auto rounded-md">
+                        <div style="stroke-opacity: 0.8;" class="absolute tablet:hidden pt-2 pr-2 top-0 right-0 space-x-0.5 fill-white stroke-white stroke-2">
+                            <button class="cursor-not-allowed border-2 border-opacity-70 border-goldy-cream will-change-auto rounded-md">
                                 <svg class="inline" width="24" height="20" viewBox="0 0 24 24">
                                     <path d="M5 11h14v2H5z"></path>
                                 </svg>
                             </button>
 
                             <a href="/blogs">
-                                <button class="border-2 border-opacity-70 border-goldyCream will-change-auto rounded-md">
+                                <button class="cursor-pointer border-2 border-opacity-70 border-goldy-cream will-change-auto rounded-md">
                                     <svg class="inline" width="24" height="16" viewBox="0 0.5 24 24">
                                         <path d="M20 3H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zm-1 16H5V5h14v14z"></path>
                                     </svg>
                                 </button>
                             </a>
 
-                            <button class="pointer-events-none border-2 border-opacity-70 border-goldyCream h-[28px] will-change-auto rounded-md">
+                            <button class="cursor-not-allowed border-2 border-opacity-70 border-goldy-cream h-[28px] will-change-auto rounded-md">
                                 <svg class="inline" width="24" height="24" viewBox="0 0.5 24 24">
                                     <path d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"></path>
                                 </svg>
@@ -195,40 +194,95 @@
                         {% endfor %}
                     </figure>
 
-                    <div class="text-center mt-3">
+                    <div class="text-center mt-3 select-none">
                         {% for number in range(blog_posts|length) %}
-                        <button onclick="toggleSlideshowImage(blogs_slideshow, '{{ number }}'); stopSlideshowLoopThingy(blogs_slideshow_id);" class="w-4 h-4 rounded-full m-1 bg-gray-600"></button>
+                        <button onclick="toggleSlideshowImage(blogs_slideshow, '{{ number }}'); stopSlideshowLoopThingy(blogs_slideshow_id);" class="w-4 h-4 rounded-full m-1 bg-gray-600 cursor-pointer"></button>
                         {% endfor %}
                     </div>
                 </div>
             </div>
+
+            <div id="music-player-div" class="bg-yellow-50/15 bg-opacity-10 rounded-md border-2 border-opacity-60 border-goldy-cream mobile:hidden">
+                <div class="relative pt-1">
+                    <div class="select-none cursor-default">
+                        <div class="absolute left-3 top-3 border-2 border-opacity-70 border-goldy-cream will-change-auto rounded-md"
+                        title="There is a change of a new track upon each page refresh.">
+                            <span class="my-0.5 mx-2">𝐢</span>
+                        </div>
+
+                        <div class="mx-auto w-fit">
+                            <div class="text-xl my-1.5 px-2">
+                                <span class="pr-0.5">💿</span>
+                                <h2 class="inline text-white font-bold tracking-wider">Music Player</h2>
+                            </div>
+                        </div>
+
+                        <div style="stroke-opacity: 0.8;" class="absolute tablet:hidden cursor-not-allowed pt-2 pr-2 top-0 right-0 space-x-0.5 fill-white stroke-white stroke-2">
+                            <button class="pointer-events-none border-2 border-opacity-70 border-goldy-cream will-change-auto rounded-md">
+                                <svg class="inline" width="24" height="20" viewBox="0 0 24 24">
+                                    <path d="M5 11h14v2H5z"></path>
+                                </svg>
+                            </button>
+
+                            <button class="pointer-events-none border-2 border-opacity-70 border-goldy-cream will-change-auto rounded-md">
+                                <svg class="inline" width="24" height="16" viewBox="0 0.5 24 24">
+                                    <path d="M20 3H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zm-1 16H5V5h14v14z"></path>
+                                </svg>
+                            </button>
+
+                            <button class="pointer-events-none border-2 border-opacity-70 border-goldy-cream h-[28px] will-change-auto rounded-md">
+                                <svg class="inline" width="24" height="24" viewBox="0 0.5 24 24">
+                                    <path d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative p-3 tablet:p-3">
+                    <div class="bg-stone-950/90 text-green-500 p-5 rounded-sm">
+                        <h3 id="music-player-display-text" class="font-typewriter text-base tracking-widest">
+                            Press play to load YouTube.
+                        </h3>
+                    </div>
+
+                    <div class="mt-3 flex justify-center items-center">
+                        <button id="music-player-play-button" class="cursor-pointer bg-yellow-50/50 text-black px-4 py-1 border-2 
+                            border-t-white border-l-white border-b-black border-r-black 
+                            active:border-t-black active:border-l-black active:border-b-white active:border-r-white">
+                            <span class="relative active:top-[1px] active:left-[1px]">▶︎</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
-
-        <div id="projects-div" class="col-span-2 mobile:col-span-1 bg-goldyDarky bg-opacity-10 rounded-md border-2 border-opacity-60 border-goldyCream">
+        <div id="projects-div" class="col-span-2 mobile:col-span-1 bg-goldy-darky/60 bg-opacity-10 rounded-md border-2 border-opacity-60 border-goldy-cream">
 
             <div class="relative pt-1">
                 <div class="select-none cursor-default">
                     <div class="mx-auto w-fit">
                         <div class="text-xl my-1.5 px-2">
-                            <h2 class="inline text-white font-bold tracking-wider">⭐ Projects</h2>
+                            <span class="pr-0.5">⭐</span>
+                            <h2 class="inline text-white font-bold tracking-wider">Cool Projects</h2>
                         </div>
                     </div>
 
                     <div style="stroke-opacity: 0.8;" class="absolute tablet:hidden cursor-not-allowed pt-2 pr-2 top-0 right-0 space-x-0.5 fill-white stroke-white stroke-2">
-                        <button class="pointer-events-none border-2 border-opacity-70 border-goldyCream will-change-auto rounded-md">
+                        <button class="pointer-events-none border-2 border-opacity-70 border-goldy-cream will-change-auto rounded-md">
                             <svg class="inline" width="24" height="20" viewBox="0 0 24 24">
                                 <path d="M5 11h14v2H5z"></path>
                             </svg>
                         </button>
 
-                        <button class="pointer-events-none border-2 border-opacity-70 border-goldyCream will-change-auto rounded-md">
+                        <button class="pointer-events-none border-2 border-opacity-70 border-goldy-cream will-change-auto rounded-md">
                             <svg class="inline" width="24" height="16" viewBox="0 0.5 24 24">
                                 <path d="M20 3H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zm-1 16H5V5h14v14z"></path>
                             </svg>
                         </button>
 
-                        <button class="pointer-events-none border-2 border-opacity-70 border-goldyCream h-[28px] will-change-auto rounded-md">
+                        <button class="pointer-events-none border-2 border-opacity-70 border-goldy-cream h-[28px] will-change-auto rounded-md">
                             <svg class="inline" width="24" height="24" viewBox="0 0.5 24 24">
                                 <path d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"></path>
                             </svg>
@@ -246,17 +300,81 @@
                             <img src="{{ './images/no_image_cat.jpg' if project.image is none else project.image }}" 
                             class="transition rounded-lg duration-300 animate-fade-in-faster select-none">
                         </a>
-                        <h3 class="mt-2 text-center text-gray-300 text-xl tracking-wider">{{ project.name }}</h3>
+                        <h3 class="mt-2 text-center text-gray-300 text-2xl tablet:text-xl tracking-wider">{{ project.name }}</h3>
                     </div>
                 </div>
                 {% endfor %}
-            </div>
 
+                <div class="block order-last opacity-40 hover:opacity-90 mobile:opacity-90 transition w-full h-fit select-none">
+                    <a href="/github">
+                        <div class="flex justify-center items-center h-64 tablet:h-32 w-full bg-black rounded-lg">
+                            <h2 class="text-white font-typewriter text-4xl tablet:text-xl tracking-wider">
+                                <img class="inline-block w-20 tablet:w-14" src="./images/github_ani.gif">
+                                More Projects
+                            </h2>
+                        </div>
+                    </a>
+
+                    <h3 class="mt-2 text-center text-gray-300 text-2xl tablet:text-xl tracking-wider">
+                        ...and for all my other projects click here!
+                    </h3>
+                </div>
+            </div>
         </div>
 
+        <div id="info-div" class="col-span-1 mobile:col-span-1 bg-goldy-darky/60 bg-opacity-10 rounded-md border-2 border-opacity-60 border-goldy-cream">
+
+            <div class="relative pt-1">
+                <div class="select-none cursor-default">
+                    <div class="mx-auto w-fit">
+                        <div class="text-xl my-1.5 px-2">
+                            <span class="pr-0.5">ℹ️</span>
+                            <h2 class="inline text-white font-bold tracking-wider">Info</h2>
+                        </div>
+                    </div>
+
+                    <div style="stroke-opacity: 0.8;" class="absolute tablet:hidden cursor-not-allowed pt-2 pr-2 top-0 right-0 space-x-0.5 fill-white stroke-white stroke-2">
+                        <button class="pointer-events-none border-2 border-opacity-70 border-goldy-cream will-change-auto rounded-md">
+                            <svg class="inline" width="24" height="20" viewBox="0 0 24 24">
+                                <path d="M5 11h14v2H5z"></path>
+                            </svg>
+                        </button>
+
+                        <button class="pointer-events-none border-2 border-opacity-70 border-goldy-cream will-change-auto rounded-md">
+                            <svg class="inline" width="24" height="16" viewBox="0 0.5 24 24">
+                                <path d="M20 3H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zm-1 16H5V5h14v14z"></path>
+                            </svg>
+                        </button>
+
+                        <button class="pointer-events-none border-2 border-opacity-70 border-goldy-cream h-[28px] will-change-auto rounded-md">
+                            <svg class="inline" width="24" height="24" viewBox="0 0.5 24 24">
+                                <path d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-5 flex gap-5">
+                <img width="100px" src="./images/thinking_girl.png" alt="thinking anime girl">
+
+                <div class="text-[1.08rem]! tracking-wider">
+                    <p>
+                        Pretty empty down here, I'm still thinking of what windows to drag down... 
+                        maybe some sort of application to give me an excuse to build something with WebAssembly via 🦀 Rust.
+                    </p>
+
+                    <br>
+
+                    <p>In the meantime checkout out my <a href="./blogs">blog site</a> and <a href="./github">github</a>.</p>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <script src="./scripts/index.js"></script>
+    <div id="yt-music-embed" class="hidden"></div>
 
+    <script src="./scripts/index.js"></script>
+    <script id="yt-music-script" src="./scripts/yt_music.js"></script>
 </body>
 {% endblock %}

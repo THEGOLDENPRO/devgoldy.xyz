@@ -1,16 +1,15 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING, TypedDict, Optional
 
 if TYPE_CHECKING:
-    from typing import List, Tuple
-    from typing_extensions import NotRequired
+    from typing import List, Tuple, NotRequired
 
-import toml
+import tomllib
 from pathlib import Path
 from aiofiles import open
 from datetime import datetime
 
-__all__ = ("Config",)
+__all__ = ()
 
 class ProjectData(TypedDict):
     name: str
@@ -28,7 +27,7 @@ class LinkerData(TypedDict):
     url: str
 
 class ConfigData(TypedDict):
-    status: str
+    status: NotRequired[str]
     projects: NotRequired[List[ProjectData]]
     linkers: NotRequired[List[LinkerData]]
 
@@ -43,15 +42,15 @@ class Config():
         now = datetime.now().timestamp()
 
         if now > self.config_data[0] + 120:
-            merged_config_data: ConfigData = None
+            merged_config_data: Optional[ConfigData] = None
 
             async with open(self.static_config_path, mode = "r", encoding = "utf+8") as file:
-                merged_config_data = toml.loads(await file.read())["config"]
+                merged_config_data = tomllib.loads(await file.read())["config"]
 
             if self.local_config_path.exists() is True:
 
                 async with open(self.local_config_path, mode = "r", encoding = "utf+8") as file:
-                    local_config_data = toml.loads(await file.read())["config"]
+                    local_config_data = tomllib.loads(await file.read())["config"]
                     merged_config_data.update(local_config_data)
 
             self.config_data = (now, merged_config_data)
