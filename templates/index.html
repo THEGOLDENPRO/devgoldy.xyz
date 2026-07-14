@@ -102,7 +102,7 @@
                 <div class="select-none cursor-default">
                     <div class="mx-auto w-fit">
                         <div class="text-xl my-1.5 px-2">
-                            <span class="pr-1">✨</span>
+                            <span class="pr-0.5">✨</span>
                             <h2 class="inline text-white font-bold tracking-wider">About Me</h2>
                         </div>
                     </div>
@@ -141,7 +141,7 @@
                         <div class="mx-auto w-fit">
                             <div class="text-xl my-1.5 px-2">
                                 <a href="/blogs">
-                                    <span class="pr-1">📖</span>
+                                    <span class="pr-0.5">📖</span>
                                     <h2 class="inline text-white font-bold tracking-wider">My Blogs</h2>
                                 </a>
                             </div>
@@ -205,9 +205,14 @@
             <div id="music-player-div" class="bg-yellow-50/15 bg-opacity-10 rounded-md border-2 border-opacity-60 border-goldy-cream mobile:hidden">
                 <div class="relative pt-1">
                     <div class="select-none cursor-default">
+                        <div class="absolute left-3 top-3 border-2 border-opacity-70 border-goldy-cream will-change-auto rounded-md"
+                        title="There is a change of a new track upon each page refresh.">
+                            <span class="my-0.5 mx-2">𝐢</span>
+                        </div>
+
                         <div class="mx-auto w-fit">
                             <div class="text-xl my-1.5 px-2">
-                                <span class="pr-1">💿</span>
+                                <span class="pr-0.5">💿</span>
                                 <h2 class="inline text-white font-bold tracking-wider">Music Player</h2>
                             </div>
                         </div>
@@ -259,7 +264,7 @@
                 <div class="select-none cursor-default">
                     <div class="mx-auto w-fit">
                         <div class="text-xl my-1.5 px-2">
-                            <span class="pr-1">⭐</span>
+                            <span class="pr-0.5">⭐</span>
                             <h2 class="inline text-white font-bold tracking-wider">Cool Projects</h2>
                         </div>
                     </div>
@@ -315,9 +320,56 @@
                     </h3>
                 </div>
             </div>
-
         </div>
 
+        <div id="info-div" class="col-span-1 mobile:col-span-1 bg-goldy-darky/60 bg-opacity-10 rounded-md border-2 border-opacity-60 border-goldy-cream">
+
+            <div class="relative pt-1">
+                <div class="select-none cursor-default">
+                    <div class="mx-auto w-fit">
+                        <div class="text-xl my-1.5 px-2">
+                            <span class="pr-0.5">ℹ️</span>
+                            <h2 class="inline text-white font-bold tracking-wider">Info</h2>
+                        </div>
+                    </div>
+
+                    <div style="stroke-opacity: 0.8;" class="absolute tablet:hidden cursor-not-allowed pt-2 pr-2 top-0 right-0 space-x-0.5 fill-white stroke-white stroke-2">
+                        <button class="pointer-events-none border-2 border-opacity-70 border-goldy-cream will-change-auto rounded-md">
+                            <svg class="inline" width="24" height="20" viewBox="0 0 24 24">
+                                <path d="M5 11h14v2H5z"></path>
+                            </svg>
+                        </button>
+
+                        <button class="pointer-events-none border-2 border-opacity-70 border-goldy-cream will-change-auto rounded-md">
+                            <svg class="inline" width="24" height="16" viewBox="0 0.5 24 24">
+                                <path d="M20 3H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zm-1 16H5V5h14v14z"></path>
+                            </svg>
+                        </button>
+
+                        <button class="pointer-events-none border-2 border-opacity-70 border-goldy-cream h-[28px] will-change-auto rounded-md">
+                            <svg class="inline" width="24" height="24" viewBox="0 0.5 24 24">
+                                <path d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-5 flex gap-5">
+                <img width="100px" src="./images/thinking_girl.png" alt="thinking anime girl">
+
+                <div class="text-[1.08rem]! tracking-wider">
+                    <p>
+                        Pretty empty down here, I'm still thinking of what windows to drag down... 
+                        maybe some sort of application to give me an excuse to build something with WebAssembly via 🦀 Rust.
+                    </p>
+
+                    <br>
+
+                    <p>In the meantime checkout out my <a href="./blogs">blog site</a> and <a href="./github">github</a>.</p>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div id="yt-music-embed" class="hidden"></div>

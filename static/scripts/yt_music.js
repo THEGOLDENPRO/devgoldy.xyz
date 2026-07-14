@@ -5,6 +5,8 @@ const musicPlayerDisplayText = document.getElementById("music-player-display-tex
 const songIDs = [
     "vUU-Yl2Dprk", // LAMP - Kokoro no Madobe ni...
     "ELSAPf-z9VI", // LAMP - Futari no ita fukei
+    "iSt0Sit6j00", // Takayuki Negishi - On The Special Day
+    "JM09NNyEpdY", // ALI PROJECT - S嬢の秘めやかな悔恨
 ];
 
 var player;
