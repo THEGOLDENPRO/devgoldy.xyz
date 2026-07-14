@@ -75,7 +75,9 @@ async def read_post(request: Request, id: int):
         data = await r.text("utf-8")
         content = markdown.html(data)
 
-    description = BeautifulSoup(content).find("p").get_text()
+    first_paragraph_tag = BeautifulSoup(content, features="html.parser").find("p")
+
+    description = first_paragraph_tag.get_text() if first_paragraph_tag is not None else ""
 
     # Redirects all html elements linking to root to the blog's cdn redirect.
     content = content.replace('src="./', f'src="./{id}/')
@@ -92,7 +94,7 @@ async def read_post(request: Request, id: int):
         divider = None,
         theme_colour = PageContextBuilder.convert_rgb_to_hex(
             # Adding fallback here as the old api doesn't have accent_colour.
-            tuple([int(value) for value in post_data.get("accent_colour", "9, 11, 17").split(",")])
+            tuple([int(value) for value in post_data.get("accent_colour", "9, 11, 17").split(",")]) # ty:ignore[invalid-argument-type]
         )
     )
 
