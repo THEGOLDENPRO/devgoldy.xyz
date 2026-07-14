@@ -1,10 +1,13 @@
 import typing
 
+import logging
 from datetime import datetime, timedelta
 
 from .http_client import HTTPClient
 
 __all__ = ()
+
+logger = logging.getLogger(__name__)
 
 class AnimeAPI():
     def __init__(self, username: str) -> None:
@@ -21,39 +24,42 @@ class AnimeAPI():
         mal_history = await self.__get_history(http_client)
         mal_updates = await self.__get_updates(http_client)
 
-        for anime_update in mal_updates["data"]["anime"]:
-            action = ""
+        if not mal_updates == {}:
 
-            status = anime_update["status"].lower()
+            for anime_update in mal_updates["data"]["anime"]:
+                action = ""
 
-            if status == "watching":
-                continue
+                status = anime_update["status"].lower()
 
-            elif status == "plan to watch":
-                action = "Planned to watch"
+                if status == "watching":
+                    continue
 
-            elif status == "completed":
-                action = "Completed"
+                elif status == "plan to watch":
+                    action = "Planned to watch"
 
-            anime_list.append(
+                elif status == "completed":
+                    action = "Completed"
+
+                anime_list.append(
+                    {
+                        "action": action,
+                        "url": anime_update["entry"]["url"],
+                        "title": anime_update["entry"]["title"],
+                        "date": datetime.fromisoformat(anime_update["date"]).strftime("%b %d %Y"),
+                        "date_timestamp": datetime.fromisoformat(anime_update["date"]).timestamp()
+                    }
+                )
+
+        if not mal_history == {}:
+            anime_list += [
                 {
-                    "action": action,
-                    "url": anime_update["entry"]["url"],
-                    "title": anime_update["entry"]["title"],
-                    "date": datetime.fromisoformat(anime_update["date"]).strftime("%b %d %Y"),
-                    "date_timestamp": datetime.fromisoformat(anime_update["date"]).timestamp()
-                }
-            )
-
-        anime_list += [
-            {
-                "action": f"Watched episode {anime['increment']} of",
-                "url": anime["entry"]["url"],
-                "title": anime["entry"]["name"],
-                "date": datetime.fromisoformat(anime["date"]).strftime("%b %d %Y"),
-                "date_timestamp": datetime.fromisoformat(anime["date"]).timestamp()
-            } for anime in mal_history["data"][:20]
-        ]
+                    "action": f"Watched episode {anime['increment']} of",
+                    "url": anime["entry"]["url"],
+                    "title": anime["entry"]["name"],
+                    "date": datetime.fromisoformat(anime["date"]).strftime("%b %d %Y"),
+                    "date_timestamp": datetime.fromisoformat(anime["date"]).timestamp()
+                } for anime in mal_history["data"][:20]
+            ]
 
         anime_list.sort(key = lambda x: x["date_timestamp"], reverse = True)
 
@@ -66,6 +72,9 @@ class AnimeAPI():
             http_session = await http_client.get_http_session()
 
             async with http_session.get(f"https://api.jikan.moe/v4/users/{self.username}/history") as response:
+                if not response.ok:
+                    logger.error(f"Received unsuccessful response from jikan! Response: {response}")
+
                 data = typing.cast(dict, val = await response.json() if response.ok else {})
 
             self.__history_cache = (
@@ -81,6 +90,9 @@ class AnimeAPI():
             http_session = await http_client.get_http_session()
 
             async with http_session.get(f"https://api.jikan.moe/v4/users/{self.username}/userupdates") as response:
+                if not response.ok:
+                    logger.error(f"Received unsuccessful response from jikan! Response: {response}")
+
                 data = typing.cast(dict, val = await response.json() if response.ok else {})
 
             self.__updates_cache = (
