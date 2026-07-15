@@ -2,6 +2,7 @@ import typing
 from typing import Literal
 
 import os
+import random
 from pyromark import Markdown
 from fastapi_tailwind import tailwind
 from contextlib import asynccontextmanager
@@ -63,6 +64,11 @@ markdown_sections = MarkdownSections(basic_markdown, debug_mode = constants.DEBU
 blog_api = BlogAPI()
 anime_api = AnimeAPI(username = constants.MAL_USERNAME)
 
+HOME_EMBED_IMAGES = [
+    "/images/clouds_1.webp",
+    "/images/lain_building_computer.jpg"
+]
+
 @app.get("/")
 async def index(request: Request, mode: Literal["legacy", "stable"] = constants.DEFAULT_HOME_MODE):
     config_data = await config.get_config()
@@ -72,7 +78,7 @@ async def index(request: Request, mode: Literal["legacy", "stable"] = constants.
         request,
         name = "Home",
         description = "My main website.",
-        image_url = "/images/image.webp"
+        image_url = random.choice(HOME_EMBED_IMAGES)
     )
 
     status_msg = None
