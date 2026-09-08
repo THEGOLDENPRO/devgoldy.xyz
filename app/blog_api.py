@@ -27,6 +27,8 @@ class BlogAPI():
             http_session = await http_client.get_http_session()
 
             async with http_session.request("GET", BLOG_API_URL + "/posts", params = params) as r:
+                blog_posts = []
+
                 if r.ok:
                     blog_posts = [
                         {
