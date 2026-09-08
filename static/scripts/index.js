@@ -56,9 +56,9 @@ function doAnimationThingy(elements) {
 function toggleSlideshowImage(slideshow, index) {
     console.log(`Toggling slideshow image '${index}'...`);
 
-    const slideshow_images = slideshow.getElementsByTagName("img");
-    const slideshow_buttons = slideshow.getElementsByTagName("button");
-    const slideshow_titles = slideshow.getElementsByTagName("h3");
+    const slideshow_images = slideshow.querySelectorAll("#slideshow-images img");
+    const slideshow_buttons = slideshow.querySelectorAll("#slideshow-buttons button");
+    const slideshow_titles = slideshow.querySelectorAll("#slideshow-titles h3");
 
     // hide the last slideshow image and darken it's button.
     for (let image of slideshow_images) {

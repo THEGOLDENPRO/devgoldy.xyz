@@ -16,8 +16,8 @@
     <div id="static-bg-div" class="animated-static-bg z-10 pointer-events-none"></div>
 
     {% if status is not none %}
-    <div class="bg-goldy-cream bg-opacity-60 w-fit mobile:w-full px-10 mobile:px-2 rounded-md rounded-t-none mobile:rounded-none mx-auto select-none">
-        <h2 class="font-bold text-center text-xl small-screen:text-lg mobile:text-base" style="text-shadow: black 1px 1px 0px;">{{ status|safe }}</h2>
+    <div class="bg-yellow-50/15 w-fit mobile:w-full px-10 mobile:px-2 rounded-md rounded-t-none mobile:rounded-none mx-auto select-none">
+        <h2 class="font-bold text-center text-xl tracking-wide small-screen:text-lg mobile:text-base" style="text-shadow: black 1px 1px 0px;">{{ status|safe }}</h2>
     </div>
     {% endif %}
 
@@ -171,12 +171,24 @@
                     </div>
                 </div>
 
-                <div id="blogs-slideshow" class="p-6 tablet:p-3">
+                <div id="blogs-slideshow" class="p-6 pt-3 tablet:p-3">
                     <noscript>
                         <h3 class="italic">Welp this slideshow will break without javascript.</h3>
                     </noscript>
 
-                    <div class="relative z-10 cursor-pointer">
+                    {% if blog_posts|length == 0 %}
+                        <a href="/blogs">
+                            <div class="grid aspect-video w-full overflow-hidden rounded-3xl">
+                                <div class="flex h-full w-full items-center justify-center bg-yellow-50/10">
+                                    <h3 style="text-shadow: black 2px 2px 0px;" class="select-none w-full text-center text-white text-3xl mobile:text-xl font-typewriter tracking-normal font-bold">
+                                        Blogs Unavailable!
+                                    </h3>
+                                </div>
+                            </div>
+                        </a>
+                    {% endif %}
+
+                    <div id="slideshow-titles" class="relative z-10 cursor-pointer">
                         {% for post in blog_posts %}
                         <h3 style="text-shadow: black 2px 2px 0px;" class="hidden opacity-0 transition duration-300 select-none 
                             absolute top-3 px-5 w-full text-center text-3xl font-typewriter tracking-normal mobile:hidden font-bold">
@@ -185,7 +197,7 @@
                         {% endfor %}
                     </div>
 
-                    <figure class="overflow-hidden rounded-3xl">
+                    <figure id="slideshow-images" class="overflow-hidden rounded-3xl">
                         {% for post in blog_posts %}
                         <a href="/blogs/post/{{ post.id }}">
                             <img src="{{ './images/no_image_cat.jpg' if post.thumbnail_url is none else post.thumbnail_url }}" 
@@ -194,7 +206,7 @@
                         {% endfor %}
                     </figure>
 
-                    <div class="text-center mt-3 select-none">
+                    <div id="slideshow-buttons" class="text-center mt-3 select-none">
                         {% for number in range(blog_posts|length) %}
                         <button onclick="toggleSlideshowImage(blogs_slideshow, '{{ number }}'); stopSlideshowLoopThingy(blogs_slideshow_id);" class="w-4 h-4 rounded-full m-1 bg-gray-600 cursor-pointer"></button>
                         {% endfor %}

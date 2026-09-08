@@ -4,10 +4,14 @@ from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from typing import Tuple, List, Optional
 
+import logging
 from datetime import datetime
+from asyncio import TimeoutError
 
 from .http_client import HTTPClient
 from .constants import BLOG_CDN_URL, BLOG_API_URL
+
+logger = logging.getLogger(__name__)
 
 __all__ = ()
 
@@ -26,19 +30,29 @@ class BlogAPI():
         if now > self.blogs_data[0] + 60 * 60 * 12: # 12 hours
             http_session = await http_client.get_http_session()
 
-            async with http_session.request("GET", BLOG_API_URL + "/posts", params = params) as r:
-                blog_posts = []
+            blog_posts: Optional[list] = None
 
-                if r.ok:
-                    blog_posts = [
-                        {
-                            "id": post["id"],
-                            "name": post["name"],
-                            "thumbnail_url": BLOG_CDN_URL + post["thumbnail"] if post["thumbnail"] is not None else None,
-                            "date_added": datetime.fromisoformat(post["date_added"]).strftime("%b %d %Y")
-                        } for post in await r.json()
-                    ]
+            try: 
+                async with http_session.request("GET", BLOG_API_URL + "/posts", params = params, timeout = 3) as r:
+                    if r.ok:
+                        blog_posts = [
+                            {
+                                "id": post["id"],
+                                "name": post["name"],
+                                "thumbnail_url": BLOG_CDN_URL + post["thumbnail"] if post["thumbnail"] is not None else None,
+                                "date_added": datetime.fromisoformat(post["date_added"]).strftime("%b %d %Y")
+                            } for post in await r.json()
+                        ]
 
-            self.blogs_data = (now, blog_posts)
+            except TimeoutError as error:
+                logger.error(
+                    "Blog API took more than 3 seconds to respond to '/posts' request! " \
+                    f"Falling back to last successful request's data... Error: {error}"
+                )
+
+            self.blogs_data = (
+                now,
+                blog_posts if blog_posts is not None else self.blogs_data[1]
+            )
 
         return self.blogs_data[1]
