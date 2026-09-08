@@ -80,9 +80,18 @@ function toggleSlideshowImage(slideshow, index) {
     }
 
     // show the current slideshow image and brighten it's button.
-    slideshow_images[index].classList.remove("hidden");
-    slideshow_buttons[index].classList.add("!bg-goldy-cream-200");
-    slideshow_titles[index].classList.remove("hidden");
+    try {
+        slideshow_images[index].classList.remove("hidden");
+        slideshow_buttons[index].classList.add("!bg-goldy-cream-200");
+        slideshow_titles[index].classList.remove("hidden");
+    } catch (error) {
+        if (error instanceof TypeError) {
+            console.error(`A slideshow card for the index '${index}' does not exist! Error: ${error}`);
+            return;
+        } else {
+            throw error;
+        }
+    }
 
     // show title on hover.
     let hover_callback = (e) => {
